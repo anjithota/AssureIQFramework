@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ChangeControl">
+	<test name="CCForceClosure" enabled="true">
+		<classes>
+			<class name="com.Automation.Testcases.CC_ForceClosure_TC" />
+
+		</classes>
+	</test> <!-- Force closure -->
+
+
+	<test name="CCForceClosreDrop" enabled="true">
+		<classes>
+
+			<class
+				name="com.Automation.Testcases.CC_ForceClosure_Drop_TC" />
+
+		</classes>
+	</test>   <!-- Force closure drop -->
+	
+	<test name="CCDNForceClosure" enabled="true">
+		<classes>
+			<class name="com.Automation.Testcases.CCDN_ForceClosure_TC" />
+
+		</classes>
+	</test> <!-- Force closure -->
+
+
+	<test name="CCDNForceClosreDrop" enabled="true">
+		<classes>
+
+			<class
+				name="com.Automation.Testcases.CCDN_ForceClosure_Drop_TC" />
+
+		</classes>
+	</test>   <!-- Force closure drop -->
+
+
+
+
+
+</suite> <!-- Suite -->

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="943284" started-at="2022-04-04T06:17:04Z" finished-at="2022-04-04T06:32:47Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="943284" started-at="2022-04-04T06:17:04Z" finished-at="2022-04-04T06:32:47Z">
+      <class name="com.Automation.Testcases.CC_ForceClosure_Drop_TC">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.Automation.Testcases.CC_ForceClosure_Drop_TC@14cd1699]" name="setup" is-config="true" duration-ms="30175" started-at="2022-04-04T06:17:04Z" finished-at="2022-04-04T06:17:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="loginToEPIQ(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:com.Automation.Testcases.CC_ForceClosure_Drop_TC@14cd1699]" name="loginToEPIQ" duration-ms="276753" started-at="2022-04-04T06:17:43Z" data-provider="CCLgnInit" finished-at="2022-04-04T06:22:19Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Doc1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Facitlity1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Others1]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[CPractice1]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Pchange]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[JFPchange]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Sdata]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[Reamrks]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginToEPIQ -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.Automation.Testcases.CC_ForceClosure_Drop_TC@14cd1699]" name="afterMethod" is-config="true" duration-ms="2490" started-at="2022-04-04T06:22:20Z" finished-at="2022-04-04T06:22:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.CC_ForceClosure_Drop_TC@14cd1699]" name="getResult" is-config="true" duration-ms="349" started-at="2022-04-04T06:22:23Z" finished-at="2022-04-04T06:22:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=loginToEPIQ status=SUCCESS method=CC_ForceClosure_Drop_TC.loginToEPIQ(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:com.Automation.Testcases.CC_ForceClosure_Drop_TC@14cd1699] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="CCHodRev(java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:com.Automation.Testcases.CC_ForceClosure_Drop_TC@14cd1699]" name="CCHodRev" duration-ms="254119" started-at="2022-04-04T06:22:24Z" data-provider="CCLgnHod" finished-at="2022-04-04T06:26:38Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Comments]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Description]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Remark]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CCHodRev -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.Automation.Testcases.CC_ForceClosure_Drop_TC@14cd1699]" name="afterMethod" is-config="true" duration-ms="846" started-at="2022-04-04T06:26:38Z" finished-at="2022-04-04T06:26:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.CC_ForceClosure_Drop_TC@14cd1699]" name="getResult" is-config="true" duration-ms="735" started-at="2022-04-04T06:26:39Z" finished-at="2022-04-04T06:26:39Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=CCHodRev status=SUCCESS method=CC_ForceClosure_Drop_TC.CCHodRev(java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:com.Automation.Testcases.CC_ForceClosure_Drop_TC@14cd1699] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="ccQAReviewApprovalLgn(java.lang.String, java.lang.String)[pri:3, instance:com.Automation.Testcases.CC_ForceClosure_Drop_TC@14cd1699]" name="ccQAReviewApprovalLgn" duration-ms="133318" started-at="2022-04-04T06:26:40Z" data-provider="CCLgnQAR" finished-at="2022-04-04T06:28:53Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Approved]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Reason]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ccQAReviewApprovalLgn -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.Automation.Testcases.CC_ForceClosure_Drop_TC@14cd1699]" name="afterMethod" is-config="true" duration-ms="682" started-at="2022-04-04T06:28:53Z" finished-at="2022-04-04T06:28:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.CC_ForceClosure_Drop_TC@14cd1699]" name="getResult" is-config="true" duration-ms="610" started-at="2022-04-04T06:28:54Z" finished-at="2022-04-04T06:28:54Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ccQAReviewApprovalLgn status=SUCCESS method=CC_ForceClosure_Drop_TC.ccQAReviewApprovalLgn(java.lang.String, java.lang.String)[pri:3, instance:com.Automation.Testcases.CC_ForceClosure_Drop_TC@14cd1699] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="forceClosureInitiate()[pri:4, instance:com.Automation.Testcases.CC_ForceClosure_Drop_TC@14cd1699]" name="forceClosureInitiate" duration-ms="115433" started-at="2022-04-04T06:28:54Z" finished-at="2022-04-04T06:30:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- forceClosureInitiate -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.Automation.Testcases.CC_ForceClosure_Drop_TC@14cd1699]" name="afterMethod" is-config="true" duration-ms="380" started-at="2022-04-04T06:30:50Z" finished-at="2022-04-04T06:30:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.CC_ForceClosure_Drop_TC@14cd1699]" name="getResult" is-config="true" duration-ms="458" started-at="2022-04-04T06:30:50Z" finished-at="2022-04-04T06:30:51Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=forceClosureInitiate status=SUCCESS method=CC_ForceClosure_Drop_TC.forceClosureInitiate()[pri:4, instance:com.Automation.Testcases.CC_ForceClosure_Drop_TC@14cd1699] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="forceClosureApprove(java.lang.String)[pri:5, instance:com.Automation.Testcases.CC_ForceClosure_Drop_TC@14cd1699]" name="forceClosureApprove" duration-ms="111910" started-at="2022-04-04T06:30:52Z" data-provider="FCDrop" finished-at="2022-04-04T06:32:43Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[FC Drop]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- forceClosureApprove -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.Automation.Testcases.CC_ForceClosure_Drop_TC@14cd1699]" name="afterMethod" is-config="true" duration-ms="861" started-at="2022-04-04T06:32:44Z" finished-at="2022-04-04T06:32:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.CC_ForceClosure_Drop_TC@14cd1699]" name="getResult" is-config="true" duration-ms="887" started-at="2022-04-04T06:32:44Z" finished-at="2022-04-04T06:32:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=forceClosureApprove status=SUCCESS method=CC_ForceClosure_Drop_TC.forceClosureApprove(java.lang.String)[pri:5, instance:com.Automation.Testcases.CC_ForceClosure_Drop_TC@14cd1699] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.Automation.Testcases.CC_ForceClosure_Drop_TC@14cd1699]" name="afterTest" is-config="true" duration-ms="1571" started-at="2022-04-04T06:32:45Z" finished-at="2022-04-04T06:32:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.Automation.Testcases.CC_ForceClosure_Drop_TC -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

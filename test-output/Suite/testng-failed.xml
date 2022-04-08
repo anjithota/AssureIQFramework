@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test name="SSO_UserRegistrationPreRequisites">
+    <classes>
+      <class name="com.Automation.Testcases.SSO_UserRegistrationPreRequisites"/>
+    </classes>
+  </test> <!-- SSO_UserRegistrationPreRequisites -->
+  <test name="EPICPrerequisties">
+    <classes>
+      <class name="com.Automation.Testcases.EPICPrerequisties"/>
+    </classes>
+  </test> <!-- EPICPrerequisties -->
+  <test name="SSO_UserRegistrationPreRequisites(failed)">
+    <classes>
+      <class name="com.Automation.Testcases.SSO_UserRegistrationPreRequisites">
+        <methods>
+          <include name="setup"/>
+          <include name="getResult"/>
+          <include name="userRegistration"/>
+        </methods>
+      </class> <!-- com.Automation.Testcases.SSO_UserRegistrationPreRequisites -->
+      <class name="com.Automation.Testcases.EPICPrerequisties">
+        <methods>
+          <include name="setup"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.Automation.Testcases.EPICPrerequisties -->
+    </classes>
+  </test> <!-- SSO_UserRegistrationPreRequisites(failed) -->
+  <test name="EPICPrerequisties(failed)">
+    <classes>
+      <class name="com.Automation.Testcases.SSO_UserRegistrationPreRequisites">
+        <methods>
+          <include name="setup"/>
+          <include name="getResult"/>
+        </methods>
+      </class> <!-- com.Automation.Testcases.SSO_UserRegistrationPreRequisites -->
+      <class name="com.Automation.Testcases.EPICPrerequisties">
+        <methods>
+          <include name="jobResponsbilityRegistration"/>
+          <include name="CourseManagerInitiate_Course"/>
+          <include name="setup"/>
+          <include name="PrepareQp_Manual"/>
+          <include name="getResult"/>
+          <include name="BatchFormation"/>
+          <include name="GroupRegistration"/>
+          <include name="PrepareMQA"/>
+          <include name="CourseManagerInitiate_Topic"/>
+          <include name="CourseSessiononlineInternalClassAllcombinations_Yes"/>
+          <include name="DepReg"/>
+          <include name="DocumentReg"/>
+          <include name="SubGroupAssignReg"/>
+          <include name="SubgroupRegistration"/>
+        </methods>
+      </class> <!-- com.Automation.Testcases.EPICPrerequisties -->
+    </classes>
+  </test> <!-- EPICPrerequisties(failed) -->
+</suite> <!-- Failed suite [Suite] -->
