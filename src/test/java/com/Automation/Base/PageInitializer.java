@@ -38,17 +38,30 @@ import com.Automation.Pages.ChangeControlQAReturn;
 import com.Automation.Pages.ChangeControlQARtnAuditTrail;
 import com.Automation.Pages.ChangeControlRecordSearchAT;
 import com.Automation.Pages.ChangeControlRegistration;
+import com.Automation.Pages.DEV_ClosureInitiation;
 import com.Automation.Pages.DEV_LoginInitiation;
+import com.Automation.Pages.Dev_Closure_Approve;
+import com.Automation.Pages.Dev_ETD;
+import com.Automation.Pages.Dev_Lgn_Approval;
+import com.Automation.Pages.Dev_Lgn_Review;
+import com.Automation.Pages.Dev_OTD;
+import com.Automation.Pages.Dev_OTDAutitTrail;
+import com.Automation.Pages.Dev_QAD;
 import com.Automation.Pages.DnLgnInitiationForCC;
 import com.Automation.Pages.DocActionVerify;
 import com.Automation.Pages.DocClosure;
+import com.Automation.Pages.DocClosure_SP;
 import com.Automation.Pages.DocExecutionInitiation;
 import com.Automation.Pages.DocLgnApprove;
 import com.Automation.Pages.DocLgnAuditTrail;
+import com.Automation.Pages.DocLgnAuditTrailSP;
 import com.Automation.Pages.DocLgnReinitiate;
+import com.Automation.Pages.DocLgnReinitiationSP;
 import com.Automation.Pages.DocLoginReview;
+import com.Automation.Pages.DocLoginReviewSP;
 import com.Automation.Pages.DocTaskAllocation;
 import com.Automation.Pages.DocTaskAllocationAuditTrail;
+import com.Automation.Pages.Doc_Lgn_Approve_SP;
 import com.Automation.Pages.EPIQLoginPage;
 import com.Automation.Pages.LogOut;
 //import com.Automation.Pages.EPICloginpage;
@@ -132,6 +145,20 @@ public class PageInitializer extends TestEngine {
 	
 	//Deviation
 	public static DEV_LoginInitiation devLoginInitiation;
+	public static Dev_Lgn_Approval devLoginApprove;
+	public static Dev_Lgn_Review devLoginReview;
+	public static Dev_OTD devOTD;
+	public static Dev_OTDAutitTrail devOTDAuditTrail;
+	public static Dev_QAD devQAD;
+	public static DEV_ClosureInitiation devClosureInitiation;
+	public static Dev_Closure_Approve devClosureAppr;
+	public static DocLoginReviewSP docLoginReviewsp;
+	public static DocLgnAuditTrailSP doclgnAuditTrailsp;
+	public static DocLgnReinitiationSP docLgnReinitatesp;
+	public static Doc_Lgn_Approve_SP docLgnApprovesp;
+	public static DocClosure_SP docClosuresp;
+	public static Dev_ETD devETDsp;
+	
 	
 	public static PlantSelection plants;
 	public static CM_AttendanceReport attendanceReport;
@@ -214,6 +241,23 @@ public class PageInitializer extends TestEngine {
 		
 		//Deviation pages
 		devLoginInitiation = new DEV_LoginInitiation();
+		devLoginApprove = new Dev_Lgn_Approval();
+		devLoginReview = new Dev_Lgn_Review();
+		devOTD = new Dev_OTD();
+		devOTDAuditTrail = new Dev_OTDAutitTrail();
+		devQAD = new  Dev_QAD();
+		devClosureInitiation = new DEV_ClosureInitiation();
+		devClosureAppr = new Dev_Closure_Approve();
+		docLoginReviewsp = new DocLoginReviewSP();
+		doclgnAuditTrailsp = new DocLgnAuditTrailSP();
+		docLgnReinitatesp = new DocLgnReinitiationSP();
+		docLgnApprovesp = new Doc_Lgn_Approve_SP();
+		docClosuresp = new DocClosure_SP();
+		devETDsp = new Dev_ETD();
+		
+		
+		
+		
 		
 		//Test
 		

@@ -6,9 +6,28 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import com.Automation.Base.ActionEngine;
+import com.Automation.Utils.ConfigsReader;
 import com.Automation.Utils.TimeUtil;
 
 public class DEV_LoginInitiation extends ActionEngine {
+	@FindBy(xpath = "//span[@title='Deviation']")
+	WebElement DevMyTaskMenu;
+
+	@FindBy(id = "MyTaskPrc_DEV_ISU_LGN_DEV_FRM_ID_01")
+	WebElement DevLgnTaskMenu;
+
+	@FindBy(id = "btnAdvSearch")
+	WebElement AdvanceSearchButton;
+	
+	@FindBy(name = "ISU_LGN_CTR_001")
+	WebElement IssuecodeFilter;
+
+	@FindBy(id = "btnSubmitListFilter")
+	WebElement ApplyButton;
+
+	@FindBy(className = "text-ellipsis")
+	WebElement Record;
+	
 	@FindBy(id = "btnCreate")
 	WebElement initiate;
 
@@ -39,8 +58,8 @@ public class DEV_LoginInitiation extends ActionEngine {
 	@FindBy(id = "ISU_LGN_CTR_005_button")
 	WebElement InitiatingDepartment;
 
-	@FindBy(xpath = "//*[text()='Admin']")
-	WebElement Admin;
+	@FindBy(xpath = "//*[text()='Quality Control']")
+	WebElement QualityControl;
 
 	@FindBy(id = "btnOk")
 	WebElement addButton;
@@ -122,22 +141,59 @@ public class DEV_LoginInitiation extends ActionEngine {
 	@FindBy(id = "ISU_LGN_CTR_123")
 	WebElement SystemText;
 
-	@FindBy(id = "ISU_LGN_CTR_122")
+	@FindBy(id = "ISU_LGN_CTR_124")
 	WebElement OtherDetailsText;
 
-	public void devLoginInitiation(String block, String dateOfOccure, String dateOfIdentify, String justify,
+	@FindBy(id = "ISU_LGN_CTR_017")
+	WebElement stageAddItems;
 
-			String system, String otherText) {
+	@FindBy(xpath = "//span[@class='text-ellipsis'][normalize-space()='Stage1']")
+	WebElement addStage;
+	
+	@FindBy(id="ISU_LGN_CTR_102")
+	WebElement EventDescription;
+
+	@FindBy(id="ISU_LGN_CTR_189")
+	WebElement IntialInvFindings;
+	
+	@FindBy(id="ISU_LGN_CTR_197")
+	WebElement Consequences;
+	
+	@FindBy(id="ISU_LGN_CTR_191")
+	WebElement AssumedCategory;
+	
+	@FindBy(id="ISU_LGN_CTR_127")
+	WebElement ImmediateAction;
+	
+	@FindBy(xpath = "//span[@class='confirmation_text']")
+	WebElement IssueCode;
+	
+	@FindBy(xpath = "//div[@class='left-module ft-grid menu-icons'][2]")
+	WebElement ProcessmanagerMenu;
+	
+	@FindBy(xpath = "//label[@for='ISU_LGN_CTR_117_5']")
+	WebElement OtherDetails;
+	
+	@FindBy(id = "txtRemarks")
+	WebElement remarkReason;
+	
+	
+	
+	
+	public void devLoginInitiation(String block, String dateOfOccure, String dateOfIdentify, 
+
+			String otherText, String EventDesc, String initialInvestigation, String consequence, String assuemedCategory, String immediateAction) {
 		click(initiate, "Intiate button");
 		click(processLogin, "Process Login");
 
 		switchToPopupModelFrame(driver);
-
+ 
 		click(DeviationTile, "Deviation Tile");
 		click(proceedButton, "Proceed button");
 
 		switchToDefaultContent(driver);
-
+		
+		//	``````````````````````````````````````````````````	```````	 
 		// Wait for 1sec
 //		waitForPageToLoad(1000);
 
@@ -153,10 +209,11 @@ public class DEV_LoginInitiation extends ActionEngine {
 
 		click(submit, "Submit Button");
 		verifyCaptionContains(InitiatingDepartmentError, "Select Value");
+		click(InitiatingDepartment, "Iniiating department");
 
 		switchToPopupModelFrame(driver);
 
-		click(Admin, "Administration");
+		click(QualityControl, "Quality control");
 
 		// Clicking Add Button
 		click(addButton, "Add Button");
@@ -172,7 +229,7 @@ public class DEV_LoginInitiation extends ActionEngine {
 		verifyCaptionContains(DateofIdentficiationError, "Select Value");
 		sendText(DateofIdentficiation, dateOfIdentify, "Date of occurance");
 
-		sendText(JustificationforDelay, justify, "Fustificatio for delay");
+		sendText(JustificationforDelay, "justify", "Fustificatio for delay");
 
 		// Adding Market
 		click(marketAddItems, "Market");
@@ -190,19 +247,22 @@ public class DEV_LoginInitiation extends ActionEngine {
 
 		// Clicking on Change Related to Add Items
 		click(eventRelatedTo, "ChangeRelatedTo");
-		System.out.println("\n" + "------------------------------");
+		//System.out.println("\n" + "------------------------------");
 
 		// Get the size of Change Related To
-		getSize(listOfChangeRelatedTo);
-		System.out.println("\n" + "Size of Change Related To:- " + getSize(listOfChangeRelatedTo));
+	/*	getSize(listOfChangeRelatedTo);
+		System.out.println("\n" + "Size of Change Related To:- " + getSize(listOfChangeRelatedTo));*/
 
 		// Selecting all check boxes in Change Related To
-		SelectMultipleCheckbox(allCheckBoxChangeRelated, "AllCheckBoxesChangeRelated");
+		//SelectMultipleCheckbox(allCheckBoxChangeRelated, "AllCheckBoxesChangeRelated");
+		
+		
+		click(OtherDetails, "other det");
 
 		click(ok, "Button");
 
 		// Adding Product
-		click(ProductAddItems, "Product");
+/*		click(ProductAddItems, "Product");
 		switchToPopupModelFrame(driver);
 		TimeUtil.mediumWait();
 		click(addProduct, "AddingProduct");
@@ -225,8 +285,67 @@ public class DEV_LoginInitiation extends ActionEngine {
 		click(addButton, "AddButton");
 		switchToParentFrame(driver);
 
-		sendText(SystemText, system, "System text");
+		sendText(SystemText, system, "System text");*/
+		scrollToViewElement(OtherDetailsText);
 		sendText(OtherDetailsText, otherText, "other details text");
+		
+		// Adding Stage
+			/*	click(stageAddItems, "Stage");
+				switchToPopupModelFrame(driver);
+				click(addStage, "AddingStage");
+				click(addButton, "AddButton");
+				switchToParentFrame(driver);
+				*/
+		scrollToViewElement(EventDescription);
+			sendText(EventDescription, EventDesc, "EventDescription");
+				
+				sendText(IntialInvFindings, initialInvestigation, "initial Investigation");
+				
+				
+				
+				sendText(Consequences, consequence, "Consequences");
+				
+				selectDropdownUsingVisisbleText(AssumedCategory, assuemedCategory, "Assumed Category");
+				
+				sendText(ImmediateAction, immediateAction, "ImmediateAction To be Taken");
+				
+				click(submit, "Submit button");
+				
+				E_sign.e_Sign(ConfigsReader.getPropValue("SPDevLgnPwd"));
+				
+				saveUniqueCode(driver, IssueCode);
+				switchToDefaultContent(driver);
+		
 	}
+	
+	public void devLoginReInitiation(String eventDesc, String Reason) {
+		
+		switchToBodyFrame(driver);
+		click(DevMyTaskMenu, "Deviation my task menu");
+		click(DevLgnTaskMenu, "Deviation Login My task menu");
+		switchToDefaultContent(driver);
+		switchToBodyFrame(driver);
+		click(AdvanceSearchButton, "Advance Search button");
+
+		// sendText(IssuecodeFilter, "CC-PL01-Admin-21-0013", "Isssue Code Filter");
+
+		enterUniqueCode(driver, IssuecodeFilter);
+
+		click(ApplyButton, "Apply Button");
+		click(Record, "Workitem");
+		
+		clearField(EventDescription, "Event Description");
+		sendText(EventDescription, eventDesc, "Event Description");
+		
+		SendTextUsingJSInnerText(remarkReason, Reason, "Remarks");
+		click(submit, "Submit");
+		E_sign.e_Sign(ConfigsReader.getPropValue("SPDevLgnPwd"));
+		
+		//saveUniqueCode(driver, IssueCode);
+		switchToDefaultContent(driver);
+		
+	}
+	
+	
 
 }

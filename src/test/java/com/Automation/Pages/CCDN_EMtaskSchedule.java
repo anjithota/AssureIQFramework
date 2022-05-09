@@ -58,7 +58,12 @@ public class CCDN_EMtaskSchedule extends ActionEngine {
 	@FindBy(id="QAMS_PRSMGR_DN_EM_FRM_ID_01_AUDMEN")
 	WebElement DocEMTaskAuditTrailMenu;
 	
+	//SP build
+	@FindBy(xpath = "//div[@class='left-module ft-grid menu-icons'][2]")
+	WebElement ProcessManagersp;
 	
+	@FindBy()
+	WebElement EMScheduleAuditTrailSP;
 	
 	public void emSchelduleAuditTrail() {
 		switchToDefaultContent(driver);
@@ -130,6 +135,30 @@ public class CCDN_EMtaskSchedule extends ActionEngine {
 		
 	}
 	
+	public void emSchelduleAuditTrailSP()  {
+		switchToDefaultContent(driver);
+		
+		click(ProcessManagersp, "Process Manager");
+		
+		/*scrollToViewElement(EMSchedulemenu);
+		
+		click(EMSchedulemenu, "EM Schedule");*/
+		scrollToViewElement(EMScheduleAuditTrailSP);
+		click(EMScheduleAuditTrailSP, "EM Schedule Audit Trail Menu");
+		switchToBodyFrame(driver);
+		
+		click(AdvanceSearchButton, "Advanced Search button");
+		enterUniqueCode(driver, IssueCodeFilter);
+
+		//sendText(IssueCodeFilter, "CC-PL01-Admin-21-0040%", "Issue code");
+		click(ApplyButton, "Apply button");
+
+		click(Record, "Click on record");
+		switchToPopupModelFrame(driver);
+		click(closeBtn, "Close Button");
+		switchToDefaultContent(driver);
+
+	}
 	
 
 }

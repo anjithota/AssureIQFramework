@@ -10,6 +10,9 @@ public class DocTaskAllocation extends ActionEngine {
 	@FindBy(xpath="//a[@href='http://10.10.3.33//QAMS510BL_OQ/BasePages/ListReport?TT=21&Fid=75769']//span")
 	WebElement DocumentationAllocationMenu;
 	
+	@FindBy(xpath = "//small[text()='DN']")
+	WebElement DocActionplanMyTask;
+	
 	@FindBy(id = "btnAdvSearch")
 	WebElement AdvanceSearchButton;
 
@@ -52,6 +55,8 @@ public class DocTaskAllocation extends ActionEngine {
 	@FindBy(xpath="//select[@class='task-allocation-ugp select2-hidden-accessible']")
 	WebElement SelectDepartment;
 	
+	@FindBy(id = "MyTaskPrc_DN_DN_TSK_FRM_ID_01")
+	WebElement DocumentationAllocationMyTaskMenu;
 	
 	
 	public void DnTskAllocation(String Comments, String Department) {
@@ -86,6 +91,39 @@ public class DocTaskAllocation extends ActionEngine {
 		
 	}
 	
+	
+	public void DnTskAllocationsP(String Comments, String Department) {
+		switchToBodyFrame(driver);
+		scrollToViewElement(DocActionplanMyTask);
+		click(DocActionplanMyTask, "Documwntation menu");
+		click(DocumentationAllocationMyTaskMenu, "Login Menu");
+		switchToDefaultContent(driver);
+		switchToBodyFrame(driver);
+		click(AdvanceSearchButton, "Advance Search button");
+		enterUniqueCode(driver, IssueCodeFilter);
+		//sendText(IssueCodeFilter, "CC-PL01-Admin-21-0040", "Isssue Code Filter");
+		click(ApplyButton, "Apply Button");
+		click(Record, "Workitem");
+		click(SubmitBtn, "Submit");
+		verifyCaptionContains(CommentsError, "Enter Value");
+		sendText(CommentsText, Comments, "Comments");
+		click(SubmitBtn, "Submit");
+		verifyCaptionContains(TaskAllocationError, "Select Value");
+		click(TaskAllocationButton, "Task Allocation");
+		switchToPopupModalFrame2(driver);
+		click(AllcationSubmit, "Allocation Submit");
+		verifyCaptionContains(TaskAllocationAlert, "Select Atleast one task to allocate");
+		click(TaskAllocationAlertClose, "Alert Close");
+		click(TaskAllocationPopupAddItem, "AddItem Allocation");
+		selectDropdownUsingVisisbleText(SelectDepartment, Department, "Department");  //Information Technology ( IT )
+		click(AllcationSubmit, "Allocation Submit");
+		switchToParentFrame(driver);
+		click(SubmitBtn, "Submit BUtton");
+		E_sign.e_Sign(ConfigsReader.getPropValue("SPDevLgnPwd"));
+		switchToDefaultContent(driver);
+		
+		
+	}
 	
 	
 

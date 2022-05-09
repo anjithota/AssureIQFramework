@@ -12,9 +12,12 @@ public class Demo_TC1 extends ActionEngine {
 	}
 
 	@Test
-	public void devLoginInitiate() {
+	public void devLoginInitiate(String block, String dateOfOccure, String dateOfIdentify, String justify,
+			String system, String otherText, String  EventDesc, String initialInvestigation, String consequence, String assuemedCategory, String immediateAction) {
 		spLogin.loginToSPApplication(ConfigsReader.getPropValue("SPDevLgnID"),
 				ConfigsReader.getPropValue("SPDevLgnPwd"));
+		devLoginInitiation.devLoginInitiation(block, dateOfOccure, dateOfIdentify, justify, system, otherText, EventDesc, 
+				initialInvestigation, consequence, assuemedCategory, immediateAction);
 
 	}
 }

@@ -80,7 +80,7 @@ public class CCDN_ForceClosure_Drop_TC extends ActionEngine {
 			return getFroceClosureDrop;
 		}
 	
-	@Test(priority = 1, dataProvider = "CCLgnInit", enabled = false)
+	@Test(priority = 1, dataProvider = "CCLgnInit", enabled = true)
 	public void loginToEPIQ(String Document, String Facility, String Others, String CurrentPractice,
 			String ProposedChange, String JustForProposedChange, String SupportingData, String RemarkReasons) {
 		this.test = extent.createTest("Change Control Login Initiation");
@@ -94,7 +94,7 @@ public class CCDN_ForceClosure_Drop_TC extends ActionEngine {
 
 	}
 
-	@Test(priority = 2, dataProvider = "CCLgnHod", enabled = false)
+	@Test(priority = 2, dataProvider = "CCLgnHod", enabled = true)
 	public void CCHodRev(String IHODComments, String PlanDescription, String RemarkReason) {
 		this.test = extent.createTest("Change Control Login Review");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("CCLgnIHODID"),
@@ -105,7 +105,7 @@ public class CCDN_ForceClosure_Drop_TC extends ActionEngine {
 
 	}
 
-	@Test(priority = 3, dataProvider = "CCLgnQA", enabled = false)
+	@Test(priority = 3, dataProvider = "CCLgnQA", enabled = true)
 	public void ccQAReviewApprovalLgn(String QAReviewComments, String RemarkReason) {
 		this.test = extent.createTest("Change Control Login Approval");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("CCLgnQAID"),
@@ -116,7 +116,7 @@ public class CCDN_ForceClosure_Drop_TC extends ActionEngine {
 
 	}
 	
-	@Test(priority = 4, dataProvider = "CCOtd", enabled = false)
+	@Test(priority = 4, dataProvider = "CCOtd", enabled = true)
 	public void ccOTD(String Comments) {
 		this.test = extent.createTest("Change Control Other Department Comments");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("EPIQCCID"),
@@ -127,7 +127,7 @@ public class CCDN_ForceClosure_Drop_TC extends ActionEngine {
 
 	}
 	
-	@Test(priority = 5, dataProvider = "CCQad", enabled = false)
+	@Test(priority = 5, dataProvider = "CCQad", enabled = true)
 	public void ccQAD(String reviewComments, String Category) throws Exception, AWTException {
 		this.test = extent.createTest("Change Control QA Decision");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("EPIQCCID"),
@@ -138,7 +138,7 @@ public class CCDN_ForceClosure_Drop_TC extends ActionEngine {
 
 	}
 
-	@Test(priority = 6, dataProvider = "DLReviewerApprove", enabled = false)
+	@Test(priority = 6, dataProvider = "DLReviewerApprove", enabled = true)
 	public void docLgnReview(String Comments) {
 		this.test = extent.createTest("Documentatoin Action Plan Login Review");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("EPIQCCID"),
@@ -149,7 +149,7 @@ public class CCDN_ForceClosure_Drop_TC extends ActionEngine {
 
 	}
 
-	@Test(priority = 7, dataProvider = "DLApproverApprove", enabled = false)
+	@Test(priority = 7, dataProvider = "DLApproverApprove", enabled = true)
 	public void docLgnApproval(String Comments) {
 		this.test = extent.createTest("Documentatoin Action Plan Login Approval");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("CCLgnQAID"),
@@ -162,7 +162,7 @@ public class CCDN_ForceClosure_Drop_TC extends ActionEngine {
 	
 	@Test(priority=8, enabled = true)
 	public void docForceClosureInitiate() {
-		this.test = extent.createTest("Documentatoin Action Plan Force Closure");
+		this.test = extent.createTest("Documentatoin Action Plan Force Closure Initiation");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("CCLgnQAID"),
 				ConfigsReader.getPropValue("EPIQCCPWD"));
 		ccdnForceClosureInitiation.forceClosureInitiation();

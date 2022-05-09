@@ -7,16 +7,15 @@ import com.Automation.Base.ActionEngine;
 import com.Automation.Utils.ConfigsReader;
 import com.Automation.Utils.TimeUtil;
 
-public class CC_ETD_Initiation extends ActionEngine {
-
+public class Dev_ETD extends ActionEngine{
 	@FindBy(id = "btnCreate")
 	WebElement initiate;
 
 	@FindBy(id = "btnEtd")
 	WebElement ETDbutton;
 
-	@FindBy(xpath = "//div[text()='Change Control']")
-	WebElement changeControl;
+	@FindBy(xpath = "//div[text()='Deviation']")
+	WebElement Deviation;
 
 	@FindBy(id = "btnSubmit")
 	WebElement proceedButton;
@@ -26,7 +25,7 @@ public class CC_ETD_Initiation extends ActionEngine {
 
 	@FindBy(name = "ISU_LGN_CTR_001")
 	WebElement IssuecodeFilter;
-
+	
 	@FindBy(id = "btnSubmitListFilter")
 	WebElement ApplyButton;
 
@@ -51,24 +50,9 @@ public class CC_ETD_Initiation extends ActionEngine {
 	@FindBy(xpath = "//input[@class='form-control etd-duration']")
 	WebElement MainProcessDuration;
 
-	@FindBy(xpath = "//a[@href='http://10.10.3.33//QAMS510BL_OQ/BasePages/ListReport?TT=21&Fid=81068']//span")
-	WebElement ETDTaskMenu;
-
 	@FindBy(xpath = "//input[@id='EsignerDecision_2']")
 	WebElement ApproveBtn;
-
-	@FindBy(xpath = "//*[@class='caliber-product-qams product-icon1']")
-	WebElement assureiq;
-
-	@FindBy(xpath = "//ul[@id='QAMS_PRSMGR']/preceding-sibling::a")
-	WebElement ProcessManager;
-
-	@FindBy(xpath = "//a[text()='Extension of Target Date']")
-	WebElement ETDMenu;
-
-	@FindBy(id = "QAMS_PRSMGR_CC_ETD_FRM_ID_01_AUDMEN")
-	WebElement ETDAuditTrail;
-
+	
 	@FindBy(xpath = "//span[@class='popup-close-button']")
 	WebElement closeBtn;
 	
@@ -77,14 +61,21 @@ public class CC_ETD_Initiation extends ActionEngine {
 	
 	@FindBy(xpath = "//label[text()='Approve']")
 	WebElement decisionReview;
-
-	public void ccEtdInitiation(String Days) {
+	
+	@FindBy(xpath = "//div[@class='left-module ft-grid menu-icons'][2]")
+	WebElement ProcessManager;
+	
+	@FindBy(id = "DVET_04")
+	WebElement ETDAuditTrail;
+	
+	
+	public void devEtdInitiation(String Days) {
 		click(initiate, "InitiateButtton");
 		click(ETDbutton, "Etd Button");
 		TimeUtil.shortWait();
 		switchToPopupModelFrame(driver);
 
-		click(changeControl, "Change Control Tile");
+		click(Deviation, "Deviation Tile");
 		click(proceedButton, "Proceed");
 
 		switchToDefaultContent(driver);
@@ -98,18 +89,19 @@ public class CC_ETD_Initiation extends ActionEngine {
 		click(AlertClose, "Close Alert");
 		sendText(MainProcessDuration, Days, "Duration days");
 		click(SubmitBtn, "Submit button");
-		E_sign.e_Sign(ConfigsReader.getPropValue("EPIQCCPWD"));
+		E_sign.e_Sign(ConfigsReader.getPropValue("SPDevLgnID"));
 		switchToDefaultContent(driver);
 
 		// E_sign.equals(obj)
 
 	}
-
-	public void ccEtdReview() {
+	
+	public void devEtdReview() {
 		switchToDefaultContent(driver);
 		switchToBodyFrame(driver);
-		scrollToViewElement(ETDTaskMenu);
-		click(ETDTaskMenu, "ETD My Task");
+		scrollToViewElement(ProcessManagerMyTaskMenu);
+		click(ProcessManagerMyTaskMenu, "Process manager My Task");
+		click(MYtaskETDSP, "My Task ETD menu");
 		switchToDefaultContent(driver);
 		switchToBodyFrame(driver);
 		click(AdvanceSearchButton, "Advance Search button");
@@ -122,16 +114,18 @@ public class CC_ETD_Initiation extends ActionEngine {
 		click(decisionReview, "Approve");
 		//jsClick(decisionReview, "aa");
 		click(SubmitBtn, "Submit");
-		E_sign.e_Sign(ConfigsReader.getPropValue("CCLgnIHODPwd"));
+		E_sign.e_Sign(ConfigsReader.getPropValue("SPDevRevID"));
 		switchToDefaultContent(driver);
 
 	}
 	
-	public void ccEtdApprove() {
+	public void devEtdApprove() {
 		switchToDefaultContent(driver);
 		switchToBodyFrame(driver);
-		scrollToViewElement(ETDTaskMenu);
-		click(ETDTaskMenu, "ETD My Task");
+		scrollToViewElement(ProcessManagerMyTaskMenu);
+		click(ProcessManagerMyTaskMenu, "Process manager My Task");
+		click(MYtaskETDSP, "ETD My task");
+		
 		switchToDefaultContent(driver);
 		switchToBodyFrame(driver);
 		click(AdvanceSearchButton, "Advance Search button");
@@ -141,17 +135,17 @@ public class CC_ETD_Initiation extends ActionEngine {
 		click(decisionReview, "Approve");
 		//click(ApproveBtn, "Approve");
 		click(SubmitBtn, "Submit");
-		E_sign.e_Sign(ConfigsReader.getPropValue("CCLgnQAPwd"));
+		E_sign.e_Sign(ConfigsReader.getPropValue("SPDevApprPwd"));
 		switchToDefaultContent(driver);
 
 	}
 	
-
-	public void ccEtdAuditTrail() {
-		switchToDefaultContent(driver);
-		click(assureiq, "Assure IQ Menu");
+	
+	public void devEtdAuditTrail() {
+		switchToDefaultContent(driver);//dvet
 		click(ProcessManager, "Process Manager");
-		click(ETDMenu, "ETD menu");
+		
+		//click(ETDMenu, "ETD menu");
 		scrollToViewElement(ETDAuditTrail);
 		click(ETDAuditTrail, "ETD Audit Trail");
 		switchToBodyFrame(driver);
@@ -164,5 +158,12 @@ public class CC_ETD_Initiation extends ActionEngine {
 		switchToDefaultContent(driver);
 
 	}
+
+	
+
+	
+	
+
+	
 
 }

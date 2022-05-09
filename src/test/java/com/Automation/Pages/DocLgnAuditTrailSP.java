@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 import com.Automation.Base.ActionEngine;
 
-public class DocLgnAuditTrail extends ActionEngine {
+public class DocLgnAuditTrailSP extends ActionEngine {
 	@FindBy(xpath = "//div[@class='textdiv qsTitle']//span[text()='Revision No. 0 - Draft']")
 	WebElement RegRevisionDraft;
 	
@@ -15,18 +15,12 @@ public class DocLgnAuditTrail extends ActionEngine {
 	@FindBy(id = "AuditEventModal_View")
 	WebElement proceedBtn;
 
-	@FindBy(xpath = "//*[@class='caliber-product-qams product-icon1']")
-	WebElement assureiq;
-
-	@FindBy(xpath = "//ul[@id='QAMS_PRSMGR']/preceding-sibling::a")
+	@FindBy(xpath = "//div[@class='left-module ft-grid menu-icons'][2]")
 	WebElement ProcessManager;
-
-	@FindBy(xpath = "//a[text()='Documentation Action Plan Login']")
-	WebElement DocLogin;
-
-	@FindBy(id = "QAMS_PRSMGR_DN_LGN_FRM_ID_01_AUDMEN")
-	WebElement DocLoginAuditTrail;
-
+	
+	@FindBy(id = "DNLN_04")
+	WebElement DocumentLoginAuditTrail;
+	
 	@FindBy(id = "btnAdvSearch")
 	WebElement AdvanceSearchButton;
 
@@ -43,10 +37,11 @@ public class DocLgnAuditTrail extends ActionEngine {
 	WebElement closeBtn;
 
 	public void docLgnReturnAuditTrail() {
-		click(assureiq, "Assure IQ Menu");
+		
 		click(ProcessManager, "Process Manager");
-		click(DocLogin, "Doc Login menu");
-		click(DocLoginAuditTrail, "Doc Audit Trail");
+		//click(DocLogin, "Doc Login menu");
+		scrollToViewElement(DocumentLoginAuditTrail);
+		click(DocumentLoginAuditTrail, "Doc Audit Trail");
 		switchToBodyFrame(driver);
 
 		click(AdvanceSearchButton, "Advanced Search button");
@@ -66,10 +61,9 @@ public class DocLgnAuditTrail extends ActionEngine {
 	}
 	
 	public void docLgnReviewedAuditTrail() {
-		click(assureiq, "Assure IQ Menu");
 		click(ProcessManager, "Process Manager");
-		click(DocLogin, "Doc Login menu");
-		click(DocLoginAuditTrail, "Doc Audit Trail");
+		scrollToViewElement(DocumentLoginAuditTrail);
+ 		click(DocumentLoginAuditTrail, "Doc Audit Trail");
 		switchToBodyFrame(driver);
 
 		click(AdvanceSearchButton, "Advanced Search button");
@@ -93,10 +87,11 @@ public class DocLgnAuditTrail extends ActionEngine {
 
 	}
 	public void docLgnInitAuditTrail() {
-		click(assureiq, "Assure IQ Menu");
+		//click(assureiq, "Assure IQ Menu");
 		click(ProcessManager, "Process Manager");
-		click(DocLogin, "Doc Login menu");
-		click(DocLoginAuditTrail, "Doc Audit Trail");
+		//click(DocLogin, "Doc Login menu");
+		scrollToViewElement(DocumentLoginAuditTrail);
+		click(DocumentLoginAuditTrail, "Doc Audit Trail");
 		switchToBodyFrame(driver);
 
 		click(AdvanceSearchButton, "Advanced Search button");
@@ -114,9 +109,6 @@ public class DocLgnAuditTrail extends ActionEngine {
 		
 		
 	}
-	
-	
-	
 
 
 }

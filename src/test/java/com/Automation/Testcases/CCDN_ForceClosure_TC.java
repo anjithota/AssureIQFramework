@@ -1,4 +1,4 @@
-package com.Automation.Testcases;
+ package com.Automation.Testcases;
 
 import java.awt.AWTException;
 
@@ -155,7 +155,7 @@ public class CCDN_ForceClosure_TC extends ActionEngine{
 	
 	@Test(priority=8, enabled = true)
 	public void docForceClosureInitiate() {
-		this.test = extent.createTest("Documentatoin Action Plan Force Closure");
+		this.test = extent.createTest("Documentatoin Action Plan Force Closure Initiation");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("CCLgnQAID"),
 				ConfigsReader.getPropValue("EPIQCCPWD"));
 		ccdnForceClosureInitiation.forceClosureInitiation();
@@ -167,7 +167,7 @@ public class CCDN_ForceClosure_TC extends ActionEngine{
 	
 	@Test(priority=9, enabled = true)
 	public void docForceClosureApprove() {
-		this.test = extent.createTest("Documentatoin Action Plan Force Closure");
+		this.test = extent.createTest("Documentatoin Action Plan Force Closure Approval");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("CCLgnIHODID"),
 				ConfigsReader.getPropValue("CCLgnIHODPwd"));
 		ccdnForceClosureApproval.ccForceClosureApprove();

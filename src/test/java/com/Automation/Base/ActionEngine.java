@@ -6,9 +6,7 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -40,26 +38,22 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 
+
 public class ActionEngine extends PageInitializer {
 	static SoftAssert soft = new SoftAssert();
 	public static String tempPwd = "";
 	public static String uniqueCode = "";
-	public static String uCode = "";
-	
-	
+	public static String uCode= "";
 
 	static Properties prop = ConfigsReader.readProperties("./configs/configuration.properties");
-//	static Properties prop1 = ConfigsReader.readProperties("./configs/console.properties");
-
 	public ActionEngine(String url) {
 
 		super(url);
 	}
-
 	public ActionEngine() {
 
+	
 	}
-
 	/**
 	 * Method that click on Web element
 	 * 
@@ -68,14 +62,14 @@ public class ActionEngine extends PageInitializer {
 	public static void click(WebElement element, String elementName) {
 		try {
 			waitForElementVisibile(element);
-			highLightEle(driver, element, test);
+			highLightEle(driver, element,elementName, test);
 			element.click();
-			test.log(Status.PASS, "Successfully performed click action");
-			ScreenCapture(driver, true);
+			test.log(Status.PASS,  elementName +" successfully performed click action");
+			
 		} catch (Exception e) {
 			test.log(Status.FAIL, "Failed to click " + elementName);
 			test.log(Status.FAIL, "Exception :" + e.getMessage());
-			ScreenCapture(driver, false);
+			ScreenCapture(driver, false,elementName);
 		}
 
 	}
@@ -100,35 +94,60 @@ public class ActionEngine extends PageInitializer {
 
 			waitForPageToLoad(1000);
 			waitForElementVisibile(element);
-			highLightEle(driver, element, test);
+			highLightEle(driver, element,elementName, test);
 			element.clear();
 			element.sendKeys(text);
 			test.log(Status.PASS, "Successfully Entered " + text + " in " + elementName + " TextBox");
-			ScreenCapture(driver, true);
+			
 		} catch (Exception e) {
 			test.log(Status.FAIL, "Failed to enter data in " + elementName);
 			test.log(Status.FAIL, "Exception :" + e.getMessage());
-			ScreenCapture(driver, false);
+			ScreenCapture(driver, false,elementName);
 		}
 
 	}
 
 	/*
-	 * This method capture the screen based upon the screen capture configuration
-	 * value and testCase Result
+	 * This method capture the screen based upon the screen capture
+	 * configuration value and testCase Result
 	 */
-	public static void ScreenCapture(WebDriver driver, boolean testCaseResult) {
+	public static void ScreenCapture(WebDriver driver, boolean testCaseResult,String elementName) {
 		List<String> ListClassname = Arrays
 				.asList(Thread.currentThread().getStackTrace()[2].getClassName().split("\\."));
 		String Classname = ListClassname.get(ListClassname.size() - 1);
+		
+		String destination = null;
+	
+//		String scrBase64 = null;
+		
 		try {
+			String dateName = new SimpleDateFormat("dd_MMM_yyyy_hh_mm_ss").format(new Date());
+			TakesScreenshot ts = (TakesScreenshot) driver;
+			
+			File source  = ts.getScreenshotAs(OutputType.FILE);
+//			File source = OutputType.FILE.convertFromBase64Png(scrBase64);
+			// after execution, you could see a folder "FailedTestsScreenshots"
+			// under src folder
+			// destination = System.getProperty("user.dir") +
+			// "//FailedTestsScreenshots//" + dateName + ".png";
+			destination = System.getProperty("user.dir") + "//ScreenShots//" + Classname + "-" + dateName
+					+ ".png";
+			File finalDestination = new File(destination);
+			FileUtils.copyFile(source, finalDestination, true);
+			// Returns the captured file path
+
 			// if test case passed
 			if (testCaseResult) {
 				// if screen capture configuration value is yes then capture the
 				// screen
 				if (prop.getProperty("ScreenCapture").equalsIgnoreCase("YES")) {
-					test.pass("The specified locator Webelement found in the given time interval.", MediaEntityBuilder
-							.createScreenCaptureFromBase64String(getScreenshot(driver, Classname)).build());
+//					test.log(Status.PASS, "Successfully "+ elementName +" performed click action");
+					destination = System.getProperty("user.dir") + "//ScreenShots//" + Classname + "-" + dateName
+							+ ".png";
+					
+					test.pass("The specified locator "+ elementName +" found in the given time interval.", MediaEntityBuilder
+							.createScreenCaptureFromPath(getScreenshot(driver, Classname),elementName).build());
+					
 				}
 
 			}
@@ -136,7 +155,7 @@ public class ActionEngine extends PageInitializer {
 			else {
 				test.fail(
 						"The specified locator Webelement not found in the given time interval: Please check the provided locator value.",
-						MediaEntityBuilder.createScreenCaptureFromBase64String(getScreenshot(driver, Classname))
+						MediaEntityBuilder.createScreenCaptureFromPath(getScreenshot(driver, Classname),elementName)
 								.build());
 			}
 		} catch (Exception e) {
@@ -193,7 +212,9 @@ public class ActionEngine extends PageInitializer {
 		try {
 
 			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
+			highLightEle(driver, element,elementName, test);
 			element.click();
+			
 			// getJSExecutor().executeScript("arguments[0].click();", element);
 			test.log(Status.PASS, "Successfully clicked on " + elementName);
 		} catch (Exception e) {
@@ -246,12 +267,12 @@ public class ActionEngine extends PageInitializer {
 	public static void scrollUp(int pixel) {
 		getJSExecutor().executeScript("window.scrollBy(0, -" + pixel + ")");
 	}
-	
-	//----------------------scroll to view element---------------
-	public static void scrollToViewElement(WebElement element) {
-		   getJSExecutor().executeScript("arguments[0].scrollIntoView();", element);
-		}
 
+	//----------------------scroll to view element---------------
+		public static void scrollToViewElement(WebElement element) {
+			   getJSExecutor().executeScript("arguments[0].scrollIntoView();", element);
+			}
+	
 	// ------------------------------------------------------------------------------------------------------------------------------
 	/**
 	 * Methods scrolls down using JavaScript executor
@@ -271,12 +292,11 @@ public class ActionEngine extends PageInitializer {
 	public static void waitForClickability(WebElement element) {
 		getWaitObject().until(ExpectedConditions.elementToBeClickable(element));
 	}
-	
 
 	// ---------------------------------------------------------------------------------------------------------------------------------------
 	/**
-	 * Method that will take a screenshot and store with name in specified location
-	 * with .png extension
+	 * Method that will take a screenshot and store with name in specified
+	 * location with .png extension
 	 * 
 	 * @param fileName
 	 */
@@ -459,6 +479,29 @@ public class ActionEngine extends PageInitializer {
 		Assert.assertEquals(actualText, expectedText);
 		testresult(driver, test, elementName);
 	}
+	
+	// --------------- Selecting multiple items in checkbox------------------
+
+		public static void SelectMultipleCheckbox(List<WebElement> listCheckBox, String elementName) {
+
+			try {
+				waitForPageToLoad(1000);
+
+				for (WebElement ele : listCheckBox) {
+
+					if (!ele.isSelected()) {
+
+						ele.click();
+					}
+				}
+				test.log(Status.PASS, "Successfully performed click action");
+				//ScreenCapture(driver, true);
+			} catch (Exception e) {
+				test.log(Status.FAIL, "Failed to click " + elementName);
+				test.log(Status.FAIL, "Exception :" + e.getMessage());
+				//ScreenCapture(driver, false);
+			}
+		}
 
 	// -----------------------------------------------------------------------------------------------------------------------------
 	/**
@@ -473,15 +516,32 @@ public class ActionEngine extends PageInitializer {
 
 	}
 	
-	//--------------Switch to task list frame------------------
 	
-	public static void switchToTaskListFrame(WebDriver driver) {
+	// ---------------Switch to Parent
+		// Frame----------------------------------------------------------------------------------
+		public static void switchToParentFrame(WebDriver driver) {
+			driver.switchTo().parentFrame();
+			TimeUtil.shortWait();
+		}
+	
+	public static void switchToPopupModelFrame(WebDriver driver) {
 
-		driver.switchTo().frame("taskListFrame");
+		driver.switchTo().frame("PopupModalFrame");
 		TimeUtil.shortWait();
 
 	}
 	
+	//--------------Switch to popup form frame--------------------------------------
+		public static void switchToPopupFormFrame(WebDriver driver) {
+			driver.switchTo().frame("popupFormFrame");
+			TimeUtil.shortWait();
+		}
+		
+		//--------------Switch to PopupModalFrame2-------------------------------------
+			public static void switchToPopupModalFrame2(WebDriver driver) {
+				driver.switchTo().frame("PopupModalFrame2");
+				TimeUtil.shortWait();
+			}
 
 	// -----------------------------------------------------------------------------------------------------------------------------
 	/**
@@ -493,17 +553,19 @@ public class ActionEngine extends PageInitializer {
 		// below line is just to append the date format with the screenshot name
 		// to avoid duplicate names
 		String destination = null;
-		String scrBase64 = null;
+//		String scrBase64 = null;
 		try {
 			String dateName = new SimpleDateFormat("dd_MMM_yyyy_hh_mm_ss").format(new Date());
 			TakesScreenshot ts = (TakesScreenshot) driver;
-			scrBase64 = ts.getScreenshotAs(OutputType.BASE64);
-			File source = OutputType.FILE.convertFromBase64Png(scrBase64);
+			File source  = ts.getScreenshotAs(OutputType.FILE);
+//			File source = OutputType.FILE.convertFromBase64Png(scrBase64);
 			// after execution, you could see a folder "FailedTestsScreenshots"
 			// under src folder
 			// destination = System.getProperty("user.dir") +
 			// "//FailedTestsScreenshots//" + dateName + ".png";
 			destination = System.getProperty("user.dir") + "//FailedTestsScreenshots//" + classname + "-" + dateName
+					+ ".png";
+			destination = System.getProperty("user.dir") + "//ScreenShots//" + classname + "-" + dateName
 					+ ".png";
 			File finalDestination = new File(destination);
 			FileUtils.copyFile(source, finalDestination, true);
@@ -512,7 +574,7 @@ public class ActionEngine extends PageInitializer {
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
-		return scrBase64;
+		return destination;
 	}
 
 	// -------------------------------------------------------------------------------------------------------------------------
@@ -556,7 +618,8 @@ public class ActionEngine extends PageInitializer {
 	 */
 	public static void isAlertPresent(WebDriver driver) {
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, 3 /* timeout in seconds */);
+			WebDriverWait wait = new WebDriverWait(driver,
+					3 /* timeout in seconds */);
 			if (wait.until(ExpectedConditions.alertIsPresent()) == null) {
 
 			} else {
@@ -642,7 +705,7 @@ public class ActionEngine extends PageInitializer {
 
 	}
 	
-	/*This Method for save 2nd  unique code
+/*This Method for save 2nd  unique code
 	
 	@return
 
@@ -660,9 +723,7 @@ public class ActionEngine extends PageInitializer {
 		uCode = saveuniqueCode;
 
 	}
-	
-	
-	
+
 	// --------------------------------------------------------------------------------------------------------------------
 	public static void switchToDefaultContent(WebDriver driver) {
 
@@ -682,7 +743,23 @@ public class ActionEngine extends PageInitializer {
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].setAttribute('style',' border: 2px solid red;');", element);
+		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			System.out.println(e.getMessage());
+		} catch (org.openqa.selenium.NoSuchElementException e) {
+			System.out.println("");
+		}
+		// js.executeScript("arguments[0].setAttribute('style','border: solid
+		// 2px white');", element);
+		js.executeScript("arguments[0].setAttribute('style','border: solid 2px transparent');", element);
+	}
+	public static void highLightEle(WebDriver driver, WebElement element,String elementname, ExtentTest test) {
 
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].setAttribute('style',' border: 2px solid red;');", element);
+		ScreenCapture(driver, true,elementname);
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -732,10 +809,7 @@ public class ActionEngine extends PageInitializer {
 
 			}
 
-			catch (IOException e1) {
-
-				e1.printStackTrace();
-			} catch (Exception e1) {
+			catch (Exception e1) {
 
 				e1.printStackTrace();
 			}
@@ -755,7 +829,7 @@ public class ActionEngine extends PageInitializer {
 
 			WebDriverWait wait = new WebDriverWait(driver, 20);
 			wait.until(ExpectedConditions.visibilityOf(locator));
-			highLightEle(driver, locator, test);
+			
 			List<String> ListClassname = Arrays
 					.asList(Thread.currentThread().getStackTrace()[2].getClassName().split("\\."));
 			String Classname = ListClassname.get(ListClassname.size() - 1);
@@ -769,10 +843,12 @@ public class ActionEngine extends PageInitializer {
 							"The specified locator Webelement not found in the given time interval: Please check the provided locator value",
 							MediaEntityBuilder.createScreenCaptureFromBase64String(getFailScreenshot(driver, Classname))
 									.build());
-				} catch (IOException e) {
+				} 
+				catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+
 
 			}
 
@@ -780,10 +856,11 @@ public class ActionEngine extends PageInitializer {
 				test.log(Status.PASS, "Element is already in Uncheck state.");
 
 			}
-
-		} catch (org.openqa.selenium.TimeoutException e) {
+	
+		}
+		catch (org.openqa.selenium.TimeoutException e) {
 			try {
-
+				
 				test.fail(
 						"The specified locator Webelement not found in the given time interval: Please check the provided locator value");
 
@@ -810,7 +887,73 @@ public class ActionEngine extends PageInitializer {
 
 		}
 	}
+	public static void unCheckRadioBtnCheckbox(WebDriver driver, WebElement locator,String elementName) {
 
+		try {
+
+			WebDriverWait wait = new WebDriverWait(driver, 20);
+			wait.until(ExpectedConditions.visibilityOf(locator));
+			highLightEle(driver, locator,elementName, test);
+			ScreenCapture(driver, true,elementName);
+			List<String> ListClassname = Arrays
+					.asList(Thread.currentThread().getStackTrace()[2].getClassName().split("\\."));
+			String Classname = ListClassname.get(ListClassname.size() - 1);
+			boolean flag = locator.isSelected();
+			if (flag == true) {
+
+				locator.click();
+				test.log(Status.PASS, "Element unchecked successfully.");
+				try {
+					test.pass(
+							"The specified locator Webelement not found in the given time interval: Please check the provided locator value",
+							MediaEntityBuilder.createScreenCaptureFromBase64String(getFailScreenshot(driver, Classname))
+									.build());
+				} 
+				catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+
+			}
+
+			else {
+				test.log(Status.PASS, "Element is already in Uncheck state.");
+				highLightEle(driver, locator,elementName, test);
+
+			}
+	
+		}
+		catch (org.openqa.selenium.TimeoutException e) {
+			try {
+				
+				test.fail(
+						"The specified locator Webelement not found in the given time interval: Please check the provided locator value");
+
+			}
+
+			catch (Exception e1) {
+
+				e1.printStackTrace();
+			}
+
+		}
+
+		catch (org.openqa.selenium.WebDriverException e) {
+
+			try {
+				test.fail("Step is get failed becuase of this exception:-------");
+
+			}
+
+			catch (Exception e1) {
+
+				e1.printStackTrace();
+			}
+
+		}
+	}
+	
 	// ----------------------------------------------------------------------------------------------------------------------------
 	public static void verifyCaptionContains(WebElement element, String expectedCaption) {
 
@@ -820,6 +963,7 @@ public class ActionEngine extends PageInitializer {
 		String actualCaptionValue = element.getText().trim();
 
 	}
+	
 
 	// -------------------------------------------------------------------------------------------------------------------
 	public static void testresult(WebDriver driver, ExtentTest test, String elementName) {
@@ -831,8 +975,8 @@ public class ActionEngine extends PageInitializer {
 			test.log(Status.PASS, "Successfully clicked on " + elementName);
 			if (prop.getProperty("ScreenCapture").equalsIgnoreCase("YES")) {
 
-				test.pass("The specified locator Webelement found in the given time interval.", MediaEntityBuilder
-						.createScreenCaptureFromBase64String(getScreenshot(driver, Classname)).build());
+				test.pass("The specified locator Webelement found in the given time interval.",
+						MediaEntityBuilder.createScreenCaptureFromBase64String(getScreenshot(driver,Classname)).build());
 
 			} else {
 
@@ -846,7 +990,7 @@ public class ActionEngine extends PageInitializer {
 						"The specified locator Webelement not found in the given time interval: Please check the provided locator value.",
 						MediaEntityBuilder.createScreenCaptureFromBase64String(getScreenshot(driver, Classname))
 								.build());
-			} catch (IOException e1) {
+			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
@@ -868,23 +1012,22 @@ public class ActionEngine extends PageInitializer {
 	
 	//Enter Unique Code with % symbol
 	
-	public static void enterUniqueCodeConcat(WebDriver driver, WebElement element) {
+		public static void enterUniqueCodeConcat(WebDriver driver, WebElement element) {
 
-		WebDriverWait wait = new WebDriverWait(driver, 20);
-		wait.until(ExpectedConditions.visibilityOf(element));
-		element.sendKeys(uniqueCode+"%");
+			WebDriverWait wait = new WebDriverWait(driver, 20);
+			wait.until(ExpectedConditions.visibilityOf(element));
+			element.sendKeys(uniqueCode+"%");
 
-	}
-	
-	//-----------------------------------------------------------------------------------------------
-	
-	public static void enterAlterUniqueCode(WebDriver driver, WebElement element) {
+		}
+		
+		//-----------------------------------------------------------------------------------------------
+		
+		public static void enterAlterUniqueCode(WebDriver driver, WebElement element) {
 
-		WebDriverWait wait = new WebDriverWait(driver, 20);
-		wait.until(ExpectedConditions.visibilityOf(element));
-		element.sendKeys(uCode);
-
-	}
+			WebDriverWait wait = new WebDriverWait(driver, 20);
+			wait.until(ExpectedConditions.visibilityOf(element));
+			element.sendKeys(uCode);
+		}
 
 	// --------------------------------------------------------------------------------------------------------------------
 	public static void verifyExactCaption(WebElement element, String expectedCaption) {
@@ -955,15 +1098,12 @@ public class ActionEngine extends PageInitializer {
 				try {
 					test.fail(
 							"To clear the value specified locator Webelement should be a Textbox or Textarea and editable in nature.",
-							MediaEntityBuilder.createScreenCaptureFromBase64String(getScreenshot(driver, Classname))
-									.build());
+							MediaEntityBuilder.createScreenCaptureFromBase64String(getScreenshot(driver,Classname)).build());
 
 				}
 
-				catch (IOException e1) {
-
-					e1.printStackTrace();
-				} catch (Exception e1) {
+				
+				catch (Exception e1) {
 
 					e1.printStackTrace();
 				}
@@ -976,31 +1116,23 @@ public class ActionEngine extends PageInitializer {
 			try {
 				test.fail(
 						"The specified locator Webelement not found in the given time interval: Please check the provided locator value.",
-						MediaEntityBuilder.createScreenCaptureFromBase64String(getScreenshot(driver, Classname))
-								.build());
+						MediaEntityBuilder.createScreenCaptureFromBase64String(getScreenshot(driver,Classname)).build());
 
 			}
 
-			catch (IOException e1) {
+			catch (Exception e1) {
 
 				e1.printStackTrace();
-			} catch (Exception e1) {
-
-				e1.printStackTrace();
-			}
-
+			} 
 		}
 
 		catch (java.lang.NullPointerException e) {
 			try {
 
-				test.fail("Make sure passed locator having 'value' attribute.", MediaEntityBuilder
-						.createScreenCaptureFromBase64String(getScreenshot(driver, Classname)).build());
+				test.fail("Make sure passed locator having 'value' attribute.",
+						MediaEntityBuilder.createScreenCaptureFromBase64String(getScreenshot(driver,Classname)).build());
 
-			} catch (IOException e1) {
-
-				e1.printStackTrace();
-			} catch (Exception e1) {
+			}  catch (Exception e1) {
 
 				e1.printStackTrace();
 			}
@@ -1010,15 +1142,12 @@ public class ActionEngine extends PageInitializer {
 		catch (org.openqa.selenium.WebDriverException e) {
 
 			try {
-				test.fail("Step is get failed becuase of this exception:-------" + e.toString(), MediaEntityBuilder
-						.createScreenCaptureFromBase64String(getScreenshot(driver, Classname)).build());
+				test.fail("Step is get failed becuase of this exception:-------" + e.toString(),
+						MediaEntityBuilder.createScreenCaptureFromBase64String(getScreenshot(driver,Classname)).build());
 
 			}
 
-			catch (IOException e1) {
-
-				e1.printStackTrace();
-			} catch (Exception e1) {
+			catch (Exception e1) {
 
 				e1.printStackTrace();
 			}
@@ -1238,12 +1367,12 @@ public class ActionEngine extends PageInitializer {
 	}
 
 	// --------------------------------------------------------------------------------------------------------------------------
-	public static void EsignCnfrm(String eSignature, WebElement ConfirmMsg, String configurationVal, WebElement NextButton) {
+	public static void EsignCnfrm(String eSign, WebElement ConfirmMsg, String configurationVal, WebElement NextButton) {
 
 		boolean esign1 = e_SignAvailabe();
 
 		if (esign1 == true) {
-			E_sign.e_Sign(eSignature);
+			E_sign.e_Sign(eSign);
 
 		}
 		String msg = ConfirmMsg.getText().trim();
@@ -1294,15 +1423,12 @@ public class ActionEngine extends PageInitializer {
 		catch (org.openqa.selenium.WebDriverException e) {
 
 			try {
-				test.fail("Step is get failed becuase of this exception:-------" + e.toString(), MediaEntityBuilder
-						.createScreenCaptureFromBase64String(getScreenshot(driver, Classname)).build());
+				test.fail("Step is get failed becuase of this exception:-------" + e.toString(),
+						MediaEntityBuilder.createScreenCaptureFromBase64String(getScreenshot(driver,Classname)).build());
 
 			}
 
-			catch (IOException e1) {
-
-				e1.printStackTrace();
-			} catch (Exception e1) {
+			catch (Exception e1) {
 
 				e1.printStackTrace();
 			}
@@ -1776,7 +1902,7 @@ public class ActionEngine extends PageInitializer {
 		try {
 
 			List<WebElement> from_date_tr = driver.findElements(
-					By.xpath("//body[1]/div[2]/div[2]/div[1]/table[1]//tbody//tr//td[contains(@class,'today')]"));
+					By.xpath("//body[1]/div[3]/div[2]/div[1]/table[1]//tbody//tr//td[contains(@class,'today')]"));
 			from_date_tr.get(0).click();
 
 		} catch (Exception e1) {
@@ -1791,7 +1917,7 @@ public class ActionEngine extends PageInitializer {
 		try {
 
 			List<WebElement> from_date_tr = driver.findElements(
-					By.xpath("//body[1]/div[3]/div[2]/div[1]/table[1]//tbody//tr//td[contains(@class,'today')]"));
+					By.xpath("//body[1]/div[4]/div[2]/div[1]/table[1]//tbody//tr//td[contains(@class,'today')]"));
 			from_date_tr.get(0).click();
 
 		} catch (Exception e1) {
@@ -1806,7 +1932,7 @@ public class ActionEngine extends PageInitializer {
 		try {
 
 			List<WebElement> from_date_tr = driver.findElements(
-					By.xpath("//body[1]/div[4]/div[2]/div[1]/table[1]//tbody//tr//td[contains(@class,'today')]"));
+					By.xpath("//body[1]/div[5]/div[2]/div[1]/table[1]//tbody//tr//td[contains(@class,'today')]"));
 			from_date_tr.get(0).click();
 
 		} catch (Exception e1) {
@@ -1846,8 +1972,7 @@ public class ActionEngine extends PageInitializer {
 			if (prop.getProperty("ScreenCapture").equalsIgnoreCase("YES")) {
 				test.pass(
 						"The specified locator Webelement found in the given time interval: Please check the provided locator value.",
-						MediaEntityBuilder.createScreenCaptureFromBase64String(getScreenshot(driver, Classname))
-								.build());
+						MediaEntityBuilder.createScreenCaptureFromBase64String(getScreenshot(driver,Classname)).build());
 				// Below assertion is for summary report count
 				soft.assertTrue(true);
 			}
@@ -1858,15 +1983,11 @@ public class ActionEngine extends PageInitializer {
 			try {
 				test.fail(
 						"The specified locator Webelement not found in the given time interval: Please check the provided locator value",
-						MediaEntityBuilder.createScreenCaptureFromBase64String(getScreenshot(driver, Classname))
-								.build());
+						MediaEntityBuilder.createScreenCaptureFromBase64String(getScreenshot(driver,Classname)).build());
 
 			}
 
-			catch (IOException e1) {
-
-				e1.printStackTrace();
-			} catch (Exception e1) {
+			catch (Exception e1) {
 
 				e1.printStackTrace();
 			}
@@ -1876,20 +1997,16 @@ public class ActionEngine extends PageInitializer {
 		catch (org.openqa.selenium.WebDriverException e) {
 
 			try {
-				test.fail("Step is get failed becuase of this exception:-------" + e.toString(), MediaEntityBuilder
-						.createScreenCaptureFromBase64String(getScreenshot(driver, Classname)).build());
+				test.fail("Step is get failed becuase of this exception:-------" + e.toString(),
+						MediaEntityBuilder.createScreenCaptureFromBase64String(getScreenshot(driver,Classname)).build());
 
 			}
-
-			catch (IOException e1) {
-
-				e1.printStackTrace();
-			} catch (Exception e1) {
+			catch (Exception e1) {
 
 				e1.printStackTrace();
 			}
 
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -1924,70 +2041,6 @@ public class ActionEngine extends PageInitializer {
 		ActionEngine.tempPwd = tempPwd;
 
 	}
-
-	// ---------------Switch to Parent
-	// Frame----------------------------------------------------------------------------------
-	public static void switchToParentFrame(WebDriver driver) {
-		driver.switchTo().parentFrame();
-		TimeUtil.shortWait();
-	}
-
-	//--------------Switch to popup form frame--------------------------------------
-	public static void switchToPopupFormFrame(WebDriver driver) {
-		driver.switchTo().frame("popupFormFrame");
-		TimeUtil.shortWait();
-	}
-	
-	//--------------Switch to PopupModalFrame2-------------------------------------
-		public static void switchToPopupModalFrame2(WebDriver driver) {
-			driver.switchTo().frame("PopupModalFrame2");
-			TimeUtil.shortWait();
-		}
-	
-	
-	// -----------Switch to frame in side body frame (model popup frame)
-
-	public static void switchToPopupModelFrame(WebDriver driver) {
-		driver.switchTo().frame("PopupModalFrame");
-		TimeUtil.shortWait();
-	}
-	// --------------- Selecting multiple items in checkbox------------------
-
-	public static void SelectMultipleCheckbox(List<WebElement> listCheckBox, String elementName) {
-
-		try {
-			waitForPageToLoad(1000);
-
-			for (WebElement ele : listCheckBox) {
-
-				if (!ele.isSelected()) {
-
-					ele.click();
-				}
-			}
-			test.log(Status.PASS, "Successfully performed click action");
-			ScreenCapture(driver, true);
-		} catch (Exception e) {
-			test.log(Status.FAIL, "Failed to click " + elementName);
-			test.log(Status.FAIL, "Exception :" + e.getMessage());
-			ScreenCapture(driver, false);
-		}
-	}
-
-	// -----------unique code Capture------------
-	public static void consoleUniqueCode() {
-
-		try {
-			FileOutputStream out = new FileOutputStream("D:\\MyProjects\\EPIQ\\configs\\console.properties");
-			out.flush();
-			PrintStream myConsole = new PrintStream(out);
-			System.setOut(myConsole);
-			myConsole.print("IssueCode=" + uniqueCode);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
 	// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 	public static void enterTempPwd(WebDriver driver, WebElement element) {
@@ -2003,10 +2056,9 @@ public class ActionEngine extends PageInitializer {
 				try {
 					test.pass(
 							"The specified locator Webelement  found in the given time interval: Please check the provided locator value.",
-							MediaEntityBuilder
-									.createScreenCaptureFromBase64String(ActionEngine.getScreenshot(driver, Classname))
+							MediaEntityBuilder.createScreenCaptureFromBase64String(ActionEngine.getScreenshot(driver,Classname))
 									.build());
-				} catch (IOException e) {
+				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
@@ -2017,16 +2069,12 @@ public class ActionEngine extends PageInitializer {
 			try {
 				test.fail(
 						"The specified locator Webelement not found in the given time interval: Please check the provided locator value",
-						MediaEntityBuilder
-								.createScreenCaptureFromBase64String(ActionEngine.getScreenshot(driver, Classname))
+						MediaEntityBuilder.createScreenCaptureFromBase64String(ActionEngine.getScreenshot(driver,Classname))
 								.build());
 
 			}
 
-			catch (IOException e1) {
-
-				e1.printStackTrace();
-			} catch (Exception e1) {
+			catch (Exception e1) {
 
 				e1.printStackTrace();
 			}
@@ -2034,27 +2082,88 @@ public class ActionEngine extends PageInitializer {
 		}
 
 	}
-	
-	public static void switchtoWidowTwo() {
-		Set<String> allwidows=driver.getWindowHandles();
-		Object[] windows=allwidows.toArray();
-		String win1=windows[0].toString();
-		String win2=windows[1].toString();
-		//System.out.println(dr.getTitle());
-		driver.switchTo().window(win2);
-		TimeUtil.shortWait();
+
+//======================================
+public static void printAttendance(String DocLocation, String courseName) {
+
+	// below line execute the AutoIT script .
+	try {
+		Runtime.getRuntime()
+				.exec("//calqa//NICHELON SELENIUM WORKS//Common Script//PrintAttendance//PrintTest.exe");
+
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
 	}
+
+	TimeUtil.longwait();
+
 	
-	public static void switchtoWidowOne() {
-		Set<String> allwidows=driver.getWindowHandles();
-		Object[] windows=allwidows.toArray();
-		String win1=windows[0].toString();
-		//String win2=windows[1].toString();
-		//System.out.println(dr.getTitle());
-		driver.switchTo().window(win1);
-		TimeUtil.shortWait();
+
+	Robot rb;
+
+	try {
+		rb = new Robot();
+
+		StringSelection str = new StringSelection(DocLocation + "\\"+ courseName);
+		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		clipboard.setContents(str, null);
+
+		Thread.sleep(1000);
+
+
+		rb.keyPress(KeyEvent.VK_CONTROL);
+
+		Thread.sleep(1000);
+
+		rb.keyPress(KeyEvent.VK_V);
+		Thread.sleep(1000);
+
+		rb.keyRelease(KeyEvent.VK_CONTROL);
+		rb.keyRelease(KeyEvent.VK_V);
+		Thread.sleep(2000);
+
+		rb.keyPress(KeyEvent.VK_ENTER);
+		rb.keyRelease(KeyEvent.VK_ENTER);
+		Thread.sleep(2000);
+
+	} catch (Exception e) {
+
 	}
+
 	
+	// below line execute the AutoIT script .
+	try {
+		Runtime.getRuntime()
+				.exec("//calqa//NICHELON SELENIUM WORKS//Common Script//PrintAttendance//PrintInitiatedMsg.exe");
+		
+
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+
+}
+
+public static void switchtoWidowTwo() {
+	Set<String> allwidows=driver.getWindowHandles();
+	Object[] windows=allwidows.toArray();
+	String win1=windows[0].toString();
+	String win2=windows[1].toString();
+	//System.out.println(dr.getTitle());
+	driver.switchTo().window(win2);
+	TimeUtil.shortWait();
+}
+
+public static void switchtoWidowOne() {
+	Set<String> allwidows=driver.getWindowHandles();
+	Object[] windows=allwidows.toArray();
+	String win1=windows[0].toString();
+	//String win2=windows[1].toString();
+	//System.out.println(dr.getTitle());
+	driver.switchTo().window(win1);
+	TimeUtil.shortWait();
+} 
 }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

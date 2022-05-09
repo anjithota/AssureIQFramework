@@ -235,6 +235,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 	@Test(priority = 1, dataProvider = "CCLgnInit", enabled = true)
 	public void loginToEPIQ(String Document, String Facility, String Others, String CurrentPractice,
 			String ProposedChange, String JustForProposedChange, String SupportingData, String RemarkReasons) {
+		test.createNode("CC Login Initiation Test").pass("CC Login Initiation").createNode("CC login Initiation")
+		.pass("CC login");
 		this.test = extent.createTest("Change Control Login Initiation");
 
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("EPIQCCID"),
@@ -248,6 +250,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 
 	@Test(priority = 2, dataProvider = "CCLgnIHODRtn", enabled = true)
 	public void ccIHODLgn(String RemarkReason) {
+		test.createNode("CC Login Return Test").pass("CC Login Return").createNode("CC login Return")
+		.pass("CC login");
 		this.test = extent.createTest("Change Control Login Review Return");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("CCLgnIHODID"),
 				ConfigsReader.getPropValue("CCLgnIHODPwd"));
@@ -258,6 +262,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 
 	@Test(priority = 3, dataProvider = "CCLgnReinit", enabled = true)
 	public void ccReinit(String RemarkReason) {
+		test.createNode("CC Login ReInitiation Test").pass("CC Login ReInitiation").createNode("CC login ReInitiation")
+		.pass("CC login");
 		this.test = extent.createTest("Change Control Login ReInitiation");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("EPIQCCID"),
 				ConfigsReader.getPropValue("EPIQCCPWD"));
@@ -270,6 +276,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 
 	@Test(priority = 4, dataProvider = "CCLgnIHODApp", enabled = true)
 	public void ccIHODApprovalLgn(String IHODComments, String PlanDescription, String RemarkReason) {
+		test.createNode("CC Login Review Test").pass("CC Login Review").createNode("CC login Review")
+		.pass("CC Review");
 		this.test = extent.createTest("Change Control Login Review");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("CCLgnIHODID"),
 				ConfigsReader.getPropValue("CCLgnIHODPwd"));
@@ -282,6 +290,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 
 	@Test(priority = 5, dataProvider = "CCLgnQARtn", enabled = true)
 	public void ccQAReviewLgn(String RemarkReason) {
+		test.createNode("CC Login Return Test").pass("CC Login Return").createNode("CC login Return")
+		.pass("CC login Return");
 		this.test = extent.createTest("Change Control Login Approver Return");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("CCLgnQAID"),
 				ConfigsReader.getPropValue("CCLgnQAPwd"));
@@ -294,6 +304,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 
 	@Test(priority = 6, dataProvider = "CCLgnAgnReinit", enabled = true)
 	public void ccAgainReinit(String RemarkReason) {
+		test.createNode("CC Login ReInitiation Test").pass("CC Login ReInitiation").createNode("CC login ReInitiation")
+		.pass("CC login Reinitition");
 		this.test = extent.createTest("Change Control Login ReInitiation");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("EPIQCCID"),
 				ConfigsReader.getPropValue("EPIQCCPWD"));
@@ -304,6 +316,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 
 	@Test(priority = 7, dataProvider = "CCLgnAgnIHODApp", enabled = true)
 	public void ccAgainIHODApprovalLgn(String IHODComments, String RemarkReason) {
+		test.createNode("CC Login Review Test").pass("CC Login Review").createNode("CC login Review")
+		.pass("CC Review");
 		this.test = extent.createTest("Change Control Login Review");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("CCLgnIHODID"),
 				ConfigsReader.getPropValue("CCLgnIHODPwd"));
@@ -314,6 +328,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 
 	@Test(priority = 8, dataProvider = "CCLgnQAApp", enabled = true)
 	public void ccQAReviewApprovalLgn(String QAReviewComments, String RemarkReason) {
+		test.createNode("CC Login Approve Test").pass("CC Login Approve").createNode("CC login Approve")
+		.pass("CC Approve");
 		this.test = extent.createTest("Change Control Login Approval");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("CCLgnQAID"),
 				ConfigsReader.getPropValue("CCLgnQAPwd"));
@@ -324,6 +340,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 
 	@Test(priority = 9, enabled = true)
 	public void verifyDoc() {
+		test.createNode("CC Documentation Verify Test").pass("CC Documentation Verify").createNode("CC Documentation Verify")
+		.pass("CC Documentation Verify");
 		this.test = extent.createTest("Documentation Action Plan Verification");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("EPIQCCID"),
 				ConfigsReader.getPropValue("EPIQCCPWD"));
@@ -335,6 +353,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 
 	@Test(priority = 10, dataProvider = "CCOtd", enabled = true)
 	public void ccOTD(String Comments) {
+		test.createNode("CC OTD Test").pass("CC OTD").createNode("CC OTD")
+		.pass("CC OTD");
 		this.test = extent.createTest("Change Control Other Deparment Comments");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("EPIQCCID"),
 				ConfigsReader.getPropValue("EPIQCCPWD"));
@@ -346,6 +366,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 
 	@Test(priority = 11, dataProvider = "CCQad", enabled = true)
 	public void ccQAD(String reviewComments, String Category) throws Exception, AWTException {
+		test.createNode("CC QAD Test").pass("CC QAD").createNode("CC QAD")
+		.pass("CC QAD");
 		this.test = extent.createTest("Change Control QA Decision");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("EPIQCCID"),
 				ConfigsReader.getPropValue("EPIQCCPWD"));
@@ -357,6 +379,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 
 	@Test(priority = 12, enabled = true)
 	public void VerificationClosure() {
+		test.createNode("CC Closure Test").pass("CC Closure").createNode("CC Closure")
+		.pass("CC Closure");
 		this.test = extent.createTest("Change Control Closure Verifiation");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("EPIQCCID"),
 				ConfigsReader.getPropValue("EPIQCCPWD"));
@@ -367,6 +391,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 
 	@Test(priority = 13, dataProvider = "DLReviewReturn", enabled = true)
 	public void docLgnReturnAtReviwer(String RemarkReason) {
+		test.createNode("Documentatoin Action Plan Login Review Return").pass("Documentatoin Action Plan Login Review Return").createNode("Documentatoin Action Plan Login Review Return")
+		.pass("Documentatoin Action Plan Login Review Return");
 		this.test = extent.createTest("Documentatoin Action Plan Login Review Return");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("EPIQCCID"),
 				ConfigsReader.getPropValue("EPIQCCPWD"));
@@ -381,6 +407,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 
 	@Test(priority = 14, dataProvider = "DLReinitiate", enabled = true)
 	public void docLgnReinitiate(String PlanDesc, String RemarkReason) {
+		test.createNode("Documentatoin Action Plan Login Reinitiation").pass("Documentatoin Action Plan Login Reinitiation").createNode("Documentatoin Action Plan Login Reinitiation")
+		.pass("Documentatoin Action Plan Login Reinitiation");
 		this.test = extent.createTest("Documentatoin Action Plan Login Reinitiation");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("CCLgnIHODID"),
 				ConfigsReader.getPropValue("EPIQCCPWD"));
@@ -394,6 +422,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 
 	@Test(priority = 15, dataProvider = "DLReviewerApprove", enabled = true)
 	public void docLgnReview(String Comments) {
+		test.createNode("Documentatoin Action Plan Login Review").pass("Documentatoin Action Plan Login Review").createNode("Documentatoin Action Plan Login Review")
+		.pass("Documentatoin Action Plan Login Review");
 		this.test = extent.createTest("Documentatoin Action Plan Login Review");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("EPIQCCID"),
 				ConfigsReader.getPropValue("EPIQCCPWD"));
@@ -407,6 +437,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 
 	@Test(priority = 16, dataProvider = "DLApproverReturn", enabled = true)
 	public void docLgnApproveReturn(String RemarkReason) {
+		test.createNode("Documentatoin Action Plan Login Approver Return").pass("Documentatoin Action Plan Approver Return").createNode("Documentatoin Action Plan Login Approver Return")
+		.pass("Documentatoin Action Plan Login Approver Return");
 		this.test = extent.createTest("Documentatoin Action Plan Login Approver Return");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("CCLgnQAID"),
 				ConfigsReader.getPropValue("EPIQCCPWD"));
@@ -420,6 +452,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 
 	@Test(priority = 17, dataProvider = "DLAgainReinitiate", enabled = true)
 	public void docLgnAgainReintiate(String PlanDesc, String RemarkReason) {
+		test.createNode("Documentatoin Action Plan Login Reinitiation").pass("Documentatoin Action Plan Reinitiation").createNode("Documentatoin Action Plan Login Reinitiation")
+		.pass("Documentatoin Action Plan Login Reinitiation");
 		this.test = extent.createTest("Documentatoin Action Plan Login Reinitiation");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("CCLgnIHODID"),
 				ConfigsReader.getPropValue("EPIQCCPWD"));
@@ -433,6 +467,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 
 	@Test(priority = 18, dataProvider = "DLReviwerAgainReview", enabled = true)
 	public void docLgnAgainReview(String Comments) {
+		test.createNode("Documentatoin Action Plan Login Review").pass("Documentatoin Action Plan Review").createNode("Documentatoin Action Plan Login Review")
+		.pass("Documentatoin Action Plan Login Review");
 		this.test = extent.createTest("Documentatoin Action Plan Login Review");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("EPIQCCID"),
 				ConfigsReader.getPropValue("EPIQCCPWD"));
@@ -445,6 +481,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 	// this test case checks the 2nd approval option
 	@Test(priority = 19, dataProvider = "DLReviwerAgainReview", enabled = true)
 	public void docLgnApproval(String Comments) {
+		test.createNode("Documentatoin Action Plan Login Approve").pass("Documentatoin Action Plan Approve").createNode("Documentatoin Action Plan Login Approve")
+		.pass("Documentatoin Action Plan Login Approve");
 		this.test = extent.createTest("Documentatoin Action Plan Login Approval");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("CCLgnQAID"),
 				ConfigsReader.getPropValue("EPIQCCPWD"));
@@ -457,6 +495,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 	// this test case checks the Documentation Task Allocation
 	@Test(priority = 20, dataProvider = "DocTaskAlc", enabled = true)
 	public void docTaskAllocation(String Comments, String Department) {
+		test.createNode("Documentatoin Action Plan Task Allocation").pass("Documentatoin Action Task Allocation").createNode("Documentatoin Action Plan Task Allocation")
+		.pass("Documentatoin Action Plan Task Allocation");
 		this.test = extent.createTest("Documentatoin Action Plan Task Allocation");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("CCLgnIHODID"),
 				ConfigsReader.getPropValue("EPIQCCPWD"));
@@ -469,6 +509,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 	// this test case checks the Documentation Execution
 	@Test(priority = 21, dataProvider = "DOcExe", enabled = true)
 	public void docExecution(String ActionsTaken) {
+		test.createNode("Documentatoin Action Plan Task Execution").pass("Documentatoin Action Task Execution").createNode("Documentatoin Action Plan Task Execution")
+		.pass("Documentatoin Action Plan Task Execution");
 		this.test = extent.createTest("Documentatoin Action Plan Task Execution");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("CCLgnIHODID"),
 				ConfigsReader.getPropValue("EPIQCCPWD"));
@@ -481,6 +523,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 	// this test case checks the Documentation Closure
 	@Test(priority = 22, dataProvider = "DOcCls", enabled = true)
 	public void docClousure(String Comments) {
+		test.createNode("Documentatoin Action Plan Closure").pass("Documentatoin Action Closure").createNode("Documentatoin Action Plan Closure")
+		.pass("Documentatoin Action Plan Closure");
 		this.test = extent.createTest("Documentatoin Action Plan Closure");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("CCLgnIHODID"),
 				ConfigsReader.getPropValue("EPIQCCPWD"));
@@ -493,6 +537,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 	// this test case checks the CC Closure Initiation
 	@Test(priority = 23, dataProvider = "CCClsI", enabled = true)
 	public void ccClousureInitiate(String ImplemetationDetail) {
+		test.createNode("Change Control Closure Initiation").pass("Change Control Closure Initiation").createNode("Change Control Closure Initiation")
+		.pass("Change Control Closure Initiation");
 		this.test = extent.createTest("Change Control Closure Initiation");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("EPIQCCID"),
 				ConfigsReader.getPropValue("EPIQCCPWD"));
@@ -505,6 +551,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 	// this test case checks the CC Closure Return
 	@Test(priority = 24, dataProvider = "CCClsRet", enabled = true)
 	public void ccClousureReturn(String RemarkReason) {
+		test.createNode("Change Control Closure Return").pass("Change Control Closure Return").createNode("Change Control Closure Return")
+		.pass("Change Control Closure Return");
 		this.test = extent.createTest("Change Control Closure Return");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("CCLgnIHODID"),
 				ConfigsReader.getPropValue("CCLgnIHODPwd"));
@@ -517,6 +565,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 	// this test case checks the CC Closure Re Initiation
 	@Test(priority = 25, dataProvider = "CCClsRei", enabled = true)
 	public void ccClousureReInitiate(String ImplemetationDetail, String RemarkReason) {
+		test.createNode("Change Control Closure ReInitiation").pass("Change Control Closure ReInitiation").createNode("Change Control Closure ReInitiation")
+		.pass("Change Control Closure ReInitiation");
 		this.test = extent.createTest("Change Control Closure ReInitiation");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("EPIQCCID"),
 				ConfigsReader.getPropValue("EPIQCCPWD"));
@@ -529,6 +579,8 @@ public class CCPositiveFlowTestCase extends ActionEngine {
 	// this test case checks the CC Closure Approve
 	@Test(priority = 26, dataProvider = "CCClsApp", enabled = true)
 	public void ccClousureApprove(String QAComment) {
+		test.createNode("Change Control Closure Approval").pass("Change Control Closure Approval").createNode("Change Control Closure Approval")
+		.pass("Change Control Closure Approval");
 		this.test = extent.createTest("Change Control Closure Approval");
 		epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("CCLgnIHODID"),
 				ConfigsReader.getPropValue("CCLgnIHODPwd"));

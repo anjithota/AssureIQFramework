@@ -117,7 +117,7 @@ public class DnLgnInitiationForCC extends ActionEngine {
 
 		verifyExactCaption(title, "Documentation Action Plan Login");
 
-		click(lockBtn, "Lock Button");
+		click(lockBtn, "Lock Button");	  
 
 		verifyExactCaption(planDescErr, "Enter Value");
 

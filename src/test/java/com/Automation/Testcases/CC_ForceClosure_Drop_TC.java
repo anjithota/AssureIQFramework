@@ -1,11 +1,13 @@
 package com.Automation.Testcases;
 
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.Automation.Base.ActionEngine;
 import com.Automation.Utils.ConfigsReader;
 import com.Automation.Utils.Excelutil;
+import com.Automation.Utils.MyScreenRecorder;
 
 public class CC_ForceClosure_Drop_TC extends ActionEngine{
 	public CC_ForceClosure_Drop_TC() {
@@ -58,6 +60,8 @@ public class CC_ForceClosure_Drop_TC extends ActionEngine{
 		@Test(priority = 1, dataProvider = "CCLgnInit", enabled = true)
 		public void loginToEPIQ(String Document, String Facility, String Others, String CurrentPractice,
 				String ProposedChange, String JustForProposedChange, String SupportingData, String RemarkReasons) {
+			test.createNode("CC Login Test").pass("CC Login").createNode("CC login")
+			.pass("CC login");
 			this.test = extent.createTest("Change Control Login Initiation");
 			epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("EPIQCCID"),
 					ConfigsReader.getPropValue("EPIQCCPWD"));
@@ -69,7 +73,7 @@ public class CC_ForceClosure_Drop_TC extends ActionEngine{
 
 		}
 
-		@Test(priority = 2, dataProvider = "CCLgnHod", enabled = true)
+		@Test(priority = 2, dataProvider = "CCLgnHod", enabled = false)
 		public void CCHodRev(String IHODComments, String PlanDescription, String RemarkReason) {
 			this.test = extent.createTest("Change Control Login Review");
 			epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("CCLgnIHODID"),
@@ -80,7 +84,7 @@ public class CC_ForceClosure_Drop_TC extends ActionEngine{
 
 		}
 
-		@Test(priority = 3, dataProvider = "CCLgnQAR", enabled = true)
+		@Test(priority = 3, dataProvider = "CCLgnQAR", enabled = false)
 		public void ccQAReviewApprovalLgn(String QAReviewComments, String RemarkReason) {
 			this.test = extent.createTest("Change Control Login Approval");
 			epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("CCLgnQAID"),
@@ -91,7 +95,7 @@ public class CC_ForceClosure_Drop_TC extends ActionEngine{
 
 		}
 		
-		@Test(priority = 4, enabled= true)
+		@Test(priority = 4, enabled= false)
 		public void forceClosureInitiate() {
 			this.test = extent.createTest("Change Control force closure Initiation");
 			epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("EPIQCCID"),
@@ -101,9 +105,9 @@ public class CC_ForceClosure_Drop_TC extends ActionEngine{
 			logout.logOut();
 		}
 		
-		@Test(priority = 5,dataProvider = "FCDrop", enabled= true)
+		@Test(priority = 5,dataProvider = "FCDrop", enabled= false)
 		public void forceClosureApprove(String RemarkReason) {
-			this.test = extent.createTest("Change Control force closure Approval");
+			this.test = extent.createTest("Change Control force closure Drop");
 			epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("CCLgnIHODID"),
 					ConfigsReader.getPropValue("CCLgnIHODPwd"));
 			ccForceClosureApproval.ccForceClosureDrop(RemarkReason);
@@ -114,5 +118,12 @@ public class CC_ForceClosure_Drop_TC extends ActionEngine{
 			
 		}  
 	
+		@AfterTest
+		public void afterTest() {
+		extent.flush();
+		MyScreenRecorder.stopRecording();
 
+
+
+		}
 }

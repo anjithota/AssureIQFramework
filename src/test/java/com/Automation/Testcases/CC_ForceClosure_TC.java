@@ -79,7 +79,7 @@ public class CC_ForceClosure_TC extends ActionEngine {
 		
 		@Test(priority = 4, enabled= true)
 		public void forceClosureInitiate() {
-			this.test = extent.createTest("Change Control force closure Approval");
+			this.test = extent.createTest("Change Control force closure Initiation");
 			epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("EPIQCCID"),
 					ConfigsReader.getPropValue("EPIQCCPWD"));
 			ccForceClosure.forceClosureInitiation();

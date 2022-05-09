@@ -32,6 +32,13 @@ public class DocTaskAllocationAuditTrail extends ActionEngine {
 	
 	@FindBy(xpath = "//span[@class='popup-close-button']")
 	WebElement closeBtn;
+	
+	@FindBy(xpath = "//div[@class='left-module ft-grid menu-icons'][2]")
+	WebElement ProcessManagersp;
+	
+	@FindBy(id = "DNTK_04")
+	WebElement DocumentTskAuditTrail;
+	
 	public void docTaskAlcnAuditTrail() {
 		click(assureiq, "Assure IQ Menu");
 		click(ProcessManager, "Process Manager");
@@ -52,6 +59,29 @@ public class DocTaskAllocationAuditTrail extends ActionEngine {
 		click(closeBtn, "Close Button");
 		switchToDefaultContent(driver);
 
+	}
+	
+	public void docTaskAuditTrailSP() {
+		//click(assureiq, "Assure IQ Menu");
+		click(ProcessManagersp, "Process Manager");
+		//click(DocLogin, "Doc Login menu");
+		scrollToViewElement(DocumentTskAuditTrail);
+		click(DocumentTskAuditTrail, "Doc Audit Trail");
+		switchToBodyFrame(driver);
+
+		click(AdvanceSearchButton, "Advanced Search button");
+
+
+		enterUniqueCode(driver, IssueCodeFilter);
+
+		click(ApplyButton, "Apply button");
+
+		click(Record, "Click on record");
+		switchToPopupModelFrame(driver);
+		click(closeBtn, "Close Button");
+		switchToDefaultContent(driver);
+		
+		
 	}
 
 

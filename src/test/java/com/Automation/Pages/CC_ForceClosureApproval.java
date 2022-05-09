@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import com.Automation.Base.ActionEngine;
 import com.Automation.Utils.ConfigsReader;
 import com.Automation.Utils.TimeUtil;
-import com.aventstack.extentreports.configuration.Config;
 
 public class CC_ForceClosureApproval extends ActionEngine {
 	
