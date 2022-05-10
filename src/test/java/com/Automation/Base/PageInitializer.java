@@ -42,6 +42,7 @@ import com.Automation.Pages.DEV_ClosureInitiation;
 import com.Automation.Pages.DEV_LoginInitiation;
 import com.Automation.Pages.Dev_Closure_Approve;
 import com.Automation.Pages.Dev_ETD;
+import com.Automation.Pages.Dev_FocreClosure;
 import com.Automation.Pages.Dev_Lgn_Approval;
 import com.Automation.Pages.Dev_Lgn_Review;
 import com.Automation.Pages.Dev_OTD;
@@ -137,6 +138,7 @@ public class PageInitializer extends TestEngine {
 	public static CC_ForceClosureImpacts ccForceClosureImpacts;
 	public static CCDN_ForceClosureInitiation ccdnForceClosureInitiation;
 	public static CCDN_ForceClosureApproval ccdnForceClosureApproval;
+	public static Dev_FocreClosure devForceclosure;
 	
 	
 	//SP build
@@ -254,6 +256,7 @@ public class PageInitializer extends TestEngine {
 		docLgnApprovesp = new Doc_Lgn_Approve_SP();
 		docClosuresp = new DocClosure_SP();
 		devETDsp = new Dev_ETD();
+		devForceclosure = new Dev_FocreClosure();
 		
 		
 		

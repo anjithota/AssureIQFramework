@@ -2,6 +2,7 @@ package com.Automation.Testcases;
 
 import java.awt.AWTException;
 
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -9,13 +10,11 @@ import com.Automation.Base.ActionEngine;
 import com.Automation.Pages.LogOut;
 import com.Automation.Utils.ConfigsReader;
 import com.Automation.Utils.Excelutil;
+import com.Automation.Utils.MyScreenRecorder;
 
 public class CC_ForceClosure_TC extends ActionEngine {
 	
-	public CC_ForceClosure_TC() {
-
-		super(ConfigsReader.getPropValue("applicationUrl"));
-	}
+	
 	String Epath = "./TestData/ChangeControlSR.xlsx";
 	
 	// 1 Data Provider for Change Control Login Initiation
@@ -40,22 +39,25 @@ public class CC_ForceClosure_TC extends ActionEngine {
 			Object getCCQAAppr[][] = Excelutil.getTestData(Epath, "CCLgnQA");
 			return getCCQAAppr;
 		}
-	
+		public CC_ForceClosure_TC() {
+
+			super(ConfigsReader.getPropValue("applicationUrl"));
+		}
 		@Test(priority = 1, dataProvider = "CCLgnInit", enabled = true)
 		public void loginToEPIQ(String Document, String Facility, String Others, String CurrentPractice,
 				String ProposedChange, String JustForProposedChange, String SupportingData, String RemarkReasons) {
 			this.test = extent.createTest("Change Control Login Initiation");
 			epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("EPIQCCID"),
 					ConfigsReader.getPropValue("EPIQCCPWD"));
-			ccLogin.changeControlLoginPage();
+			/*ccLogin.changeControlLoginPage();
 			ccLoginInitiation.changeControlRegistrationDetails(Document, Facility, Others, CurrentPractice, ProposedChange,
-					JustForProposedChange, SupportingData, RemarkReasons);
-			ccLoginInitAuditTrail.ChangeControlLoginAT();
+					JustForProposedChange, SupportingData, RemarkReasons);*/
+		ccLoginInitAuditTrail.ChangeControlLoginAT();
 			logout.logOut();
 
 		}
 
-		@Test(priority = 2, dataProvider = "CCLgnHod", enabled = true)
+	/*	@Test(priority = 2, dataProvider = "CCLgnHod", enabled = true)
 		public void CCHodRev(String IHODComments, String PlanDescription, String RemarkReason) {
 			this.test = extent.createTest("Change Control Login Review");
 			epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("CCLgnIHODID"),
@@ -101,9 +103,14 @@ public class CC_ForceClosure_TC extends ActionEngine {
 					ConfigsReader.getPropValue("CCLgnIHODPwd"));
 			ccForceClosureImpacts.cc_OTD_Frc();
 			logout.logOut();
-		}  
+		} */ 
 	
-	
+		@AfterTest
+		public void afterTest() {
+			extent.flush();
+			MyScreenRecorder.stopRecording();
+
+		}
 }		
 		
 		
