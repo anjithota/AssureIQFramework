@@ -12,8 +12,7 @@ public class Demo_TC1 extends ActionEngine {
 	}
 
 	@Test(enabled = true)
-	public void devLoginInitiate(String block, String dateOfOccure, String dateOfIdentify, String justify,
-			String system, String otherText, String  EventDesc, String initialInvestigation, String consequence, String assuemedCategory, String immediateAction) {
+	public void devLoginInitiate() {
 		spLogin.loginToSPApplication(ConfigsReader.getPropValue("SPDevRevID"),
 				ConfigsReader.getPropValue("SPDevRevPwd"));
 		devForceclosure.devForceClosureAuditTrail();

@@ -22,10 +22,17 @@ public class Dev_FocreClosure extends ActionEngine{
 	@FindBy(className = "text-ellipsis")
 	WebElement Record;
 
-@FindBy(id = "DNFC_04")
+@FindBy(id = "DEFC_04")
 WebElement DevForceClosureAuditTrailMenu;
 @FindBy(className = "popup-close-button")
 WebElement AuditTrailClose;
+
+@FindBy(className= "dateVCBtn")
+WebElement DateFilter;
+
+@FindBy(xpath="//li[text()='Last 30 Days']")
+WebElement LastThirtyBtn;
+
 
 public void devForceClosureAuditTrail(){
 	switchToDefaultContent(driver);
@@ -35,6 +42,8 @@ public void devForceClosureAuditTrail(){
 	switchToBodyFrame(driver);
 	click(AdvanceSearchButton, "Advanced sreach button");
 	enterUniqueCode(driver, IssuecodeFilter);
+	click(DateFilter, "Date calendar");
+	click(LastThirtyBtn, "Last 30 days");
 	click(ApplyButton, "Apply button");
 	click(Record, "Record");
 	switchToPopupModelFrame(driver);

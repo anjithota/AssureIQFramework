@@ -1,61 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="10438" started-at="2022-05-10T12:14:11 IST" finished-at="2022-05-10T12:14:22 IST">
+  <suite name="Default suite" duration-ms="48347" started-at="2022-05-10T14:38:40 IST" finished-at="2022-05-10T14:39:28 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="10438" started-at="2022-05-10T12:14:11 IST" finished-at="2022-05-10T12:14:22 IST">
+    <test name="Default test" duration-ms="48347" started-at="2022-05-10T14:38:40 IST" finished-at="2022-05-10T14:39:28 IST">
       <class name="com.Automation.Testcases.Demo_TC1">
-        <test-method status="PASS" signature="setup1()[pri:0, instance:com.Automation.Testcases.Demo_TC1@31f9b85e]" name="setup1" is-config="true" duration-ms="9087" started-at="2022-05-10T12:14:12 IST" finished-at="2022-05-10T12:14:21 IST">
+        <test-method status="PASS" signature="setup1()[pri:0, instance:com.Automation.Testcases.Demo_TC1@31f9b85e]" name="setup1" is-config="true" duration-ms="3891" started-at="2022-05-10T14:38:40 IST" finished-at="2022-05-10T14:38:44 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup1 -->
-        <test-method status="FAIL" signature="devLoginInitiate(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.Automation.Testcases.Demo_TC1@31f9b85e]" name="devLoginInitiate" duration-ms="0" started-at="2022-05-10T12:14:21 IST" finished-at="2022-05-10T12:14:21 IST">
-          <exception class="org.testng.TestNGException">
-            <message>
-              <![CDATA[
-Cannot inject @Test annotated Method [devLoginInitiate] with [class java.lang.String, class java.lang.String, class java.lang.String, class java.lang.String, class java.lang.String, class java.lang.String, class java.lang.String, class java.lang.String, class java.lang.String, class java.lang.String, class java.lang.String].
-For more information on native dependency injection please refer to https://testng.org/doc/documentation-main.html#native-dependency-injection]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.testng.TestNGException: 
-Cannot inject @Test annotated Method [devLoginInitiate] with [class java.lang.String, class java.lang.String, class java.lang.String, class java.lang.String, class java.lang.String, class java.lang.String, class java.lang.String, class java.lang.String, class java.lang.String, class java.lang.String, class java.lang.String].
-For more information on native dependency injection please refer to https://testng.org/doc/documentation-main.html#native-dependency-injection
-at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:439)
-at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:353)
-at org.testng.internal.Parameters.createParameters(Parameters.java:708)
-at org.testng.internal.Parameters.handleParameters(Parameters.java:884)
-at org.testng.internal.Parameters.handleParameters(Parameters.java:740)
-at org.testng.internal.ParameterHandler.handleParameters(ParameterHandler.java:59)
-at org.testng.internal.ParameterHandler.createParameters(ParameterHandler.java:38)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:791)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.testng.TestNGException -->
+        <test-method status="PASS" signature="devLoginInitiate()[pri:0, instance:com.Automation.Testcases.Demo_TC1@31f9b85e]" name="devLoginInitiate" duration-ms="40578" started-at="2022-05-10T14:38:44 IST" finished-at="2022-05-10T14:39:24 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- devLoginInitiate -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.Automation.Testcases.Demo_TC1@31f9b85e]" name="afterTest" is-config="true" duration-ms="1204" started-at="2022-05-10T12:14:21 IST" finished-at="2022-05-10T12:14:22 IST">
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.Demo_TC1@31f9b85e]" name="getResult" is-config="true" duration-ms="0" started-at="2022-05-10T14:39:24 IST" finished-at="2022-05-10T14:39:24 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=devLoginInitiate status=SUCCESS method=Demo_TC1.devLoginInitiate()[pri:0, instance:com.Automation.Testcases.Demo_TC1@31f9b85e] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.Automation.Testcases.Demo_TC1@31f9b85e]" name="afterTest" is-config="true" duration-ms="3785" started-at="2022-05-10T14:39:24 IST" finished-at="2022-05-10T14:39:28 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
