@@ -2,35 +2,35 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="48347" started-at="2022-05-10T14:38:40 IST" finished-at="2022-05-10T14:39:28 IST">
+  <suite name="Suite" duration-ms="49287" started-at="2022-05-10T17:55:37 IST" finished-at="2022-05-10T17:56:26 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="48347" started-at="2022-05-10T14:38:40 IST" finished-at="2022-05-10T14:39:28 IST">
-      <class name="com.Automation.Testcases.Demo_TC1">
-        <test-method status="PASS" signature="setup1()[pri:0, instance:com.Automation.Testcases.Demo_TC1@31f9b85e]" name="setup1" is-config="true" duration-ms="3891" started-at="2022-05-10T14:38:40 IST" finished-at="2022-05-10T14:38:44 IST">
+    <test name="DevForceClosureTest_TC" duration-ms="49287" started-at="2022-05-10T17:55:37 IST" finished-at="2022-05-10T17:56:26 IST">
+      <class name="com.Automation.Testcases.DevForceClosureTest">
+        <test-method status="PASS" signature="setup1()[pri:0, instance:com.Automation.Testcases.DevForceClosureTest@31f9b85e]" name="setup1" is-config="true" duration-ms="4499" started-at="2022-05-10T17:55:37 IST" finished-at="2022-05-10T17:55:41 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup1 -->
-        <test-method status="PASS" signature="devLoginInitiate()[pri:0, instance:com.Automation.Testcases.Demo_TC1@31f9b85e]" name="devLoginInitiate" duration-ms="40578" started-at="2022-05-10T14:38:44 IST" finished-at="2022-05-10T14:39:24 IST">
+        <test-method status="PASS" signature="devLoginInitiate()[pri:0, instance:com.Automation.Testcases.DevForceClosureTest@31f9b85e]" name="devLoginInitiate" duration-ms="40961" started-at="2022-05-10T17:55:41 IST" finished-at="2022-05-10T17:56:22 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- devLoginInitiate -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.Demo_TC1@31f9b85e]" name="getResult" is-config="true" duration-ms="0" started-at="2022-05-10T14:39:24 IST" finished-at="2022-05-10T14:39:24 IST">
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.DevForceClosureTest@31f9b85e]" name="getResult" is-config="true" duration-ms="15" started-at="2022-05-10T17:56:22 IST" finished-at="2022-05-10T17:56:22 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=devLoginInitiate status=SUCCESS method=Demo_TC1.devLoginInitiate()[pri:0, instance:com.Automation.Testcases.Demo_TC1@31f9b85e] output={null}]]]>
+                <![CDATA[[TestResult name=devLoginInitiate status=SUCCESS method=DevForceClosureTest.devLoginInitiate()[pri:0, instance:com.Automation.Testcases.DevForceClosureTest@31f9b85e] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.Automation.Testcases.Demo_TC1@31f9b85e]" name="afterTest" is-config="true" duration-ms="3785" started-at="2022-05-10T14:39:24 IST" finished-at="2022-05-10T14:39:28 IST">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.Automation.Testcases.DevForceClosureTest@31f9b85e]" name="afterTest" is-config="true" duration-ms="3734" started-at="2022-05-10T17:56:22 IST" finished-at="2022-05-10T17:56:26 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- com.Automation.Testcases.Demo_TC1 -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- com.Automation.Testcases.DevForceClosureTest -->
+    </test> <!-- DevForceClosureTest_TC -->
+  </suite> <!-- Suite -->
 </testng-results>

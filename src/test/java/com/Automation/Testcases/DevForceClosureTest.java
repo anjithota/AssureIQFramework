@@ -5,8 +5,8 @@ import org.testng.annotations.Test;
 import com.Automation.Base.ActionEngine;
 import com.Automation.Utils.ConfigsReader;
 
-public class Demo_TC1 extends ActionEngine {
-	public Demo_TC1() {
+public class DevForceClosureTest extends ActionEngine {
+	public DevForceClosureTest() {
 
 		super(ConfigsReader.getPropValue("applicationUrl"));
 	}
