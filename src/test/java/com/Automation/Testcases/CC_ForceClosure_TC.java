@@ -47,8 +47,8 @@ public class CC_ForceClosure_TC extends ActionEngine {
 		public void loginToEPIQ(String Document, String Facility, String Others, String CurrentPractice,
 				String ProposedChange, String JustForProposedChange, String SupportingData, String RemarkReasons) {
 			this.test = extent.createTest("Change Control Login Initiation");
-			epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("EPIQCCID"),
-					ConfigsReader.getPropValue("EPIQCCPWD"));
+			epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("Initiator"),
+					ConfigsReader.getPropValue("Initiatorpwd"));
 			/*ccLogin.changeControlLoginPage();
 			ccLoginInitiation.changeControlRegistrationDetails(Document, Facility, Others, CurrentPractice, ProposedChange,
 					JustForProposedChange, SupportingData, RemarkReasons);*/
@@ -56,6 +56,22 @@ public class CC_ForceClosure_TC extends ActionEngine {
 			logout.logOut();
 
 		}
+		
+		@Test(priority = 1, dataProvider = "CCLgnInit", enabled = true)
+		public void loginToEPIQl(String Document, String Facility, String Others, String CurrentPractice,
+				String ProposedChange, String JustForProposedChange, String SupportingData, String RemarkReasons) {
+			this.test = extent.createTest("Change Control Login Initiation");
+			epiqLogin.loginToEPICOQApplication(ConfigsReader.getPropValue("Approvar"),
+					ConfigsReader.getPropValue("Approvarpwd"));
+			/*ccLogin.changeControlLoginPage();
+			ccLoginInitiation.changeControlRegistrationDetails(Document, Facility, Others, CurrentPractice, ProposedChange,
+					JustForProposedChange, SupportingData, RemarkReasons);*/
+		ccLoginInitAuditTrail.ChangeControlLoginAT();
+			logout.logOut();
+
+		}
+		
+		
 
 	/*	@Test(priority = 2, dataProvider = "CCLgnHod", enabled = true)
 		public void CCHodRev(String IHODComments, String PlanDescription, String RemarkReason) {

@@ -6,18 +6,26 @@ import com.Automation.Base.ActionEngine;
 import com.Automation.Utils.ConfigsReader;
 
 public class DevForceClosureTest extends ActionEngine {
+	
+	
 	public DevForceClosureTest() {
 
 		super(ConfigsReader.getPropValue("applicationUrl"));
 	}
 
-	@Test(enabled = true)
+	@Test(priority = 1,enabled = true)
 	public void devLoginInitiate() {
-		spLogin.loginToSPApplication(ConfigsReader.getPropValue("SPDevRevID"),
-				ConfigsReader.getPropValue("SPDevRevPwd"));
+		test.createNode("Deviation Force Closure Initiation").pass("Deviation Force Closure Initiation").createNode("Deviation Force Closure Initiation")
+		.pass("Deviation Force Closure Initiation Test");
+		this.test = extent.createTest("Deviation Force Closure Initiation");
+		spLogin.loginToSPApplication(ConfigsReader.getPropValue("SPDevLgnID"),
+				ConfigsReader.getPropValue("SPDevLgnPwd"));
+		devForceclosure.devForceClosureInitiation();
 		devForceclosure.devForceClosureAuditTrail();
 		spLogout.logOut();
 
 		
 	}
+	
+	
 }

@@ -2,35 +2,35 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="49287" started-at="2022-05-10T17:55:37 IST" finished-at="2022-05-10T17:56:26 IST">
+  <suite name="Default suite" duration-ms="28626" started-at="2022-05-13T17:03:51 IST" finished-at="2022-05-13T17:04:20 IST">
     <groups>
     </groups>
-    <test name="DevForceClosureTest_TC" duration-ms="49287" started-at="2022-05-10T17:55:37 IST" finished-at="2022-05-10T17:56:26 IST">
-      <class name="com.Automation.Testcases.DevForceClosureTest">
-        <test-method status="PASS" signature="setup1()[pri:0, instance:com.Automation.Testcases.DevForceClosureTest@31f9b85e]" name="setup1" is-config="true" duration-ms="4499" started-at="2022-05-10T17:55:37 IST" finished-at="2022-05-10T17:55:41 IST">
+    <test name="Default test" duration-ms="28626" started-at="2022-05-13T17:03:51 IST" finished-at="2022-05-13T17:04:20 IST">
+      <class name="com.Automation.Testcases.BA_ScenarioOne">
+        <test-method status="PASS" signature="setup1()[pri:0, instance:com.Automation.Testcases.BA_ScenarioOne@31f9b85e]" name="setup1" is-config="true" duration-ms="4566" started-at="2022-05-13T17:03:51 IST" finished-at="2022-05-13T17:03:56 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup1 -->
-        <test-method status="PASS" signature="devLoginInitiate()[pri:0, instance:com.Automation.Testcases.DevForceClosureTest@31f9b85e]" name="devLoginInitiate" duration-ms="40961" started-at="2022-05-10T17:55:41 IST" finished-at="2022-05-10T17:56:22 IST">
+        <test-method status="PASS" signature="devLoginInitiate()[pri:1, instance:com.Automation.Testcases.BA_ScenarioOne@31f9b85e]" name="devLoginInitiate" duration-ms="21294" started-at="2022-05-13T17:03:56 IST" finished-at="2022-05-13T17:04:17 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- devLoginInitiate -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.DevForceClosureTest@31f9b85e]" name="getResult" is-config="true" duration-ms="15" started-at="2022-05-10T17:56:22 IST" finished-at="2022-05-10T17:56:22 IST">
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.BA_ScenarioOne@31f9b85e]" name="getResult" is-config="true" duration-ms="4" started-at="2022-05-13T17:04:17 IST" finished-at="2022-05-13T17:04:17 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=devLoginInitiate status=SUCCESS method=DevForceClosureTest.devLoginInitiate()[pri:0, instance:com.Automation.Testcases.DevForceClosureTest@31f9b85e] output={null}]]]>
+                <![CDATA[[TestResult name=devLoginInitiate status=SUCCESS method=BA_ScenarioOne.devLoginInitiate()[pri:1, instance:com.Automation.Testcases.BA_ScenarioOne@31f9b85e] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.Automation.Testcases.DevForceClosureTest@31f9b85e]" name="afterTest" is-config="true" duration-ms="3734" started-at="2022-05-10T17:56:22 IST" finished-at="2022-05-10T17:56:26 IST">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.Automation.Testcases.BA_ScenarioOne@31f9b85e]" name="afterTest" is-config="true" duration-ms="2643" started-at="2022-05-13T17:04:17 IST" finished-at="2022-05-13T17:04:20 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- com.Automation.Testcases.DevForceClosureTest -->
-    </test> <!-- DevForceClosureTest_TC -->
-  </suite> <!-- Suite -->
+      </class> <!-- com.Automation.Testcases.BA_ScenarioOne -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

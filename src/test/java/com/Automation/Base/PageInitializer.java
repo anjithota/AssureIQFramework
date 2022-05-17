@@ -43,6 +43,7 @@ import com.Automation.Pages.DEV_LoginInitiation;
 import com.Automation.Pages.Dev_Closure_Approve;
 import com.Automation.Pages.Dev_ETD;
 import com.Automation.Pages.Dev_FocreClosure;
+import com.Automation.Pages.Dev_ForceClosureApproval;
 import com.Automation.Pages.Dev_Lgn_Approval;
 import com.Automation.Pages.Dev_Lgn_Review;
 import com.Automation.Pages.Dev_OTD;
@@ -71,6 +72,7 @@ import com.Automation.Pages.MST_Facility;
 import com.Automation.Pages.PlantSelection;
 import com.Automation.Pages.VerifyCCClosure;
 import com.Automation.Utils.ESign;
+import com.Automation.spPages.BatchInitiator;
 import com.Automation.spPages.SPLogout;
 import com.Automation.spPages.SP_LoginPage;
 
@@ -92,7 +94,6 @@ public class PageInitializer extends TestEngine {
 	public static CCLoginIHOD ccLoiginHOD;
 	public static DnLgnInitiationForCC dnLgnInitiationForCC;
 	public static DnLgnInitiationForCC dnLgnInitiation;
-	
 
 	// Change Control Process
 	public static ChangeControlLogin ccLogin;
@@ -134,18 +135,16 @@ public class PageInitializer extends TestEngine {
 	public static CCDN_EMtaskSchedule ccdnEMSchedule;
 	public static CC_ETD_Initiation ccEtdInitiate;
 	public static CC_ForceClosureInitiation ccForceClosure;
-	public static  CC_ForceClosureApproval ccForceClosureApproval;
+	public static CC_ForceClosureApproval ccForceClosureApproval;
 	public static CC_ForceClosureImpacts ccForceClosureImpacts;
 	public static CCDN_ForceClosureInitiation ccdnForceClosureInitiation;
 	public static CCDN_ForceClosureApproval ccdnForceClosureApproval;
-	public static Dev_FocreClosure devForceclosure;
-	
-	
-	//SP build
+
+	// SP build
 	public static SP_LoginPage spLogin;
 	public static SPLogout spLogout;
-	
-	//Deviation
+
+	// Deviation
 	public static DEV_LoginInitiation devLoginInitiation;
 	public static Dev_Lgn_Approval devLoginApprove;
 	public static Dev_Lgn_Review devLoginReview;
@@ -160,10 +159,19 @@ public class PageInitializer extends TestEngine {
 	public static Doc_Lgn_Approve_SP docLgnApprovesp;
 	public static DocClosure_SP docClosuresp;
 	public static Dev_ETD devETDsp;
-	
-	
+	// public static Dev_FocreClosure devForceClosure;
+	public static Dev_FocreClosure devForceclosure;
+	public static Dev_ForceClosureApproval devForceClosureApproval;
+
 	public static PlantSelection plants;
 	public static CM_AttendanceReport attendanceReport;
+	
+	
+	
+	
+	//demo
+	
+	public static BatchInitiator batchInit;
 
 	public PageInitializer(String url) {
 
@@ -231,23 +239,23 @@ public class PageInitializer extends TestEngine {
 		ccClosureAuditTrail = new CC_ClosureAuditTrail();
 		ccSelectiveReturnAudit = new CC_SelectiveReturnAuditTrail();
 		ccdnEMSchedule = new CCDN_EMtaskSchedule();
-		ccEtdInitiate = new CC_ETD_Initiation(); 
+		ccEtdInitiate = new CC_ETD_Initiation();
 		ccForceClosure = new CC_ForceClosureInitiation();
-		ccForceClosureApproval =new CC_ForceClosureApproval();
+		ccForceClosureApproval = new CC_ForceClosureApproval();
 		ccForceClosureImpacts = new CC_ForceClosureImpacts();
 		ccdnForceClosureInitiation = new CCDN_ForceClosureInitiation();
 		ccdnForceClosureApproval = new CCDN_ForceClosureApproval();
 		// sp build
 		spLogin = new SP_LoginPage();
 		spLogout = new SPLogout();
-		
-		//Deviation pages
+
+		// Deviation pages
 		devLoginInitiation = new DEV_LoginInitiation();
 		devLoginApprove = new Dev_Lgn_Approval();
 		devLoginReview = new Dev_Lgn_Review();
 		devOTD = new Dev_OTD();
 		devOTDAuditTrail = new Dev_OTDAutitTrail();
-		devQAD = new  Dev_QAD();
+		devQAD = new Dev_QAD();
 		devClosureInitiation = new DEV_ClosureInitiation();
 		devClosureAppr = new Dev_Closure_Approve();
 		docLoginReviewsp = new DocLoginReviewSP();
@@ -257,17 +265,16 @@ public class PageInitializer extends TestEngine {
 		docClosuresp = new DocClosure_SP();
 		devETDsp = new Dev_ETD();
 		devForceclosure = new Dev_FocreClosure();
-		
-		
-		
-		
-		
-		//Test
-		
+		devForceClosureApproval = new Dev_ForceClosureApproval();
+
+		// Test
+
 		plants = new PlantSelection();
 		attendanceReport = new CM_AttendanceReport();
 		
+		//demo
 		
+		batchInit = new BatchInitiator();
 
-	} 
+	}
 }
