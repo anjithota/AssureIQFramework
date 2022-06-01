@@ -46,7 +46,7 @@ public class EPIQLoginPage extends ActionEngine {
 			
 				click(BtnYes, "Yes Button");
 			}
-		catch (NoSuchElementException e) {
+		catch (Exception e) {
 			e.printStackTrace();
 		}*/
 //		try {

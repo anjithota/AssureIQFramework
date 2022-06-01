@@ -87,7 +87,6 @@ public class Dev_FocreClosure extends ActionEngine {
 	public void devForceClosureInitiation() {
 		click(initiate, "Intiate button");
 		click(ForceClosure, "Force Closure");
-		//click(initiate, "Iitiate button");
 
 		switchToPopupModelFrame(driver);
 
@@ -105,11 +104,9 @@ public class Dev_FocreClosure extends ActionEngine {
 		click(AdvanceSearchButton, "Advanced search");
 		click(DateFilter, "Date Filter");
 		TimeUtil.shortWait();
-		// click(LastThirtyBtn, "Last Thirty Btn");
-		jsClick(LastThirtyBtn, "Last 30 days");
-
-		sendText(IssuecodeFilter, "", "");
-	// 	enterUniqueCodeConcat(driver, IssueCodeFilter);
+		 click(LastThirtyBtn, "Last Thirty Btn");
+	//	jsClick(LastThirtyBtn, "Last 30 days");
+		enterUniqueCodeConcat(driver, IssueCodeFilter);
 		click(ApplyButton, "Apply button");
 		click(Record, "Record");
 		click(SubmitBtn, "Submit button");
@@ -137,3 +134,4 @@ public class Dev_FocreClosure extends ActionEngine {
 	}
 
 }
+ 

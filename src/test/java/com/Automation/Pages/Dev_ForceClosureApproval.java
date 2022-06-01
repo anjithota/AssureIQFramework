@@ -72,7 +72,7 @@ public class Dev_ForceClosureApproval extends ActionEngine {
 		TimeUtil.shortWait();
 		click(decisionApprove, "Approve Button");
 		click(SubmitBtn, "Submit Button");
-		E_sign.e_Sign(ConfigsReader.getPropValue("SPDevLgnPwd"));
+		E_sign.e_Sign(ConfigsReader.getPropValue("SPDevRevPwd"));
 		switchToDefaultContent(driver);
 
 	}
@@ -92,10 +92,11 @@ public class Dev_ForceClosureApproval extends ActionEngine {
 		click(ApplyButton, "Apply Button");
 		click(Record, "Workitem");
 		TimeUtil.shortWait();
+		//
 		click(decisionDrop, "Drop Button");
 		sendText(Remark, remarks, "Remarks");
 		click(SubmitBtn, "Submit Button");
-		E_sign.e_Sign(ConfigsReader.getPropValue("CCLgnIHODPwd"));
+		E_sign.e_Sign(ConfigsReader.getPropValue("SPDevRevPwd"));
 		//saveAlterUniqueCode(driver, DroppedIssueCode);
 		switchToDefaultContent(driver);
 
