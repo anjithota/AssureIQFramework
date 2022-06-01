@@ -177,6 +177,19 @@ public class DEV_LoginInitiation extends ActionEngine {
 	@FindBy(id = "txtRemarks")
 	WebElement remarkReason;
 	
+	@FindBy(id="DVLN_04")
+	WebElement Devloginaudittrails;
+	
+	@FindBy(className = "event-div")
+	WebElement EventBlock;
+
+
+
+
+
+
+@FindBy(className = "popup-close-button")
+	WebElement AuditTrailClose;
 	
 	
 	
@@ -345,6 +358,24 @@ public class DEV_LoginInitiation extends ActionEngine {
 		switchToDefaultContent(driver);
 		
 	}
+	
+public void devLogininitiationAuditTrail() {
+		
+		switchToDefaultContent(driver);
+		click(ProcessmanagerMenu, "Process manager");
+		click(Devloginaudittrails, "Deviation Login Audit Trail");
+		switchToBodyFrame(driver);
+		click(AdvanceSearchButton, "Advanced sreach button");
+		enterUniqueCode(driver, IssuecodeFilter);
+		click(ApplyButton, "Apply button");
+		click(Record, "Record");
+		switchToPopupModelFrame(driver);
+		scrollToViewElement(EventBlock);
+		
+		click(AuditTrailClose, "Close Button");
+		switchToDefaultContent(driver);
+	}
+
 	
 	
 

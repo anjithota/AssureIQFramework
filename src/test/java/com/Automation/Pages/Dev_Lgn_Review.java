@@ -112,7 +112,11 @@ public class Dev_Lgn_Review extends ActionEngine {
 	WebElement remarkReason;
 
 	
+	@FindBy(xpath = "//label[@for='ISU_LGN_CTR_105_2']")
+	WebElement CAActionPlanNo;
 	
+	@FindBy(id="ISU_LGN_CTR_133")
+	WebElement CAResons;
 
 
 	public void devIhodApproval(String hodComments, String planDesc, String reasonForPA) {
@@ -300,6 +304,128 @@ public class Dev_Lgn_Review extends ActionEngine {
 	}
 	
 	
-	
+	public void devLgnreviewNoActionPlan(String hodComments,String reasonForCA, String reasonForPA)
+	{
+		switchToBodyFrame(driver);
+		click(DevMyTaskMenu, "Deviation my task menu");
+		click(DevLgnTaskMenu, "Deviation Login My task menu");
+		//switchToDefaultContent(driver);
+		switchToTaskListFrame(driver);
+
+		click(AdvanceSearchButton, "Advance Search button");
+
+		// sendText(IssuecodeFilter, "CC-PL01-Admin-21-0013", "Isssue Code Filter");
+
+		enterUniqueCode(driver, IssuecodeFilter);
+
+		click(ApplyButton, "Apply Button");
+		click(Record, "Workitem");
+		switchToDefaultContent(driver);
+		switchToBodyFrame(driver);
+
+		scrollToViewElement(ReviewDecision);
+
+		click(ReviewDecision, "Review");
+
+		verifyCaptionContains(IHodCommentsError, "Enter Value");
+		sendText(IHodCommentsText, hodComments, "Ihod comments");
+
+		scrollToViewElement(ReviewDecision);
+
+		click(ReviewDecision, "Review");
+
+		verifyCaptionContains(ProbablereasonRequiredError, "Select Value");
+
+		click(ProbablereasonRequired, "Probable Reason Required No");
+
+		scrollToViewElement(ReviewDecision);
+
+		click(ReviewDecision, "Review");
+
+		verifyCaptionContains(CorrectiveActionrequiredError, "Select Value");
+		
+		click(CAActionPlanNo, "Corrective action no");
+		
+		sendText(CAResons, reasonForCA, "Reason for CA");
+
+			
+		scrollToViewElement(ReviewDecision);
+		
+		click(ReviewDecision, "Review");
+
+		verifyCaptionContains(PreventiveActionrequiredError, "Select Value");
+
+		click(PreventiveActionrequired, "Preventive Action Required No");
+
+		scrollToViewElement(ReviewDecision);
+
+		click(ReviewDecision, "Review");
+		
+		verifyCaptionContains(ReasonsForNotPAerror, "Enter Value");
+
+		sendText(ReasonsForNotPA, reasonForPA, "Reason for PA not required");
+
+		scrollToViewElement(ReviewDecision);
+		
+		click(ReviewDecision, "Review");
+
+		verifyCaptionContains(OtherActionrequiredError, "Select Value");
+
+		click(OtherActionrequired, "Other Action Required No");
+
+		scrollToViewElement(ReviewDecision);
+		
+		click(ReviewDecision, "Review");
+
+		verifyCaptionContains(ContainmentActionrequiredError, "Select Value");
+
+		click(ContainmentActionrequired, "Containment Action Required No");
+
+scrollToViewElement(ReviewDecision);
+		
+		click(ReviewDecision, "Review");
+		verifyCaptionContains(OtherDepartmentCommentsError, "Select Value");
+		click(OtherDepartmentComments, "Other Department Comments");
+		
+		switchToPopupModalFrame2(driver);
+
+		// Verify Other Department Heading
+		verifyCaptionContains(OtherDepartmentCmts, "Department Required to Provide Comments");
+
+		// Click Other Department Add Item
+		jsClick(OtherDeptAdd, "Other Department Cmts Add");
+
+		// Select Department for Other Department Comments
+		
+		 jsClick(otherDeptDD, "Other Departments");
+		  
+		/* // Get the size of Department for Other Department Comments
+		 * System.out.println("List of Departments to Task Allocate:- " +
+		 * getSize(listOfOtherDept));
+		 * 
+		 */
+		// Select Admin Department
+		jsClick(AdminDept, "Administration");
+
+
+		// Click Submit Button
+		click(otherDeptSubmitBtn, "Submit Button");
+
+		// Switch to Parent frame
+		switchToParentFrame(driver);
+		
+		scrollToViewElement(ReviewDecision);
+		click(ReviewDecision, "Review");
+		
+		click(submitBtn, "IHOD Submit Button");
+		E_sign.e_Sign(ConfigsReader.getPropValue("SPDevRevPwd"));
+		
+		switchToDefaultContent(driver);
+		switchToBodyFrame(driver);
+		
+
+
+		
+	}
 
 }

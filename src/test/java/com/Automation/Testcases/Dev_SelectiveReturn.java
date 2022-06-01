@@ -206,14 +206,14 @@ ExtentReports extentReport;
 		
 	}
 	@Test(priority = 8, dataProvider = "devQAD", enabled = true)
-	public void dev_Qad(String rootCauseDropdown, String reviewComments) {
+	public void dev_Qad(String rootCauseDropdown, String reviewComments, String rootCauseDetails) {
 		test.createNode("Deviation QAD Test").pass("Deviation QAD").createNode("Deviation QAD")
 		.pass("Deviation QAD");
 		this.test = extent.createTest("Deviation QA Decision");
 		
 			spLogin.loginToSPApplication(ConfigsReader.getPropValue("SPDevApprID"),
 					ConfigsReader.getPropValue("SPDevApprPwd"));
-			devQAD.devQAD(rootCauseDropdown, reviewComments);
+			devQAD.devQAD(rootCauseDropdown, reviewComments, rootCauseDetails);
 			devQAD.devQADAuditTrail();
 			spLogout.logOut();
 			
