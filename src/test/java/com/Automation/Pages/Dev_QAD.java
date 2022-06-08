@@ -74,25 +74,25 @@ public class Dev_QAD extends ActionEngine {
 	@FindBy(id = "ISU_QAD_CTF_034_error")
 	WebElement RecategorizationRequiredError;
 
-	@FindBy(id = "ISU_QAD_CTF_034_2")
+	@FindBy(xpath = "//label[@for='ISU_QAD_CTF_034_2']")
 	WebElement RecategorizationRequiredNo;
 
 	@FindBy(id = "ISU_QAD_CTF_011_error")
 	WebElement CorrectiveActionPlanRequiredError;
 
-	@FindBy(id = "ISU_QAD_CTF_011_2")
+	@FindBy(xpath = "//label[@for='ISU_QAD_CTF_011_2']")
 	WebElement CorrectiveActionPlanRequiredNo;
 
 	@FindBy(id = "ISU_QAD_CTF_013_error")
 	WebElement PreventiveActionPlanRequiredError;
 
-	@FindBy(id = "ISU_QAD_CTF_013_2")
+	@FindBy(xpath = "//label[@for= 'ISU_QAD_CTF_013_2']")//
 	WebElement PreventiveActionPlanRequiredNo;
 
 	@FindBy(id = "ISU_QAD_CTF_015_error")
 	WebElement OtherActionPlanRequiredError;
 
-	@FindBy(id = "ISU_QAD_CTF_015_2")
+	@FindBy(xpath = "//label[@for='ISU_QAD_CTF_015_2']")
 	WebElement OtherActionPlanRequiredNo;
 
 	@FindBy(id = "DVQA_04")

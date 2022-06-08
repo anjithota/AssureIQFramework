@@ -63,7 +63,7 @@ public class Dev_Closure_Approve extends ActionEngine {
 	@FindBy(xpath = "//label[@for='EsignerDecision_3']")
 	WebElement ReturnDecision;
 	
-	@FindBy(id = "ISU_CLS_CTR_018_1")
+	@FindBy(xpath = "//label[@for='ISU_CLS_CTR_018_1']")
 	WebElement DecisionApproved;
 	
 
@@ -103,8 +103,7 @@ public class Dev_Closure_Approve extends ActionEngine {
 		switchToBodyFrame(driver);
 		click(DevMyTaskMenu, "Deviation my task menu");
 		click(DevClosureMyTaskMenu, "Deviation Closure My task menu");
-		switchToDefaultContent(driver);
-		switchToBodyFrame(driver);
+		switchToTaskListFrame(driver);
 		click(AdvanceSearchButton, "Advance Search button");
 
 		// sendText(IssuecodeFilter, "CC-PL01-Admin-21-0013", "Isssue Code Filter");
@@ -112,7 +111,8 @@ public class Dev_Closure_Approve extends ActionEngine {
 		enterUniqueCode(driver, IssuecodeFilter);
 		click(ApplyButton, "Apply Button");
 		click(Record, "Workitem");
-		
+		switchToDefaultContent(driver);
+		switchToBodyFrame(driver);
 		click(AprroveDecision, "Approve button");
 		verifyCaptionContains(ReviewCommentsTextError, "Enter Value");
 		sendText(ReviewCommentsText, ReviewComments, "Review Comments");
@@ -121,7 +121,7 @@ public class Dev_Closure_Approve extends ActionEngine {
 		click(DecisionApproved, "Approved button");
 		click(AprroveDecision, "Approval Decision");
 		click(SubmitButton, "Submit button");
-		E_sign.e_Sign(ConfigsReader.getPropValue("SPDevRevID"));
+		E_sign.e_Sign(ConfigsReader.getPropValue("SPDevRevPwd"));
 		switchToDefaultContent(driver);
 		
 	}

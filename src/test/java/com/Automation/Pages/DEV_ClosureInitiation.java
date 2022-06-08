@@ -61,8 +61,7 @@ public class DEV_ClosureInitiation extends ActionEngine {
 		switchToBodyFrame(driver);
 		click(DevMyTaskMenu, "Deviation my task menu");
 		click(DevClosureMyTaskMenu, "Deviation Closure My task menu");
-		switchToDefaultContent(driver);
-		switchToBodyFrame(driver);
+		switchToTaskListFrame(driver);
 		click(AdvanceSearchButton, "Advance Search button");
 
 		// sendText(IssuecodeFilter, "CC-PL01-Admin-21-0013", "Isssue Code Filter");
@@ -71,12 +70,14 @@ public class DEV_ClosureInitiation extends ActionEngine {
 
 		click(ApplyButton, "Apply Button");
 		click(Record, "Workitem");
+		switchToDefaultContent(driver);
+		switchToBodyFrame(driver);
 		click(SubmitButton, "Submit");
 
 		verifyCaptionContains(ReviewCommentsTextError, "Enter Value");
 		sendText(ReviewCommentsText, reviewComments, "review comments");
 		click(SubmitButton, "Submit button");
-		E_sign.e_Sign(ConfigsReader.getPropValue("EPIQCCPWD"));
+		E_sign.e_Sign(ConfigsReader.getPropValue("SPDevLgnPwd"));
 		switchToDefaultContent(driver);
 
 	}

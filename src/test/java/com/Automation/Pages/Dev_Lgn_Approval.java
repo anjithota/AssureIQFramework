@@ -53,8 +53,8 @@ public class Dev_Lgn_Approval extends ActionEngine {
 		switchToBodyFrame(driver);
 		click(DevMyTaskMenu, "Deviation my task menu");
 		click(DevLgnTaskMenu, "Deviation Login My task menu");
-		switchToDefaultContent(driver);
-		switchToBodyFrame(driver);
+		
+		switchToTaskListFrame(driver);
 		click(AdvanceSearchButton, "Advance Search button");
 
 		// sendText(IssuecodeFilter, "CC-PL01-Admin-21-0013", "Isssue Code Filter");
@@ -63,6 +63,9 @@ public class Dev_Lgn_Approval extends ActionEngine {
 
 		click(ApplyButton, "Apply Button");
 		click(Record, "Workitem");
+		
+		switchToDefaultContent(driver);
+		switchToBodyFrame(driver);
 
 		scrollToViewElement(ApproveDecision);
 
@@ -77,7 +80,9 @@ public class Dev_Lgn_Approval extends ActionEngine {
 		verifyCaptionContains(ExtendedActionRequiredError, "Select Value");
 		click(ExtendedActionRequired, "Extended Action No");
 
-		
+		scrollToViewElement(ApproveDecision);
+
+		click(ApproveDecision, "Approve");
 		click(submitBtn, "Submit");
 		E_sign.e_Sign(ConfigsReader.getPropValue("SPDevApprPwd"));
 

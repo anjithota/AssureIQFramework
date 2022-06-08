@@ -3,34 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Automation.Testcases.Dev_PositiveFlow">
+      <class name="com.Automation.Testcases.Dev_ETD_Test">
         <methods>
-          <include name="devLgnAgnReview"/>
-          <include name="dev_Otd"/>
-          <include name="devLgnApprReturn"/>
-          <include name="doc_Closure"/>
-          <include name="doc_TaskExecution"/>
-          <include name="setup1"/>
-          <include name="devLoginInitiate" invocation-numbers="0"/>
-          <include name="doc_LgnApprove"/>
-          <include name="devLgnAgnReinitiate"/>
-          <include name="dev_ClosureApprove"/>
-          <include name="devLgnRevReturn"/>
-          <include name="getResult"/>
           <include name="afterTest"/>
-          <include name="doc_RevReturn"/>
-          <include name="doc_TaskAllocation"/>
-          <include name="dev_ClosureReInitiate"/>
-          <include name="devLgnReview"/>
-          <include name="dev_ClosureReturn"/>
-          <include name="doc_LgnReview"/>
-          <include name="devLgnReinitiate"/>
-          <include name="doc_ReInitiate"/>
-          <include name="dev_Closure"/>
-          <include name="devLgnAprArrove"/>
-          <include name="dev_Qad"/>
+          <include name="devETDApprove"/>
+          <include name="devETDReview"/>
+          <include name="devLoginInitiate"/>
+          <include name="setup1"/>
+          <include name="devETDInditiation"/>
+          <include name="getResult"/>
         </methods>
-      </class> <!-- com.Automation.Testcases.Dev_PositiveFlow -->
+      </class> <!-- com.Automation.Testcases.Dev_ETD_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

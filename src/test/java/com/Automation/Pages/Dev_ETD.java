@@ -68,6 +68,11 @@ public class Dev_ETD extends ActionEngine{
 	@FindBy(id = "DVET_04")
 	WebElement ETDAuditTrail;
 	
+	@FindBy(xpath = "//button[@class='dateVCBtn']")
+	WebElement calinderbtn;
+
+	@FindBy(xpath = "//li[text()='Last 30 Days']")
+	WebElement last30days;
 	
 	public void devEtdInitiation(String Days) {
 		click(initiate, "InitiateButtton");
@@ -81,6 +86,8 @@ public class Dev_ETD extends ActionEngine{
 		switchToDefaultContent(driver);
 		switchToBodyFrame(driver);
 		click(AdvanceSearchButton, "Advanced search");
+		click(calinderbtn, "Calender");
+		click(last30days, "Days Click");
 		enterUniqueCode(driver, IssuecodeFilter);
 		click(ApplyButton, "Apply button");
 		click(Record, "Record");
@@ -89,7 +96,7 @@ public class Dev_ETD extends ActionEngine{
 		click(AlertClose, "Close Alert");
 		sendText(MainProcessDuration, Days, "Duration days");
 		click(SubmitBtn, "Submit button");
-		E_sign.e_Sign(ConfigsReader.getPropValue("SPDevLgnID"));
+		E_sign.e_Sign(ConfigsReader.getPropValue("SPDevLgnPwd"));
 		switchToDefaultContent(driver);
 
 		// E_sign.equals(obj)
@@ -102,19 +109,20 @@ public class Dev_ETD extends ActionEngine{
 		scrollToViewElement(ProcessManagerMyTaskMenu);
 		click(ProcessManagerMyTaskMenu, "Process manager My Task");
 		click(MYtaskETDSP, "My Task ETD menu");
-		switchToDefaultContent(driver);
-		switchToBodyFrame(driver);
+		switchToTaskListFrame(driver);
 		click(AdvanceSearchButton, "Advance Search button");
 		enterUniqueCode(driver, IssuecodeFilter);
 		click(ApplyButton, "Apply Button");
 		click(Record, "Workitem");
+		switchToDefaultContent(driver);
+		switchToBodyFrame(driver);
 		TimeUtil.shortWait();
 //		switchToDefaultContent(driver);
 //		switchToBodyFrame(driver);
 		click(decisionReview, "Approve");
 		//jsClick(decisionReview, "aa");
 		click(SubmitBtn, "Submit");
-		E_sign.e_Sign(ConfigsReader.getPropValue("SPDevRevID"));
+		E_sign.e_Sign(ConfigsReader.getPropValue("SPDevRevPwd"));
 		switchToDefaultContent(driver);
 
 	}
@@ -126,12 +134,13 @@ public class Dev_ETD extends ActionEngine{
 		click(ProcessManagerMyTaskMenu, "Process manager My Task");
 		click(MYtaskETDSP, "ETD My task");
 		
-		switchToDefaultContent(driver);
-		switchToBodyFrame(driver);
+		switchToTaskListFrame(driver);
 		click(AdvanceSearchButton, "Advance Search button");
 		enterUniqueCode(driver, IssuecodeFilter);
 		click(ApplyButton, "Apply Button");
 		click(Record, "Workitem");
+		switchToDefaultContent(driver);
+		switchToBodyFrame(driver);
 		click(decisionReview, "Approve");
 		//click(ApproveBtn, "Approve");
 		click(SubmitBtn, "Submit");

@@ -60,7 +60,7 @@ String ELpath = "./TestData/DevPos.xlsx";
 		Object getdevClosureApprove[][] = Excelutil.getTestData(Epath, "DevClsAppr");
 		return getdevClosureApprove;
 	}
-	@Test(priority = 1, dataProvider = "DevLgnInit", enabled = true)
+	@Test(priority = 1, dataProvider = "DevLgnInit", enabled = false)
 	public void devLoginInitiate(String block, String dateOfOccure, String dateOfIdentify, 
 			String otherText, String  EventDesc, String initialInvestigation, String consequence, String assuemedCategory, String immediateAction) {
 		test.createNode("Deviation Login Initiation Test").pass("Deviation Login Initiation").createNode("Deviation login Initiation")
@@ -75,7 +75,7 @@ String ELpath = "./TestData/DevPos.xlsx";
 		spLogout.logOut();
 
 	}
-	@Test(priority = 2, dataProvider = "DevLgnRev", enabled = true)
+	@Test(priority = 2, dataProvider = "DevLgnRev", enabled = false)
 	public void devLgnReview(String hodComments, String reasonForCA, String reasonForPA) {
 		test.createNode("Deviation Login Review Test").pass("Deviation Login Review").createNode("Deviation login Review")
 		.pass("Deviation login");
@@ -87,7 +87,7 @@ String ELpath = "./TestData/DevPos.xlsx";
 		spLogout.logOut();
 		
 	}
-	@Test(priority = 3, dataProvider = "DevLgnAppr", enabled = true)
+	@Test(priority = 3, dataProvider = "DevLgnAppr", enabled = false)
 	public void devLgnAprArrove(String QAComments) {
 		test.createNode("Deviation Login Approve Test").pass("Deviation Login Approve").createNode("Deviation login Approve")
 		.pass("Deviation login");
@@ -100,7 +100,7 @@ String ELpath = "./TestData/DevPos.xlsx";
 			
 		
 	}
-	@Test(priority = 4, dataProvider = "devOTD", enabled = true)
+	@Test(priority = 4, dataProvider = "devOTD", enabled = false)
 	public void dev_Otd(String Comments) {
 		test.createNode("Deviation OTD Test").pass("Deviation OTD").createNode("Deviation OTD")
 		.pass("Deviation OTD");
@@ -114,7 +114,7 @@ String ELpath = "./TestData/DevPos.xlsx";
 		
 	}
 	
-	@Test(priority = 5, dataProvider = "devQAD", enabled = true)
+	@Test(priority = 5, dataProvider = "devQAD", enabled = false)
 	public void dev_Qad(String rootCauseDropdown, String reviewComments, String rootCauseDetails) {
 		test.createNode("Deviation QAD Test").pass("Deviation QAD").createNode("Deviation QAD")
 		.pass("Deviation QAD");
@@ -128,7 +128,7 @@ String ELpath = "./TestData/DevPos.xlsx";
 			
 		
 	}
-	@Test(priority = 6, dataProvider = "devClsIn", enabled = true)
+	@Test(priority = 6, dataProvider = "devClsIn", enabled = false)
 	public void dev_Closure(String reviewComments) {
 		test.createNode("Deviation Closure Initiation").pass("Deviation Closure Initiation").createNode("Deviation Closure Initiation")
 		.pass("Deviation Initiation");

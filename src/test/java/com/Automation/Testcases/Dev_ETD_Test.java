@@ -9,7 +9,7 @@ import com.Automation.Utils.Excelutil;
 import com.aventstack.extentreports.ExtentReports;
 
 public class Dev_ETD_Test extends ActionEngine {
-	String Epath = "./TestData/DeviationPositive.xlsx";
+	String Epath = "./TestData/DevPos.xlsx";
 	ExtentReports extentReport;
 
 	public Dev_ETD_Test() {
@@ -54,19 +54,9 @@ public class Dev_ETD_Test extends ActionEngine {
 
 	}
 
-	@Test(priority = 2, dataProvider = "DevLgnRev", enabled = true)
-	public void devLgnReview(String hodComments, String planDesc, String reasonForPA) {
-		test.createNode("Deviation Login Review Test").pass("Deviation Login Review")
-				.createNode("Deviation login Review").pass("Deviation login");
-		this.test = extent.createTest("Deviation Login Review");
-		spLogin.loginToSPApplication(ConfigsReader.getPropValue("SPDevRevID"),
-				ConfigsReader.getPropValue("SPDevRevPwd"));
-		devLoginReview.devIhodApproval(hodComments, planDesc, reasonForPA);
-		spLogout.logOut();
+	
 
-	}
-
-	@Test(priority = 3, dataProvider = "devETD", enabled = true)
+	@Test(priority = 2, dataProvider = "devETD", enabled = true)
 	public void devETDInditiation(String Days) {
 		test.createNode("Deviation ETD Initiation").pass("Deviation ETD Initiation")
 				.createNode("Deviation ETD Initiation").pass("Deviation ETD Initiation");
@@ -79,7 +69,7 @@ public class Dev_ETD_Test extends ActionEngine {
 		spLogout.logOut();
 	}
 	
-	@Test(priority = 4, enabled = true)
+	@Test(priority = 3, enabled = true)
 	public void devETDReview() {
 		test.createNode("Deviation ETD Review").pass("Deviation ETD Review")
 				.createNode("Deviation ETD Review").pass("Deviation ETD Review");

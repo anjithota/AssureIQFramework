@@ -102,7 +102,7 @@ public class Dev_Lgn_Review extends ActionEngine {
 	@FindBy(xpath = "//ul[@role='listbox']//li[@aria-selected='false']")
 	List<WebElement> listOfOtherDept;
 
-	@FindBy(xpath = "//li[contains(text(), 'Adminstration')]")
+	@FindBy(xpath = "//li[contains(text(), 'Administration ( ADM )')]")
 	WebElement AdminDept;
 	
 	@FindBy(id = "btnSubmit")

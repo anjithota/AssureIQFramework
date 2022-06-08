@@ -63,14 +63,17 @@ public class Dev_OTD extends ActionEngine {
 
 		click(DevMyTaskMenu, "Deviation menu");
 		click(DeviationOTDMytask, "Deviation OTD Menu");
-		switchToDefaultContent(driver);
-		switchToBodyFrame(driver);
+		
+		
+		switchToTaskListFrame(driver);
 		click(AdvanceSearchButton, "Advance Search button");
 
 		enterUniqueCode(driver, IssuecodeFilter);
 
 		click(ApplyButton, "Apply Button");
 		click(Record, "Workitem");
+		switchToDefaultContent(driver);
+		switchToBodyFrame(driver);
 		click(SubmitButton, "Submit");
 		verifyCaptionContains(CommentsError, "Enter Value");
 
