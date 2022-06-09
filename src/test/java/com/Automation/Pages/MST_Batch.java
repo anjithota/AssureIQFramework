@@ -90,6 +90,15 @@ public class MST_Batch extends ActionEngine {
 	@FindBy(id = "txtRemarks")
 	WebElement RemarksText;
 
+	@FindBy(id = "BATM_03")
+	WebElement BatchStatusChangeMenu;
+	
+	@FindBy(xpath = "//label[@for='NewStatus_5']")
+	WebElement InactiveButton;
+	
+	@FindBy(xpath = "//label[@for='NewStatus_10']")
+	WebElement PermanentInactiveButton;
+
 	public void batchRegistrationInitiation(String batchlotId, String productUcode, String batchlotSize,
 			String qualityInspection) {
 		switchToDefaultContent(driver);
@@ -152,6 +161,24 @@ public class MST_Batch extends ActionEngine {
 		verifyCaptionContains(RemarksError, "Enter Value");
 		sendText(RemarksText, remarks, "Remarks or reasons");
 		click(SubmitButton, "Submit");
+		E_sign.e_Sign(ConfigsReader.getPropValue("SPDevLgnPwd"));
+		saveUniqueCode(driver, BatchUniqeCode);
+		switchToDefaultContent(driver);
+
+	}
+
+	public void batchStatusChangeInactive() {
+
+		switchToDefaultContent(driver);
+		click(MasterMenu, "Master Menu");
+		click(BatchStatusChangeMenu, "Status Change menu");
+		switchToBodyFrame(driver);
+		click(AdvancedSearchButton, "Advanced Search Button");
+		enterUniqueCode(driver, BatchProductSearchFilter);
+		click(ApplyButton, "Apply Button");
+		click(Record, "Record");
+		click(SubmitButton, "Submit");
+		
 
 	}
 
