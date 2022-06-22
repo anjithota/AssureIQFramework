@@ -674,21 +674,29 @@ public class ActionEngine extends PageInitializer {
 	
 	public static void UnSelectRadioBtnAndCheckbox(WebDriver driver, WebElement element) {
 
+
+
+
+		try {
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.visibilityOf(element));
 		highLightEle(driver, element, test);
-		boolean status = element.isSelected();
+		//WebElement checkBox = driver.findElement(By.xpath("//div[@class='d-inline-block custom-checkbox mr-1'][5]"));
+		if(!element.isSelected()){
+		element.click();
 
-		if (status == true) {
-			element.click();
-			test.log(Status.PASS, "Element unselected successfully");
-			
-		}
-		else {
-			test.log(Status.PASS, "Element state is already in unselected mode.");
+
+
+
+
 		}
 
-	}
+		}
+		catch (Exception e) {
+		// TODO: handle exception
+		}
+
+		}
 
 	// --------------------------------------------------------------------------------------------------------------------------------
 	/**
