@@ -1,135 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
+<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="375223" started-at="2022-06-07T11:34:49 IST" finished-at="2022-06-07T11:41:04 IST">
+  <suite name="Default suite" duration-ms="328302" started-at="2022-06-09T18:05:22 IST" finished-at="2022-06-09T18:10:50 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="375223" started-at="2022-06-07T11:34:49 IST" finished-at="2022-06-07T11:41:04 IST">
-      <class name="com.Automation.Testcases.Dev_ETD_Test">
-        <test-method status="PASS" signature="setup1()[pri:0, instance:com.Automation.Testcases.Dev_ETD_Test@7b02881e]" name="setup1" is-config="true" duration-ms="3586" started-at="2022-06-07T11:34:49 IST" finished-at="2022-06-07T11:34:53 IST">
+    <test name="Default test" duration-ms="328302" started-at="2022-06-09T18:05:22 IST" finished-at="2022-06-09T18:10:50 IST">
+      <class name="com.Automation.Testcases.MST_Batch_TC">
+        <test-method status="PASS" signature="setup1()[pri:0, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e]" name="setup1" is-config="true" duration-ms="5049" started-at="2022-06-09T18:05:22 IST" finished-at="2022-06-09T18:05:27 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup1 -->
-        <test-method status="PASS" signature="devLoginInitiate(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.Automation.Testcases.Dev_ETD_Test@7b02881e]" name="devLoginInitiate" duration-ms="115228" started-at="2022-06-07T11:34:54 IST" data-provider="DevLgnInit" finished-at="2022-06-07T11:36:49 IST">
+        <test-method status="PASS" signature="loginToEPIQ(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e]" name="loginToEPIQ" duration-ms="80075" started-at="2022-06-09T18:05:28 IST" data-provider="bat_Reg" finished-at="2022-06-09T18:06:48 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Block1]]>
+                <![CDATA[BatchId_1]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[01 Apr 2022]]>
+                <![CDATA[Item01]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[01 Apr 2022]]>
+                <![CDATA[3]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[otr txt]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[EventDesc]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[Initial investigation]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[consequence]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[Major]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[Action]]>
+                <![CDATA[Moderate]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- devLoginInitiate -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.Dev_ETD_Test@7b02881e]" name="getResult" is-config="true" duration-ms="4" started-at="2022-06-07T11:36:49 IST" finished-at="2022-06-07T11:36:49 IST">
+        </test-method> <!-- loginToEPIQ -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e]" name="getResult" is-config="true" duration-ms="0" started-at="2022-06-09T18:06:48 IST" finished-at="2022-06-09T18:06:48 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=devLoginInitiate status=SUCCESS method=Dev_ETD_Test.devLoginInitiate(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.Automation.Testcases.Dev_ETD_Test@7b02881e] output={null}]]]>
+                <![CDATA[[TestResult name=loginToEPIQ status=SUCCESS method=MST_Batch_TC.loginToEPIQ(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="devETDInditiation(java.lang.String)[pri:2, instance:com.Automation.Testcases.Dev_ETD_Test@7b02881e]" name="devETDInditiation" duration-ms="98226" started-at="2022-06-07T11:36:49 IST" data-provider="devETD" finished-at="2022-06-07T11:38:27 IST">
+        <test-method status="PASS" signature="loginToEPIQ(java.lang.String,java.lang.String)[pri:2, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e]" name="loginToEPIQ" duration-ms="50734" started-at="2022-06-09T18:06:48 IST" data-provider="bat_Mod" finished-at="2022-06-09T18:07:39 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[5]]>
+                <![CDATA[Valueble]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Modified]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- devETDInditiation -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.Dev_ETD_Test@7b02881e]" name="getResult" is-config="true" duration-ms="0" started-at="2022-06-07T11:38:27 IST" finished-at="2022-06-07T11:38:27 IST">
+        </test-method> <!-- loginToEPIQ -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e]" name="getResult" is-config="true" duration-ms="0" started-at="2022-06-09T18:07:39 IST" finished-at="2022-06-09T18:07:39 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=devETDInditiation status=SUCCESS method=Dev_ETD_Test.devETDInditiation(java.lang.String)[pri:2, instance:com.Automation.Testcases.Dev_ETD_Test@7b02881e] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="devETDReview()[pri:3, instance:com.Automation.Testcases.Dev_ETD_Test@7b02881e]" name="devETDReview" duration-ms="67383" started-at="2022-06-07T11:38:27 IST" finished-at="2022-06-07T11:39:35 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- devETDReview -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.Dev_ETD_Test@7b02881e]" name="getResult" is-config="true" duration-ms="1" started-at="2022-06-07T11:39:35 IST" finished-at="2022-06-07T11:39:35 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=devETDReview status=SUCCESS method=Dev_ETD_Test.devETDReview()[pri:3, instance:com.Automation.Testcases.Dev_ETD_Test@7b02881e] output={null}]]]>
+                <![CDATA[[TestResult name=loginToEPIQ status=SUCCESS method=MST_Batch_TC.loginToEPIQ(java.lang.String,java.lang.String)[pri:2, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="devETDApprove()[pri:4, instance:com.Automation.Testcases.Dev_ETD_Test@7b02881e]" name="devETDApprove" duration-ms="69891" started-at="2022-06-07T11:39:35 IST" finished-at="2022-06-07T11:40:45 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- devETDApprove -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.Dev_ETD_Test@7b02881e]" name="getResult" is-config="true" duration-ms="0" started-at="2022-06-07T11:40:45 IST" finished-at="2022-06-07T11:40:45 IST">
+        <test-method status="PASS" signature="batchStatusChangeInActive(java.lang.String)[pri:3, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e]" name="batchStatusChangeInActive" duration-ms="56023" started-at="2022-06-09T18:07:39 IST" data-provider="bat_Stc" finished-at="2022-06-09T18:08:35 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=devETDApprove status=SUCCESS method=Dev_ETD_Test.devETDApprove()[pri:4, instance:com.Automation.Testcases.Dev_ETD_Test@7b02881e] output={null}]]]>
+                <![CDATA[Status need to change]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- batchStatusChangeInActive -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e]" name="getResult" is-config="true" duration-ms="0" started-at="2022-06-09T18:08:35 IST" finished-at="2022-06-09T18:08:35 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=batchStatusChangeInActive status=SUCCESS method=MST_Batch_TC.batchStatusChangeInActive(java.lang.String)[pri:3, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.Automation.Testcases.Dev_ETD_Test@7b02881e]" name="afterTest" is-config="true" duration-ms="19819" started-at="2022-06-07T11:40:45 IST" finished-at="2022-06-07T11:41:04 IST">
+        <test-method status="PASS" signature="batchStatusChangeActive(java.lang.String)[pri:4, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e]" name="batchStatusChangeActive" duration-ms="55663" started-at="2022-06-09T18:08:35 IST" data-provider="bat_Stc" finished-at="2022-06-09T18:09:31 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Status need to change]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- batchStatusChangeActive -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e]" name="getResult" is-config="true" duration-ms="0" started-at="2022-06-09T18:09:31 IST" finished-at="2022-06-09T18:09:31 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=batchStatusChangeActive status=SUCCESS method=MST_Batch_TC.batchStatusChangeActive(java.lang.String)[pri:4, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="batchStatusChangePermanentActive(java.lang.String)[pri:5, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e]" name="batchStatusChangePermanentActive" duration-ms="54511" started-at="2022-06-09T18:09:31 IST" data-provider="bat_Stc" finished-at="2022-06-09T18:10:25 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Status need to change]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- batchStatusChangePermanentActive -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e]" name="getResult" is-config="true" duration-ms="0" started-at="2022-06-09T18:10:25 IST" finished-at="2022-06-09T18:10:25 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=batchStatusChangePermanentActive status=SUCCESS method=MST_Batch_TC.batchStatusChangePermanentActive(java.lang.String)[pri:5, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e]" name="afterTest" is-config="true" duration-ms="25325" started-at="2022-06-09T18:10:25 IST" finished-at="2022-06-09T18:10:50 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- com.Automation.Testcases.Dev_ETD_Test -->
+      </class> <!-- com.Automation.Testcases.MST_Batch_TC -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -1,5 +1,6 @@
 package com.Automation.spPages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -40,6 +41,15 @@ public class SP_LoginPage extends ActionEngine {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}*/
+		try {
+			if(driver.findElement(By.xpath("//*[@id='btnYes']")).isDisplayed())
+			{
+			driver.findElement(By.xpath("//*[@id='btnYes']")).click();
+			
+			}
+			}catch(Exception e){
+			
+			}
 	}
 
 }

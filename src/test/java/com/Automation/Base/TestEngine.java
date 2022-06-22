@@ -251,6 +251,7 @@ public class TestEngine {
 			driver = new EdgeDriver();
 			break;
 		case "internetExplorer":
+			
 			extent.setSystemInfo("Browser", "InternetExplorer");
 			WebDriverManager.iedriver().setup();
 			driver = new InternetExplorerDriver();

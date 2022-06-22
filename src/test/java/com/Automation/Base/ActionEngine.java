@@ -669,6 +669,26 @@ public class ActionEngine extends PageInitializer {
 		}
 
 	}
+	
+	//---------------------------------------
+	
+	public static void UnSelectRadioBtnAndCheckbox(WebDriver driver, WebElement element) {
+
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until(ExpectedConditions.visibilityOf(element));
+		highLightEle(driver, element, test);
+		boolean status = element.isSelected();
+
+		if (status == true) {
+			element.click();
+			test.log(Status.PASS, "Element unselected successfully");
+			
+		}
+		else {
+			test.log(Status.PASS, "Element state is already in unselected mode.");
+		}
+
+	}
 
 	// --------------------------------------------------------------------------------------------------------------------------------
 	/**
@@ -706,9 +726,10 @@ public class ActionEngine extends PageInitializer {
 		wait.until(ExpectedConditions.visibilityOf(element));
 		message = element.getText();
 		String[] str = message.split(":");
-		String saveuniqueCode = str[1];
+		String saveuniqueCode = str[1];  //String saveuniqueCode = str[1];
 		saveuniqueCode = saveuniqueCode.trim();
 		uniqueCode = saveuniqueCode;
+		//System.out.println(uniqueCode);
 
 	}
 	

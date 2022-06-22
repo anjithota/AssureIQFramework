@@ -3,17 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Automation.Testcases.Dev_ETD_Test">
+      <class name="com.Automation.Testcases.MST_Batch_TC">
         <methods>
           <include name="afterTest"/>
-          <include name="devETDApprove"/>
-          <include name="devETDReview"/>
-          <include name="devLoginInitiate"/>
           <include name="setup1"/>
-          <include name="devETDInditiation"/>
+          <include name="batchStatusChange" invocation-numbers="0"/>
           <include name="getResult"/>
         </methods>
-      </class> <!-- com.Automation.Testcases.Dev_ETD_Test -->
+      </class> <!-- com.Automation.Testcases.MST_Batch_TC -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
