@@ -31,6 +31,9 @@ public class MST_Aud_AuditAgency extends ActionEngine {
 	@FindBy(id = "AGNY_02")
 	WebElement AuditAgencyModificationMenu;
 
+	@FindBy(id = "AGNY_03")
+	WebElement AuditAgencyStatusChangeMenu;
+	
 	@FindBy(id = "MST_AGN_CTR_001")
 	WebElement AuditAgencyCode;
 
