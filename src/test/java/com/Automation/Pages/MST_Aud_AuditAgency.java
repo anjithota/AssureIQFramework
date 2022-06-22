@@ -72,6 +72,27 @@ public class MST_Aud_AuditAgency extends ActionEngine {
 
 	@FindBy(id = "txtRemarks")
 	WebElement RemarksText;
+	
+	@FindBy(className = "text-ellipsis")
+	WebElement Record;
+	
+	@FindBy(xpath = "//div[@class='col caliber-control-group haserror']/div/span")
+	WebElement ProposedStatusError;
+	
+	@FindBy(xpath = "//label[@for='NewStatus_1']")
+	WebElement ActiveButton;
+	
+	@FindBy(xpath = "//label[@for='NewStatus_5']")
+	WebElement InactiveButton;
+	
+	@FindBy(xpath = "//label[@for='NewStatus_10']")
+	WebElement PermanentInactiveButton;
+	
+	@FindBy(xpath = "//button[@id = 'confirmationRevertNo']")
+	WebElement PermanaentInactiveNoButton;
+
+	@FindBy(xpath = "//button[@id = 'confirmationRevertYes']")
+	WebElement PermanaentInactiveYesButton;
 
 	public void auditAgencyRegistrationInitiation(String aaCode, String aaName, String aaDetails) {
 		String s = "";
@@ -122,7 +143,7 @@ public class MST_Aud_AuditAgency extends ActionEngine {
 		enterUniqueCode(driver, AuditAgencyCodeFilter);
 		click(ApplyButton, "Apply button");
 		
-		
+		click(Record, "Record");
 		
 		click(SubmitButton, "Submit button");
 		verifyCaptionContains(RemarksError, "Enter Value");
@@ -134,6 +155,79 @@ public class MST_Aud_AuditAgency extends ActionEngine {
 		
 	}
 	
+	public void auditAgencyStatuschangeInactiveInitiation(String remarks) {
+		switchToDefaultContent(driver);
+		click(AuditManagementMenu, "Audit Management Menu");
+		click(AuditAgencyStatusChangeMenu, "Audit Agency Status Change menu");
+		switchToBodyFrame(driver);
+		click(AdvancedSearchButton, "Advanced Search Button");
+		enterUniqueCode(driver, AuditAgencyCodeFilter);
+		click(ApplyButton, "Apply Button");
+		click(Record, "Record");
+		click(SubmitButton, "Submit");
+		verifyCaptionContains(ProposedStatusError, "Select Value");
+		click(PermanentInactiveButton, "Permanent Inactive Button");
+		TimeUtil.shortWait();
+		click(PermanaentInactiveNoButton, "Permanent Inactive No Button");
+		click(InactiveButton, "Inactive Button");
+		click(SubmitButton, "Submit");
+		verifyCaptionContains(RemarksError, "Enter Value");
+		sendText(RemarksText, remarks, "Remarks");
+		click(SubmitButton, "Submit");
+		E_sign.e_Sign(ConfigsReader.getPropValue("SPDevLgnPwd"));
+		saveUniqueCode(driver, AGNCodeValue);
+		switchToDefaultContent(driver);
+		
+	}
+	
+	public void auditAgencyStatuschangeActiveInitiation(String remarks) {
+		switchToDefaultContent(driver);
+		click(AuditManagementMenu, "Audit Management Menu");
+		click(AuditAgencyStatusChangeMenu, "Audit Agency Status Change menu");
+		switchToBodyFrame(driver);
+		click(AdvancedSearchButton, "Advanced Search Button");
+		enterUniqueCode(driver, AuditAgencyCodeFilter);
+		click(ApplyButton, "Apply Button");
+		click(Record, "Record");
+		click(SubmitButton, "Submit");
+		verifyCaptionContains(ProposedStatusError, "Select Value");
+		click(PermanentInactiveButton, "Permanent Inactive Button");
+		TimeUtil.shortWait();
+		click(PermanaentInactiveNoButton, "Permanent Inactive No Button");
+		click(ActiveButton, "Active Button");
+		click(SubmitButton, "Submit");
+		verifyCaptionContains(RemarksError, "Enter Value");
+		sendText(RemarksText, remarks, "Remarks");
+		click(SubmitButton, "Submit");
+		E_sign.e_Sign(ConfigsReader.getPropValue("SPDevLgnPwd"));
+		saveUniqueCode(driver, AGNCodeValue);
+		switchToDefaultContent(driver);
+		
+	}
+	
+	public void auditAgencyStatuschangePermanentInactiveInitiation(String remarks) {
+		switchToDefaultContent(driver);
+		click(AuditManagementMenu, "Audit Management Menu");
+		click(AuditAgencyStatusChangeMenu, "Audit Agency Status Change menu");
+		switchToBodyFrame(driver);
+		click(AdvancedSearchButton, "Advanced Search Button");
+		enterUniqueCode(driver, AuditAgencyCodeFilter);
+		click(ApplyButton, "Apply Button");
+		click(Record, "Record");
+		click(SubmitButton, "Submit");
+		verifyCaptionContains(ProposedStatusError, "Select Value");
+		click(PermanentInactiveButton, "Permanent Inactive Button");
+		TimeUtil.shortWait();
+		click(PermanaentInactiveYesButton, "Permanent Inactive Yes Button");
+		click(SubmitButton, "Submit");
+		verifyCaptionContains(RemarksError, "Enter Value");
+		sendText(RemarksText, remarks, "Remarks");
+		click(SubmitButton, "Submit");
+		E_sign.e_Sign(ConfigsReader.getPropValue("SPDevLgnPwd"));
+		saveUniqueCode(driver, AGNCodeValue);
+		switchToDefaultContent(driver);
+		
+	}
 	
 
 }
