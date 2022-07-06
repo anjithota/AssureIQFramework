@@ -32,6 +32,12 @@ public class CCQAD_AuditTrail extends ActionEngine {
 
 	@FindBy(className = "popup-close-button")
 	WebElement AuditTrailClose;
+	
+	@FindBy(xpath = "//div[@class='left-module ft-grid menu-icons'][2]")
+	WebElement ProcessmanagerMenu;
+	
+	@FindBy(id = "CCQD_04")
+	WebElement CCQADAuditTrail_SP;
 
 	public void ccQAD_AuditTrail() {
 		click(assureIQ, "AssureIQ menu");
@@ -64,5 +70,35 @@ public class CCQAD_AuditTrail extends ActionEngine {
 
 		switchToDefaultContent(driver);
 
+	}
+	
+	public void ccQAD_SP_AuditTrail() {
+
+		switchToDefaultContent(driver);
+		click(ProcessmanagerMenu, "Process Manager");
+		scrollToViewElement(CCQADAuditTrail_SP);
+
+
+		click(CCQADAuditTrail_SP, "QAD Audit Trail menu");
+
+		switchToBodyFrame(driver);
+
+		click(AdvanceSearchButton, "Advanced Search button");
+
+		// sendText(IssueCodeFilter, "CC-PL01-Admin-21-0014", "Issue code");
+
+		enterUniqueCode(driver, IssueCodeFilter);
+
+		click(ApplyButton, "Apply button");
+
+		click(Record, "Click on record");
+
+		/*switchToDefaultContent(driver);
+
+		switchToBodyFrame(driver);*/
+
+		switchToPopupModelFrame(driver);
+		click(AuditTrailClose, "Close Button");
+		switchToDefaultContent(driver);
 	}
 }

@@ -67,7 +67,7 @@ public class MST_Aud_ManufacturerAndItem extends ActionEngine {
 	@FindBy(id = "txtRemarks")
 	WebElement Remarks;
 
-	// Status Change
+	// Status Change gv648LS
 
 	@FindBy(id = "MID_03")
 	WebElement ManufacturerAndItemStatusChange;

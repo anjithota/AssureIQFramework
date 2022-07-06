@@ -34,6 +34,12 @@ public class CC_SelectiveReturnAuditTrail extends ActionEngine {
 	@FindBy(xpath = "//span[@class='popup-close-button']")
 	WebElement closeBtn;
 	
+	@FindBy(xpath = "//div[@class='left-module ft-grid menu-icons'][2]")
+	WebElement ProcessmanagerMenu;
+	
+	@FindBy(id = "CRET_04")
+	WebElement SelectiveReturnAuditTrail_SP;
+	
 	public void ccClsReturnAuditTrail() {
 		click(assureiq, "Assure IQ Menu");
 		click(ProcessManager, "Process Manager");
@@ -47,8 +53,30 @@ public class CC_SelectiveReturnAuditTrail extends ActionEngine {
 		//TimeUtil.mediumWait();
 
 
-//		click(ApplyButton, "Apply button");
+      click(ApplyButton, "Apply button");
 		
+
+		click(Record, "Click on record");
+		
+		switchToPopupModelFrame(driver);
+		
+		click(closeBtn, "Close Button");
+		switchToDefaultContent(driver);
+		
+	}
+	
+	public void ccClsReturnAuditTrail_SP() {
+		
+		switchToDefaultContent(driver);
+		click(ProcessmanagerMenu, "Process Manager");
+		scrollToViewElement(SelectiveReturnAuditTrail_SP);
+		click(SelectiveReturnAuditTrail_SP, "Selective Return Audit Trail menu");
+		switchToBodyFrame(driver);
+		click(AdvanceSearchButton, "Advanced Search button");
+		TimeUtil.shortWait();
+
+		enterAlterUniqueCode(driver, UniqueCodeFilter);
+		click(ApplyButton, "Apply button");
 
 		click(Record, "Click on record");
 		

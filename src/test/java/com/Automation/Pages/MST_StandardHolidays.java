@@ -23,7 +23,7 @@ public class MST_StandardHolidays extends ActionEngine {
 
 	@FindBy(xpath = "//button[text()='Apply']")
 	WebElement ApplyButton;
-
+  
 	@FindBy(className = "text-ellipsis")
 	WebElement Record;
 
@@ -56,6 +56,8 @@ public class MST_StandardHolidays extends ActionEngine {
 
 	@FindBy(id = "cfnMsg_Next")
 	WebElement Done;
+	
+	//@FindBy(xpath)
 
 	// Audit Trails
 
@@ -64,6 +66,9 @@ public class MST_StandardHolidays extends ActionEngine {
 
 	@FindBy(xpath = "//span[@class='popup-close-button']")
 	WebElement AuditTrailsclose;
+
+
+	
 
 	public void standardHolidaysModification(String UniqueCode, String Date, String month, String desc,
 			String remarksReason) {
@@ -112,4 +117,19 @@ public class MST_StandardHolidays extends ActionEngine {
 
 	}
 
+	public void standardHolidaysAuditTrailsModifiction() {
+		click(MasterMenu, "Master Menu");
+		TimeUtil.shortWait();
+		scrollToViewElement(StandardHolidaysAuditTrails);
+		click(StandardHolidaysAuditTrails, "StandardHolidaysAuditTrails");
+		switchToBodyFrame(driver);
+		click(AdvancedSearch, "AdvancedSearch");
+		click(IssueCodeFilter, "IssueCodeFilter");
+		enterUniqueCode(driver, IssueCodeFilter);
+		click(Record, "Record");
+		switchToPopupModelFrame(driver);
+		click(AuditTrailsclose, "close pop");
+		switchToDefaultContent(driver);
+
+	}
 }
