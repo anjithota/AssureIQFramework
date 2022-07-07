@@ -167,7 +167,7 @@ public class CCLoginIHOD extends ActionEngine {
 		//switchToPopupModelFrame(driver);
 		
 		
-		jsClick(OkAction, "action ok");//both ARE IN same frame 
+		jsClick(OkAction, "action ok");//both ARE IN same frame
 		switchToParentFrame(driver);
 		TimeUtil.shortWait();	
 		/*switchToParentFrame(driver);

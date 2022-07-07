@@ -94,8 +94,7 @@ public class MST_Market extends ActionEngine {
 	WebElement PermanaentInactiveNoButton;
 
 	@FindBy(xpath = "//button[@id = 'confirmationRevertYes']")
-	WebElement PermanaentInactiveYesButton;
-	
+	WebElement PermanaentInactiveYesButton;	//"C:\Users\sandeepbd\OneDrive - caliberuniversal\Pictures\tet.PNG"
 	public void StageRegistrationInitiation(String marketCode, String marketName, String description) {
 		String s = "";
 		prop = ConfigsReader.readProperties("./configs/configuration.properties");
@@ -226,7 +225,4 @@ public class MST_Market extends ActionEngine {
 		switchToDefaultContent(driver);
 	}
 	
-	
-	
-
 }

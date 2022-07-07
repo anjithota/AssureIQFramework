@@ -57,9 +57,6 @@ public class MST_StandardHolidays extends ActionEngine {
 	@FindBy(id = "cfnMsg_Next")
 	WebElement Done;
 	
-	//@FindBy(xpath)
-
-	// Audit Trails
 
 	@FindBy(id = "CAL2_04")
 	WebElement StandardHolidaysAuditTrails;

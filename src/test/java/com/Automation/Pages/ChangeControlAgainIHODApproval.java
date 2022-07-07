@@ -126,6 +126,75 @@ public class ChangeControlAgainIHODApproval extends ActionEngine {
 		click(assumedCtgDD, "Assumed Category Drop Down");
 		click(MajorCtg, "Major");
 	}
+	
+	public void ccAgnIHODApproval_SP(String IHODComments, String RemRsn) {
 
+		// Wait for 1Sec
+		waitForPageToLoad(1000);
+
+		// Switch to Body frame
+		switchToBodyFrame(driver);
+
+		// Scroll to Change Control
+		scrollToViewElement(ccLgn);
+
+		// Click Change Control
+		click(ccLgn, "Change Control Login");
+
+		// Switch to default Page
+		switchToDefaultContent(driver);
+
+		// Switch to Body frame
+		switchToBodyFrame(driver);
+
+		// Verify Captions
+		verifyCaptionContains(pageTitleCC, "Change Control Login");
+
+		// Click Advanced Search
+		click(advSearchBtn, "Advanced Search");
+
+		// Enter Unique Code
+		clearField(issueCode, "Issue code");
+		enterUniqueCode(driver, issueCode);
+
+		// Click Apply Button
+		click(applyBtn, "Apply Button");
+
+		// Click Issue Code
+		click(ICode, "ICode");
+
+		// Switch to default Page
+		switchToDefaultContent(driver);
+
+		// Switch to Body frame
+		switchToBodyFrame(driver);
+
+		// Enter IHOD Comments
+		sendText(IHODCmts, IHODComments, "IHOD Commets");
+
+		//Select Major Category
+		assumedCtgy();
+
+		// Scroll to Review Element
+		scrollToViewElement(decisionReview);
+
+		// Click on Review Radio button
+		click(decisionReview, "Review");
+
+		// Enter Remarks/Reasons
+		sendText(remarkReason, RemRsn, "Remarks/Reasons");
+
+		// Click IHOD Submit button
+		click(submitBtn, "IHOD Submit Button");
+
+		// ESign should display
+		/*e_SignAvailabe();
+
+		// Entering E_Sign Password
+		EsignCnfrm(ConfigsReader.getPropValue("CCLgnIHODPwd"), cngMsg, "Change Control Login Registration Approval",
+				done);*/
+		E_sign.e_Sign(ConfigsReader.getPropValue(""));
+	}
+	
 	
 }
