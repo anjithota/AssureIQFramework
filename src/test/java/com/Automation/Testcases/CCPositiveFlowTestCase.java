@@ -6,8 +6,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.Automation.Base.ActionEngine;
-import com.Automation.Pages.CC_OTD;
-import com.Automation.Pages.DocActionVerify;
 import com.Automation.Utils.ConfigsReader;
 import com.Automation.Utils.Excelutil;
 import com.aventstack.extentreports.ExtentReports;

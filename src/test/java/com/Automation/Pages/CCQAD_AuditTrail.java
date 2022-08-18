@@ -39,6 +39,7 @@ public class CCQAD_AuditTrail extends ActionEngine {
 	@FindBy(id = "CCQD_04")
 	WebElement CCQADAuditTrail_SP;
 
+	
 	public void ccQAD_AuditTrail() {
 		click(assureIQ, "AssureIQ menu");
 

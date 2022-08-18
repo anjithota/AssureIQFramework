@@ -114,6 +114,7 @@ public class MST_Department_Initation extends ActionEngine {
 	verifyCaptionContains(DepartmentCode_errormsg, "Enter Value");
 	sendText(DepartmentCode, Dcode, "Department Code");
 	click(SubmitBtn, "Submit");
+	//verifyExactCaption(element, expectedCaption);
 	
 	verifyCaptionContains(DepartmentName_errorname, "Enter Value");
 	sendText(DepartmentName, Dcode, "Department Name");
@@ -164,6 +165,5 @@ public class MST_Department_Initation extends ActionEngine {
 		
 		
 	}
-	
 	
 }

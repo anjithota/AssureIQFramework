@@ -1,151 +1,423 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
+<testng-results skipped="0" failed="0" ignored="0" total="16" passed="16">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="328302" started-at="2022-06-09T18:05:22 IST" finished-at="2022-06-09T18:10:50 IST">
+  <suite name="Default suite" duration-ms="1770917" started-at="2022-08-03T16:07:17 IST" finished-at="2022-08-03T16:36:48 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="328302" started-at="2022-06-09T18:05:22 IST" finished-at="2022-06-09T18:10:50 IST">
-      <class name="com.Automation.Testcases.MST_Batch_TC">
-        <test-method status="PASS" signature="setup1()[pri:0, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e]" name="setup1" is-config="true" duration-ms="5049" started-at="2022-06-09T18:05:22 IST" finished-at="2022-06-09T18:05:27 IST">
+    <test name="Default test" duration-ms="1770917" started-at="2022-08-03T16:07:17 IST" finished-at="2022-08-03T16:36:48 IST">
+      <class name="com.Automation.Testcases.AuditPlan_TC">
+        <test-method status="PASS" signature="setup1()[pri:0, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="setup1" is-config="true" duration-ms="5209" started-at="2022-08-03T16:07:17 IST" finished-at="2022-08-03T16:07:22 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup1 -->
-        <test-method status="PASS" signature="loginToEPIQ(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e]" name="loginToEPIQ" duration-ms="80075" started-at="2022-06-09T18:05:28 IST" data-provider="bat_Reg" finished-at="2022-06-09T18:06:48 IST">
+        <test-method status="PASS" signature="auditPlanRegistration(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="auditPlanRegistration" duration-ms="144556" started-at="2022-08-03T16:07:23 IST" data-provider="AuditPlanReg" finished-at="2022-08-03T16:09:47 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[BatchId_1]]>
+                <![CDATA[Internal]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[Item01]]>
+                <![CDATA[description]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[3]]>
+                <![CDATA[SQA]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[Moderate]]>
+                <![CDATA[Internal_Audit]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[10]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[auditScope]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[std0598]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginToEPIQ -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e]" name="getResult" is-config="true" duration-ms="0" started-at="2022-06-09T18:06:48 IST" finished-at="2022-06-09T18:06:48 IST">
+        </test-method> <!-- auditPlanRegistration -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="getResult" is-config="true" duration-ms="36" started-at="2022-08-03T16:09:48 IST" finished-at="2022-08-03T16:09:48 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=loginToEPIQ status=SUCCESS method=MST_Batch_TC.loginToEPIQ(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e] output={null}]]]>
+                <![CDATA[[TestResult name=auditPlanRegistration status=SUCCESS method=AuditPlan_TC.auditPlanRegistration(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="loginToEPIQ(java.lang.String,java.lang.String)[pri:2, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e]" name="loginToEPIQ" duration-ms="50734" started-at="2022-06-09T18:06:48 IST" data-provider="bat_Mod" finished-at="2022-06-09T18:07:39 IST">
+        <test-method status="PASS" signature="auditPlanRegistrationReturn(java.lang.String)[pri:2, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="auditPlanRegistrationReturn" duration-ms="78022" started-at="2022-08-03T16:09:48 IST" data-provider="AuditReturn" finished-at="2022-08-03T16:11:06 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Valueble]]>
+                <![CDATA[reasons]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- auditPlanRegistrationReturn -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="getResult" is-config="true" duration-ms="0" started-at="2022-08-03T16:11:06 IST" finished-at="2022-08-03T16:11:06 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=auditPlanRegistrationReturn status=SUCCESS method=AuditPlan_TC.auditPlanRegistrationReturn(java.lang.String)[pri:2, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="auditPlanRegistrationReinitiation(java.lang.String,java.lang.String)[pri:3, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="auditPlanRegistrationReinitiation" duration-ms="76621" started-at="2022-08-03T16:11:06 IST" data-provider="AuditReinit" finished-at="2022-08-03T16:12:23 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Scope_]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[Modified]]>
+                <![CDATA[remarks..]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginToEPIQ -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e]" name="getResult" is-config="true" duration-ms="0" started-at="2022-06-09T18:07:39 IST" finished-at="2022-06-09T18:07:39 IST">
+        </test-method> <!-- auditPlanRegistrationReinitiation -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="getResult" is-config="true" duration-ms="1" started-at="2022-08-03T16:12:23 IST" finished-at="2022-08-03T16:12:23 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=loginToEPIQ status=SUCCESS method=MST_Batch_TC.loginToEPIQ(java.lang.String,java.lang.String)[pri:2, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e] output={null}]]]>
+                <![CDATA[[TestResult name=auditPlanRegistrationReinitiation status=SUCCESS method=AuditPlan_TC.auditPlanRegistrationReinitiation(java.lang.String,java.lang.String)[pri:3, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="batchStatusChangeInActive(java.lang.String)[pri:3, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e]" name="batchStatusChangeInActive" duration-ms="56023" started-at="2022-06-09T18:07:39 IST" data-provider="bat_Stc" finished-at="2022-06-09T18:08:35 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Status need to change]]>
-              </value>
-            </param>
-          </params>
+        <test-method status="PASS" signature="auditPlanRegistrationApprove()[pri:4, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="auditPlanRegistrationApprove" duration-ms="66459" started-at="2022-08-03T16:12:23 IST" finished-at="2022-08-03T16:13:29 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- batchStatusChangeInActive -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e]" name="getResult" is-config="true" duration-ms="0" started-at="2022-06-09T18:08:35 IST" finished-at="2022-06-09T18:08:35 IST">
+        </test-method> <!-- auditPlanRegistrationApprove -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="getResult" is-config="true" duration-ms="0" started-at="2022-08-03T16:13:29 IST" finished-at="2022-08-03T16:13:29 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=batchStatusChangeInActive status=SUCCESS method=MST_Batch_TC.batchStatusChangeInActive(java.lang.String)[pri:3, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e] output={null}]]]>
+                <![CDATA[[TestResult name=auditPlanRegistrationApprove status=SUCCESS method=AuditPlan_TC.auditPlanRegistrationApprove()[pri:4, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="batchStatusChangeActive(java.lang.String)[pri:4, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e]" name="batchStatusChangeActive" duration-ms="55663" started-at="2022-06-09T18:08:35 IST" data-provider="bat_Stc" finished-at="2022-06-09T18:09:31 IST">
+        <test-method status="PASS" signature="auditModifiaction(java.lang.String,java.lang.String)[pri:5, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="auditModifiaction" duration-ms="72641" started-at="2022-08-03T16:13:29 IST" data-provider="AuditPlanMod" finished-at="2022-08-03T16:14:42 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Status need to change]]>
+                <![CDATA[15]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[remarks]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- batchStatusChangeActive -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e]" name="getResult" is-config="true" duration-ms="0" started-at="2022-06-09T18:09:31 IST" finished-at="2022-06-09T18:09:31 IST">
+        </test-method> <!-- auditModifiaction -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="getResult" is-config="true" duration-ms="0" started-at="2022-08-03T16:14:42 IST" finished-at="2022-08-03T16:14:42 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=batchStatusChangeActive status=SUCCESS method=MST_Batch_TC.batchStatusChangeActive(java.lang.String)[pri:4, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="batchStatusChangePermanentActive(java.lang.String)[pri:5, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e]" name="batchStatusChangePermanentActive" duration-ms="54511" started-at="2022-06-09T18:09:31 IST" data-provider="bat_Stc" finished-at="2022-06-09T18:10:25 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Status need to change]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- batchStatusChangePermanentActive -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e]" name="getResult" is-config="true" duration-ms="0" started-at="2022-06-09T18:10:25 IST" finished-at="2022-06-09T18:10:25 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=batchStatusChangePermanentActive status=SUCCESS method=MST_Batch_TC.batchStatusChangePermanentActive(java.lang.String)[pri:5, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e] output={null}]]]>
+                <![CDATA[[TestResult name=auditModifiaction status=SUCCESS method=AuditPlan_TC.auditModifiaction(java.lang.String,java.lang.String)[pri:5, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.Automation.Testcases.MST_Batch_TC@7b02881e]" name="afterTest" is-config="true" duration-ms="25325" started-at="2022-06-09T18:10:25 IST" finished-at="2022-06-09T18:10:50 IST">
+        <test-method status="PASS" signature="auditPlanModificationReturn(java.lang.String)[pri:6, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="auditPlanModificationReturn" duration-ms="78746" started-at="2022-08-03T16:14:42 IST" data-provider="AuditReturn" finished-at="2022-08-03T16:16:01 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[reasons]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- auditPlanModificationReturn -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="getResult" is-config="true" duration-ms="1" started-at="2022-08-03T16:16:01 IST" finished-at="2022-08-03T16:16:01 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=auditPlanModificationReturn status=SUCCESS method=AuditPlan_TC.auditPlanModificationReturn(java.lang.String)[pri:6, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="auditPlanModificationReinitiation(java.lang.String,java.lang.String)[pri:7, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="auditPlanModificationReinitiation" duration-ms="78652" started-at="2022-08-03T16:16:01 IST" data-provider="AuditReinit" finished-at="2022-08-03T16:17:19 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Scope_]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[remarks..]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- auditPlanModificationReinitiation -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="getResult" is-config="true" duration-ms="1" started-at="2022-08-03T16:17:19 IST" finished-at="2022-08-03T16:17:19 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=auditPlanModificationReinitiation status=SUCCESS method=AuditPlan_TC.auditPlanModificationReinitiation(java.lang.String,java.lang.String)[pri:7, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="auditPlanModificationApprove()[pri:8, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="auditPlanModificationApprove" duration-ms="73495" started-at="2022-08-03T16:17:19 IST" finished-at="2022-08-03T16:18:33 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- auditPlanModificationApprove -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="getResult" is-config="true" duration-ms="1" started-at="2022-08-03T16:18:33 IST" finished-at="2022-08-03T16:18:33 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=auditPlanModificationApprove status=SUCCESS method=AuditPlan_TC.auditPlanModificationApprove()[pri:8, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="statusChangeInActive(java.lang.String)[pri:9, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="statusChangeInActive" duration-ms="66708" started-at="2022-08-03T16:18:33 IST" data-provider="AuditPlanSt" finished-at="2022-08-03T16:19:40 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[reasons]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- statusChangeInActive -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="getResult" is-config="true" duration-ms="0" started-at="2022-08-03T16:19:40 IST" finished-at="2022-08-03T16:19:40 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=statusChangeInActive status=SUCCESS method=AuditPlan_TC.statusChangeInActive(java.lang.String)[pri:9, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="auditPlanStatusChangeApprove()[pri:10, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="auditPlanStatusChangeApprove" duration-ms="69660" started-at="2022-08-03T16:19:40 IST" finished-at="2022-08-03T16:20:49 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- auditPlanStatusChangeApprove -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="getResult" is-config="true" duration-ms="0" started-at="2022-08-03T16:20:49 IST" finished-at="2022-08-03T16:20:49 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=auditPlanStatusChangeApprove status=SUCCESS method=AuditPlan_TC.auditPlanStatusChangeApprove()[pri:10, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="statusChangeActive(java.lang.String)[pri:11, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="statusChangeActive" duration-ms="66534" started-at="2022-08-03T16:20:49 IST" data-provider="AuditPlanSt" finished-at="2022-08-03T16:21:56 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[reasons]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- statusChangeActive -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="getResult" is-config="true" duration-ms="0" started-at="2022-08-03T16:21:56 IST" finished-at="2022-08-03T16:21:56 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=statusChangeActive status=SUCCESS method=AuditPlan_TC.statusChangeActive(java.lang.String)[pri:11, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="auditPlanStatusChangeInApprove()[pri:12, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="auditPlanStatusChangeInApprove" duration-ms="69640" started-at="2022-08-03T16:21:56 IST" finished-at="2022-08-03T16:23:06 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- auditPlanStatusChangeInApprove -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="getResult" is-config="true" duration-ms="1" started-at="2022-08-03T16:23:06 IST" finished-at="2022-08-03T16:23:06 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=auditPlanStatusChangeInApprove status=SUCCESS method=AuditPlan_TC.auditPlanStatusChangeInApprove()[pri:12, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="statusChangePermentInActive(java.lang.String)[pri:13, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="statusChangePermentInActive" duration-ms="69373" started-at="2022-08-03T16:23:06 IST" data-provider="AuditPlanSt" finished-at="2022-08-03T16:24:15 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[reasons]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- statusChangePermentInActive -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="getResult" is-config="true" duration-ms="0" started-at="2022-08-03T16:24:15 IST" finished-at="2022-08-03T16:24:15 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=statusChangePermentInActive status=SUCCESS method=AuditPlan_TC.statusChangePermentInActive(java.lang.String)[pri:13, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="auditPlanStatusChangePiApprove()[pri:14, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="auditPlanStatusChangePiApprove" duration-ms="69450" started-at="2022-08-03T16:24:15 IST" finished-at="2022-08-03T16:25:24 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- auditPlanStatusChangePiApprove -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="getResult" is-config="true" duration-ms="1" started-at="2022-08-03T16:25:24 IST" finished-at="2022-08-03T16:25:24 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=auditPlanStatusChangePiApprove status=SUCCESS method=AuditPlan_TC.auditPlanStatusChangePiApprove()[pri:14, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="auditPlanRegistrationForDrop(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:15, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="auditPlanRegistrationForDrop" duration-ms="144328" started-at="2022-08-03T16:25:25 IST" data-provider="AuditPlanReg" finished-at="2022-08-03T16:27:49 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Internal]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[description]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[SQA]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Internal_Audit]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[10]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[auditScope]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[std0598]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- auditPlanRegistrationForDrop -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="getResult" is-config="true" duration-ms="1" started-at="2022-08-03T16:27:49 IST" finished-at="2022-08-03T16:27:49 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=auditPlanRegistrationForDrop status=SUCCESS method=AuditPlan_TC.auditPlanRegistrationForDrop(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:15, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="auditPlanRegistrationdROP(java.lang.String)[pri:16, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="auditPlanRegistrationdROP" duration-ms="432782" started-at="2022-08-03T16:27:49 IST" data-provider="AuditReturn" finished-at="2022-08-03T16:35:02 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[reasons]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- auditPlanRegistrationdROP -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="getResult" is-config="true" duration-ms="1" started-at="2022-08-03T16:35:02 IST" finished-at="2022-08-03T16:35:02 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=auditPlanRegistrationdROP status=SUCCESS method=AuditPlan_TC.auditPlanRegistrationdROP(java.lang.String)[pri:16, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.Automation.Testcases.AuditPlan_TC@3c0be339]" name="afterTest" is-config="true" duration-ms="105918" started-at="2022-08-03T16:35:02 IST" finished-at="2022-08-03T16:36:48 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- com.Automation.Testcases.MST_Batch_TC -->
+      </class> <!-- com.Automation.Testcases.AuditPlan_TC -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

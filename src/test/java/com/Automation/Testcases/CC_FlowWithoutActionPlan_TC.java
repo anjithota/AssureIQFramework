@@ -152,6 +152,4 @@ public class CC_FlowWithoutActionPlan_TC extends ActionEngine{
 			logout.logOut();
 		}
 
-	
-
 }

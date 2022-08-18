@@ -41,7 +41,7 @@ public class SP_LoginPage extends ActionEngine {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}*/
-		try {
+		/*try {
 			if(driver.findElement(By.xpath("//*[@id='btnYes']")).isDisplayed())
 			{
 			driver.findElement(By.xpath("//*[@id='btnYes']")).click();
@@ -49,7 +49,13 @@ public class SP_LoginPage extends ActionEngine {
 			}
 			}catch(Exception e){
 			
-			}
+			}*/
+		
 	}
 
+	
+	
+	
+	
+	
 }

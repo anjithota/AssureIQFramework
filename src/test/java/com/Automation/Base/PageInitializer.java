@@ -68,6 +68,7 @@ import com.Automation.Pages.EPIQLoginPage;
 import com.Automation.Pages.LogOut;
 //import com.Automation.Pages.EPICloginpage;
 import com.Automation.Pages.LoginPage;
+import com.Automation.Pages.MST_AuditPlan;
 import com.Automation.Pages.MST_Batch;
 import com.Automation.Pages.MST_Facility;
 import com.Automation.Pages.PlantSelection;
@@ -169,6 +170,7 @@ public class PageInitializer extends TestEngine {
 	
 	//Masters
 	public static MST_Batch mst_Batch;
+	public static MST_AuditPlan auditplan;
 	
 	
 	//demo
@@ -281,6 +283,7 @@ public class PageInitializer extends TestEngine {
 		
 		//masters
 		mst_Batch = new MST_Batch();
+		auditplan = new MST_AuditPlan();
 
 	}
 }
