@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import com.Automation.Base.ActionEngine;
+import com.Automation.Utils.ConfigsReader;
+import com.Automation.Utils.TimeUtil;
 
 public class IA_Proposal_Initiation_SP_Page extends ActionEngine {
 	@FindBy(id = "btnCreate")
@@ -95,9 +97,60 @@ public class IA_Proposal_Initiation_SP_Page extends ActionEngine {
 	
 	@FindBy(className = "caliber-labeled-option")
 	WebElement UserRadioButton;
+	
+	@FindBy(id = "AUD_LGN_CTF_024_error")
+	WebElement AuditorError;
+	
+	@FindBy(id = "AUD_LGN_CTF_024")
+	WebElement AuditorButton;
+	
+	@FindBy(xpath = "//button[@class='btn notselected btn-sm btnAddRemoveBtn']")
+	WebElement USerAddbutton;
+	
+	@FindBy(xpath = "//small[text()='IA']")
+	WebElement InternalAuditMYTaskMenu;
+	
+	@FindBy(id = "MyTaskPrc_IA_AUD_IA_LGN_FRM_ID_01")
+	WebElement IAProposalMyTakMenu;
+	
 
+	@FindBy(xpath = "//span[@class='confirmation_text']")
+	WebElement UniqeCode;
+	
+	@FindBy(id = "btnAdvSearch")
+	WebElement AdvancedSearch;
+
+	@FindBy(name = "AUD_LGN_CTF_003")
+	WebElement IssueCodeFilter;
+
+	@FindBy(id = "btnSubmitListFilter")
+	WebElement ApplyButton;
+
+	@FindBy(className = "text-ellipsis")
+	WebElement Record;
+	
+	@FindBy(id = "txtRemarks")
+	WebElement Remarks;
+
+	@FindBy(xpath = "(//div[@id='StdRemarks_container']//following::span[@class='error'])[1]")
+	WebElement RemarkError;
+	
+	@FindBy(xpath = "//div[@class='left-menupanel']/div[5]")
+	WebElement AuditManagement;
+	
+	@FindBy(id = "IALN_04")
+	WebElement AuditProposalAuditTrailMenu;
+	
+	@FindBy(className = "event-div")
+	WebElement Events;
+	
+	@FindBy(className = "popup-close-button")
+	WebElement Close;
+
+
+	
 	public void ia_Proposal_Initiation_SP(String department, String description, String startDate, String endDate,
-			String leadAuditor) {
+			String leadAuditor, String auditorName, String coAuditorName) {
 
 		switchToDefaultContent(driver);
 		
@@ -222,7 +275,107 @@ public class IA_Proposal_Initiation_SP_Page extends ActionEngine {
 		
 		switchToParentFrame(driver);
 		
+		//Auditor selection
+
+		
+		click(SubmitButton, "Submit button");
+		
+		verifyCaptionContains(AuditorError, "Select Value");
+
+		click(AuditorButton, "Auditor Add Button");
+
+		switchToPopupModelFrame(driver);
+
+		click(popupOkButton, "Ok button");
+
+		verifyCaptionContains(AlertMessage, "Select Value");
+
+		click(AlertCloseButton, "Alert close button");
+
+		click(PopupSearchButton, "Advanced search button");
+
+		sendText(LoginIDFilter, auditorName, "Auditor Name");
+		
+		click(PopupApplyButton, "Apply button");
+		
+		click(USerAddbutton, "Auditor name");
+		
+		click(PopupSearchButton, "Advanced search button");
+
+		sendText(LoginIDFilter, coAuditorName, "Co Auditor Name");
+		
+		click(PopupApplyButton, "Apply button");
+		
+		click(USerAddbutton, "Co Auditor name");
+		
+		click(popupOkButton, "Ok button");
+		
+		switchToParentFrame(driver);
+		
+		click(SubmitButton, "Submit Button");
+		E_sign.e_Sign(ConfigsReader.getPropValue("SPDevLgnPwd"));
+		saveUniqueCode(driver, UniqeCode);
+		switchToDefaultContent(driver);
 
 	}
+	
+	public void auditProposalReinitiation(String description, String remarks) {
+		TimeUtil.shortWait();
+		switchToBodyFrame(driver);
+		scrollToViewElement(InternalAuditMYTaskMenu);
+		click(InternalAuditMYTaskMenu, "Internal Audit My task menu");
+		click(IAProposalMyTakMenu, "Audit Proposal my task menu");
+		switchToTaskListFrame(driver);
+		click(AdvancedSearch, "Advanced Search");
+		enterUniqueCodeConcat(driver, IssueCodeFilter);
+		click(ApplyButton, "Apply Button");
+		click(Record, "Record");
+		switchToDefaultContent(driver);
+		switchToBodyFrame(driver);
+		clearField(Description, "Description");
+		sendText(Description, description, "Description Text box");
 
+		click(SubmitButton, "Submit button");
+		
+		verifyCaptionContains(RemarkError, "Enter Value");
+		sendText(Remarks, remarks, "Remarks");
+		click(SubmitButton, "Submit Button");
+		E_sign.e_Sign(ConfigsReader.getPropValue("SPDevLgnID"));
+		switchToDefaultContent(driver);
+		
+	}
+	
+	public void auditTrailNavigation() {
+		switchToDefaultContent(driver);
+		click(AuditManagement, "Audit Management menu");
+		scrollToViewElement(AuditProposalAuditTrailMenu);
+		click(AuditProposalAuditTrailMenu, "Audit Proposal AuditTrail Menu");
+		switchToBodyFrame(driver);
+		click(AdvancedSearch, "Advanced Search button");
+		enterUniqueCode(driver, IssueCodeFilter);
+		click(ApplyButton, "Apply button");
+		click(Record, "Record");
+		
+	}
+	
+
+	public void auditPropsalAuditTrailInitiation() {
+		auditTrailNavigation();
+		switchToPopupModelFrame(driver);
+		scrollToViewElement(Events);
+		click(Close, "Close button");
+		switchToDefaultContent(driver);
+	}
+	
+	public void auditPropsalAuditTrailReInitiation() {
+		auditTrailNavigation();
+		switchToPopupModelFrame(driver);
+		
+		
+		//click(element, elementName);
+		scrollToViewElement(Events);
+		click(Close, "Close button");
+		switchToDefaultContent(driver);
+	}
+	
 }

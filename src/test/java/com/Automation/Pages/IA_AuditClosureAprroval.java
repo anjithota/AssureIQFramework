@@ -99,6 +99,7 @@ public class IA_AuditClosureAprroval extends ActionEngine {
 		switchToDefaultContent(driver);
 		click(AuditManagement, "Audit Management menu");
 		scrollToViewElement(AuditClosureAuditTrailMenu);
+		click(AuditClosureAuditTrailMenu, "Audit Closure AuditTrail Menu");
 		switchToBodyFrame(driver);
 	}
 
@@ -113,6 +114,18 @@ public class IA_AuditClosureAprroval extends ActionEngine {
 		auditClosureAuditTrailNavigation();
 		auditClosureSearchFilter();
 		switchToPopupModelFrame(driver);
+		scrollToViewElement(Events);
+		click(Close, "Close button");
+		switchToDefaultContent(driver);
+		
+		
+	}
+	
+	public void auditClosureAUditTrailReturn() {
+		auditClosureAuditTrailNavigation();
+		auditClosureSearchFilter();
+		switchToPopupModelFrame(driver);
+		
 		scrollToViewElement(Events);
 		click(Close, "Close button");
 		switchToDefaultContent(driver);

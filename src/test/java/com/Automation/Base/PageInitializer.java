@@ -1,5 +1,6 @@
 package com.Automation.Base;
 
+import com.Automation.Pages.Audit_Finding_Initiator;
 import com.Automation.Pages.CCDN_EMtaskSchedule;
 import com.Automation.Pages.CCDN_ForceClosureApproval;
 import com.Automation.Pages.CCDN_ForceClosureInitiation;
@@ -72,6 +73,7 @@ import com.Automation.Pages.MST_AuditPlan;
 import com.Automation.Pages.MST_Batch;
 import com.Automation.Pages.MST_Facility;
 import com.Automation.Pages.PlantSelection;
+import com.Automation.Pages.ProcessConfiguration_Page;
 import com.Automation.Pages.VerifyCCClosure;
 import com.Automation.Utils.ESign;
 import com.Automation.spPages.BatchInitiator;
@@ -141,6 +143,7 @@ public class PageInitializer extends TestEngine {
 	public static CC_ForceClosureImpacts ccForceClosureImpacts;
 	public static CCDN_ForceClosureInitiation ccdnForceClosureInitiation;
 	public static CCDN_ForceClosureApproval ccdnForceClosureApproval;
+	public static ProcessConfiguration_Page processConfigurationPage;
 
 	// SP build
 	public static SP_LoginPage spLogin;
@@ -171,6 +174,8 @@ public class PageInitializer extends TestEngine {
 	//Masters
 	public static MST_Batch mst_Batch;
 	public static MST_AuditPlan auditplan;
+	
+	public static Audit_Finding_Initiator auditFindingInitiator;
 	
 	
 	//demo
@@ -249,6 +254,7 @@ public class PageInitializer extends TestEngine {
 		ccForceClosureImpacts = new CC_ForceClosureImpacts();
 		ccdnForceClosureInitiation = new CCDN_ForceClosureInitiation();
 		ccdnForceClosureApproval = new CCDN_ForceClosureApproval();
+		processConfigurationPage = new ProcessConfiguration_Page();
 		// sp build
 		spLogin = new SP_LoginPage();
 		spLogout = new SPLogout();
@@ -284,6 +290,8 @@ public class PageInitializer extends TestEngine {
 		//masters
 		mst_Batch = new MST_Batch();
 		auditplan = new MST_AuditPlan();
-
+		
+		auditFindingInitiator = new Audit_Finding_Initiator();
+     
 	}
 }
