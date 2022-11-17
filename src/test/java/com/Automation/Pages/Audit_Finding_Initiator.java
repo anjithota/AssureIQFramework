@@ -50,6 +50,15 @@ public class Audit_Finding_Initiator extends ActionEngine {
 
 	@FindBy(xpath = "//select[@class='aud-find-category caliber-selectdropdown select2-hidden-accessible']")
 	WebElement CategorySelect;
+	
+	@FindBy(xpath = "//span[text()='<< Select >>']")
+	WebElement CategoryDropDown;
+	
+	////select[@name='category_69ce92ce-982c-4948-b6cc-8f1926042ccc']
+	
+	@FindBy(xpath = "//ul[@class='select2-results__options']/li[4]")
+	WebElement MajorCategory;
+	
 
 	@FindBy(xpath = "//span[text()='Enter Value']")
 	WebElement DescriptionError;
@@ -135,7 +144,7 @@ public class Audit_Finding_Initiator extends ActionEngine {
 	// Again Re-instation
 
 	@FindBy(xpath = "//i[@class='bs-icon-pencil-square list-filter-icons']")
-	WebElement modification;
+	WebElement modification;  
 
 	@FindBy(xpath = "//i[@class='bs-icon-file-earmark list-filter-icons']")
 	WebElement FindingSaveButton;
@@ -365,7 +374,7 @@ public class Audit_Finding_Initiator extends ActionEngine {
 		switchToDefaultContent(driver);
 	}
 
-	public void auditFindingRegistarationWith100Findings(String title, String category, String desc,
+	public void auditFindingRegistarationWith100Findings(int n, String title,  String desc,
 			String auditareaUniquecode, String loginid) {
 		TimeUtil.shortWait();
 		switchToBodyFrame(driver);
@@ -376,7 +385,7 @@ public class Audit_Finding_Initiator extends ActionEngine {
 		click(AdvancedSearch, "Advanced Search");
 		// click(IssueCodeFilter, "IssueCode Filter");
 		enterUniqueCodeConcat(driver, issueCodeFilter);
-		sendText(issueCodeFilter, "IA-CTPL-IT-22-0046", "");
+		sendText(issueCodeFilter, "IA-CTPL-IT-22-0061", "");
 		click(ApplyButton, "Apply Button");
 		click(Record, "Record");
 		switchToDefaultContent(driver);
@@ -389,15 +398,19 @@ public class Audit_Finding_Initiator extends ActionEngine {
 		switchToPopupModelFrame(driver);
 
 		// Audit finding popup
-		for (int i = 1; i <= 100; i++) {
+		for (int i = 1; i <= n; i++) {
 
 			// PopupModalFrame
 
-			sendText(TitleBox, title + i, "TitleBox");
+			sendText(TitleBox, title+i, "TitleBox");
+			TimeUtil.shortWait();
 
-			selectDropdownUsingVisisbleText(CategorySelect, category, "category");
+			//selectDropdownUsingVisisbleText(CategorySelect, category, "category");
+			click(CategoryDropDown, "category dropdown");
+			click(MajorCategory, "Major");
+			
 
-			sendText(DescriptionTextBox, desc + i, "Description TextBox");
+			sendText(DescriptionTextBox, desc+i, "Description TextBox");
 			scrollToViewElement(AuditAreaAddItems);
 			// TimeUtil.shortWait();
 			click(AuditAreaAddItems, "AuditArea AddItems");
@@ -424,11 +437,56 @@ public class Audit_Finding_Initiator extends ActionEngine {
 			switchToBodyFrame(driver);
 			switchToPopupModelFrame(driver);
 			click(FindingSaveButton, "Finding SaveButton");
-			click(FindingToggleButton, "Finding toggle button");
-			click(FindingAddButton, "Finding Add Button");
+			TimeUtil.shortWait();
+			//click(FindingToggleButton, "Finding toggle button");
+			if (i!=100) {
+				scrollToViewElement(FindingAddButton);
+				click(FindingAddButton, "Finding Add Button");
+				
+				
+			}
+			
 			TimeUtil.shortWait();
 
 		}
+		/*sendText(TitleBox, title, "TitleBox");
+		TimeUtil.shortWait();
+
+		//selectDropdownUsingVisisbleText(CategorySelect, category, "category");
+		click(CategoryDropDown, "category dropdown");
+		click(MajorCategory, "Major");
+		
+
+		sendText(DescriptionTextBox, desc, "Description TextBox");
+		scrollToViewElement(AuditAreaAddItems);
+		// TimeUtil.shortWait();
+		click(AuditAreaAddItems, "AuditArea AddItems");
+		switchToPopupModelFrame(driver);
+		click(AdvancedSearch, "Advanced Search");
+		// click(AuditAreaUniqueCode, "AuditArea UniqueCode");
+		sendText(AuditAreaUniqueCode, auditareaUniquecode, "AuditArea UniqueCode");
+		click(ApplyButton, "Apply Button");
+		click(AddButton, "Add Button");
+		click(Add, "Ok Button");
+		switchToDefaultContent(driver);
+		switchToBodyFrame(driver);
+		switchToPopupModelFrame(driver);
+		click(CheckBox, "CheckBox");
+		click(AllocatedTo, "Allocatedto AddItems");
+		switchToPopupModelFrame(driver);
+		click(AdvancedSearch, "Advanced Search");
+		sendText(AuditAreaUniqueCode, loginid, "AuditArea UniqueCode");
+		click(ApplyButton, "Apply Button");
+		click(RadioBtn, "Auditee Record");
+		click(Add, "Ok Button");
+
+		switchToDefaultContent(driver);
+		switchToBodyFrame(driver);
+		switchToPopupModelFrame(driver);
+		click(FindingSaveButton, "Finding SaveButton");
+		TimeUtil.shortWait();
+
+*/		
 		// click(CancelButton, "Cancel button");
 		click(OkButton, "Ok Button");
 
